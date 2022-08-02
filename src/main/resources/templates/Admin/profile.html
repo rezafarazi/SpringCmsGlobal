@@ -1,0 +1,63 @@
+<hdr class="insert" th:insert="@{/Admin/Components/panel_header}" />
+
+
+<!-- partial -->
+    <div class="main-panel">
+        <!--Send Notification To User Start-->
+        <div class="content-wrapper">
+            <div class="page-header">
+                <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                    <i class="mdi mdi-account "></i>
+                </span>پرفایل
+            </div>
+            <div class="row">
+                <div class="col-md-12 grid-margin stretch-card">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title" style="text-align: center;">پروفایل</h4>
+                            <p class="card-description" style="text-align: center;">لطفا فیلد های زیر را پر کنید</p>
+                            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                                <input type="hidden" value="@User.id" name="user_id" />
+                                <div class="form-group">
+                                    <label for="exampleInputUsername1" style="width: 100%;text-align: right;">نام کاربری</label>
+                                    <input type="text" class="form-control" id="exampleInputUsername1" placeholder="نام کاربری" name="username">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputUsername1" style="width: 100%;text-align: right;">نام</label>
+                                    <input type="text" class="form-control" id="exampleInputUsername1" placeholder="نام" name="name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputUsername1" style="width: 100%;text-align: right;">نام خانوادگی</label>
+                                    <input type="text" class="form-control" id="exampleInputUsername1" placeholder="نام خانوادگی" name="family">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" style="width: 100%;text-align: right;">کلمه عبور جدید</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="کلمه عبور جدید" name="password">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" style="width: 100%;text-align: right;">ایمیل</label>
+                                    <input type="email" class="form-control" id="exampleInputPassword1" placeholder="ایمیل" name="email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" style="width: 100%;text-align: right;">شماره موبایل</label>
+                                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="شماره موبایل" name="phone">
+                                </div>
+                                <br>
+                                <br>
+                                <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">تایید</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Send Notification To User End-->
+
+
+
+
+
+<hdr class="insert" th:insert="@{/Admin/Components/panel_footer}" />
+
+
