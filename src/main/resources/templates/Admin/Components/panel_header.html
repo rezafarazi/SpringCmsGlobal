@@ -32,11 +32,11 @@
                             <span class="availability-status online"></span>
                         </div>
                         <div class="nav-profile-text">
-                            <p class="mb-1 text-black">نام کاربری</p>
+                            <p class="mb-1 text-black" th:text="${user_data.name+user_data.family}" />
                         </div>
                     </a>
                     <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
-                        <a class="dropdown-item" href="/Admin/Logout">
+                        <a class="dropdown-item" href="/Admin/Panel/Logout">
                             <i class="mdi mdi-logout mr-2 text-primary"></i> خروج
                         </a>
                     </div>
@@ -60,14 +60,14 @@
 
             <ul class="nav">
                 <li class="nav-item nav-profile">
-                    <a href="/Admin/Profile" class="nav-link">
+                    <a href="/Admin/Panel/Profile" class="nav-link">
                         <div class="nav-profile-image">
                             <img th:src="@{/Assets/Admin/images/faces/face.png}" alt="profile">
                             <span class="login-status online"></span>
                             <!--change to offline or busy as needed-->
                         </div>
                         <div class="nav-profile-text d-flex flex-column" style="margin-right: 10px;">
-                            <span class="font-weight-bold mb-2">رضا فرازی</span>
+                            <span class="font-weight-bold mb-2" th:text="${user_data.name+user_data.family}"/>
                             <span class="text-secondary text-small">مدیرکل</span>
                         </div>
                         <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>
@@ -75,70 +75,70 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/Admin/Dashboard">
+                    <a class="nav-link" href="/Admin/Panel/Dashboard">
                         <span class="menu-title">داشبورد</span>
                         <i class="mdi mdi-home menu-icon"></i>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/Admin/NewPost">
+                    <a class="nav-link" href="/Admin/Panel/NewPost">
                         <span class="menu-title">پست جدید</span>
                         <i class="mdi mdi-cube-send menu-icon"></i>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/Admin/AllPosts">
+                    <a class="nav-link" href="/Admin/Panel/AllPosts">
                         <span class="menu-title">پست ها</span>
                         <i class="mdi mdi-buffer menu-icon"></i>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/Admin/Categories">
+                    <a class="nav-link" href="/Admin/Panel/Categories">
                         <span class="menu-title">دسته بندی ها</span>
                         <i class="mdi mdi-format-list-bulleted menu-icon"></i>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/Admin/Chart">
+                    <a class="nav-link" href="/Admin/Panel/Chart">
                         <span class="menu-title">نمودار</span>
                         <i class="mdi mdi-chart-bar menu-icon"></i>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/Admin/UserManager">
+                    <a class="nav-link" href="/Admin/Panel/UserManager">
                         <span class="menu-title">مدیریت کاربران</span>
                         <i class="mdi mdi-account-multiple menu-icon"></i>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/Admin/FileManager">
+                    <a class="nav-link" href="/Admin/Panel/FileManager">
                         <span class="menu-title">مدیریت فایل ها</span>
                         <i class="mdi mdi-folder menu-icon"></i>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/Admin/Profile">
+                    <a class="nav-link" href="/Admin/Panel/Profile">
                         <span class="menu-title">پروفایل</span>
                         <i class="mdi mdi-account menu-icon"></i>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/Admin/Settings">
+                    <a class="nav-link" href="/Admin/Panel/Settings">
                         <span class="menu-title">تنظیمات</span>
                         <i class="mdi mdi-settings menu-icon"></i>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link" href="/Admin/Logout">
+                    <a class="nav-link" href="/Admin/Panel/Logout">
                         <span class="menu-title">خروج</span>
                         <i class="mdi mdi-exit-to-app menu-icon"></i>
                     </a>
