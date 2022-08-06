@@ -25,8 +25,6 @@ public class UsersRepo
 {
 
 
-
-
     //Log Initilizer
     private static final Logger LOGGER = LoggerFactory.getLogger(AdminController.class);
 

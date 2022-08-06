@@ -4,7 +4,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.common.hash.Hashing;
+import com.sorapp.jowncms.jowncms.Models.categories_tbl;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
+import com.sorapp.jowncms.jowncms.Repository.Category.CategoryRepo;
 import com.sorapp.jowncms.jowncms.Repository.Users.UsersRepo;
 import com.sorapp.jowncms.jowncms.Service.Encript.EncriptService;
 import org.aspectj.lang.annotation.Before;
@@ -22,7 +24,9 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Base64;
+import java.util.List;
 
 @Controller
 @RequestMapping("/Admin")
@@ -35,6 +39,9 @@ public class AdminController
 
     @Autowired
     EncriptService Encription;
+
+    @Autowired
+    CategoryRepo category_repository;
 
     users_tbl user_data;
 
@@ -107,11 +114,13 @@ public class AdminController
 
     /****************Categories Start****************/
     @RequestMapping("/Panel/NewPost")
-    public ModelAndView NewPost()
+    public ModelAndView NewPost(HttpServletRequest request)
     {
+        Get_User_Data(request);
         ModelAndView response=new ModelAndView();
         response.addObject("title","پست جدید");
         response.setViewName("Admin/newpost");
+        response.addObject("user_data",user_data);
         return response;
     }
     /****************Categories End****************/
@@ -121,11 +130,13 @@ public class AdminController
 
     /****************Categories Start****************/
     @RequestMapping("//PanelAllPosts")
-    public ModelAndView AllPosts()
+    public ModelAndView AllPosts(HttpServletRequest request)
     {
+        Get_User_Data(request);
         ModelAndView response=new ModelAndView();
         response.addObject("title","همه پست ها");
         response.setViewName("Admin/allposts");
+        response.addObject("user_data",user_data);
         return response;
     }
     /****************Categories End****************/
@@ -135,11 +146,17 @@ public class AdminController
 
     /****************Categories Start****************/
     @RequestMapping("/Panel/Categories")
-    public ModelAndView Categories()
+    public ModelAndView Categories(HttpServletRequest request)
     {
+        Get_User_Data(request);
         ModelAndView response=new ModelAndView();
         response.addObject("title","دسته بندی ها");
         response.setViewName("Admin/categories");
+        response.addObject("user_data",user_data);
+
+        ArrayList<categories_tbl> cats=category_repository.GetAllCategories();
+
+        //response.addObject("categories",category_repository.GetAllCategories());
         return response;
     }
     /****************Categories End****************/
@@ -149,11 +166,13 @@ public class AdminController
 
     /****************Chart Start****************/
     @RequestMapping("/Panel/Chart")
-    public ModelAndView Chart()
+    public ModelAndView Chart(HttpServletRequest request)
     {
+        Get_User_Data(request);
         ModelAndView response=new ModelAndView();
         response.addObject("title","آمار");
         response.setViewName("Admin/chart");
+        response.addObject("user_data",user_data);
         return response;
     }
     /****************Chart End****************/
@@ -163,11 +182,13 @@ public class AdminController
 
     /****************Usermanager Start****************/
     @RequestMapping("/Panel/UserManager")
-    public ModelAndView UserManager()
+    public ModelAndView UserManager(HttpServletRequest request)
     {
+        Get_User_Data(request);
         ModelAndView response=new ModelAndView();
         response.addObject("title","مدیریت کاربران");
         response.setViewName("Admin/usermanager");
+        response.addObject("user_data",user_data);
         return response;
     }
     /****************Usermanager End****************/
@@ -177,11 +198,13 @@ public class AdminController
 
     /****************Profile Start****************/
     @RequestMapping("/Panel/FileManager")
-    public ModelAndView FileManager()
+    public ModelAndView FileManager(HttpServletRequest request)
     {
+        Get_User_Data(request);
         ModelAndView response=new ModelAndView();
         response.addObject("title","مدیریت فایل");
         response.setViewName("Admin/filemanager");
+        response.addObject("user_data",user_data);
         return response;
     }
     /****************Profile End****************/
@@ -246,11 +269,13 @@ public class AdminController
 
     /****************Settings Start****************/
     @RequestMapping("/Panel/Settings")
-    public ModelAndView Settings()
+    public ModelAndView Settings(HttpServletRequest request)
     {
+        Get_User_Data(request);
         ModelAndView response=new ModelAndView();
         response.addObject("title","تنظیمات");
         response.setViewName("Admin/settings");
+        response.addObject("user_data",user_data);
         return response;
     }
     /****************Settings End****************/
