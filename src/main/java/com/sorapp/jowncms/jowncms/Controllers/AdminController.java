@@ -262,7 +262,70 @@ public class AdminController
         response.addObject("title","مدیریت کاربران");
         response.setViewName("Admin/usermanager");
         response.addObject("user_data",user_data);
+        response.addObject("users",users_repository.GetAllUsers());
         return response;
+    }
+
+
+    @RequestMapping(value = "/Panel/UserManager",method = RequestMethod.POST)
+    public ModelAndView UserManager(HttpServletRequest request,String SearchValue)
+    {
+        Get_User_Data(request);
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","مدیریت کاربران");
+        response.setViewName("Admin/usermanager");
+        response.addObject("user_data",user_data);
+        response.addObject("users",users_repository.GetSearchUser(SearchValue));
+        return response;
+    }
+
+
+    @RequestMapping("/Panel/UserManager/User/{id}")
+    public ModelAndView GetUserProfile(HttpServletRequest request,@PathVariable String id)
+    {
+        Get_User_Data(request);
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","مدیریت کاربران");
+        response.setViewName("Admin/useredit");
+        response.addObject("user_data",user_data);
+        response.addObject("edit_user_data",users_repository.GetUserData(Integer.parseInt(id)));
+        return response;
+    }
+
+
+    @RequestMapping(value = "/Panel/UserManager/User/Edit/Done",method = RequestMethod.POST)
+    public String EditUserProfile(HttpServletRequest request,HttpServletResponse response,String user_id,String username,String name,String family,String password,String email,String phone,String usertype,String active_user)
+    {
+        Get_User_Data(request);
+
+        users_tbl user_dt=users_repository.GetUserData(Integer.parseInt(user_id));
+        //Check Password Start
+        if(!password.trim().equals(""))
+        {
+            password=Hashing.sha256().hashString(password,StandardCharsets.UTF_8).toString();
+        }
+        else
+        {
+            password=user_data.getPassword();
+        }
+        //Check Password End
+
+        users_repository.UpdateUser(Integer.parseInt(user_id),
+                username,
+                name,
+                family,
+                email,
+                phone,
+                password,
+                user_dt.getLogin_token(),
+                user_dt.getGoogle2f(),
+                usertype,
+                active_user,
+                user_dt.getCreate_datetime(),
+                user_dt.getAddress(),
+                user_dt.getCity());
+
+        return "redirect:/Admin/Panel/UserManager/User/"+user_dt.getId();
     }
     /****************Usermanager End****************/
 

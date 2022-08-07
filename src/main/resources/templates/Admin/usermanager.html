@@ -21,62 +21,11 @@
                         <form class="forms-sample" method="post">
                             <div class="form-group">
                                 <label for="exampleInputUsername1">جست و جو</label>
-                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="جست و جو" name="User_Search">
+                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="جست و جو" name="SearchValue">
                             </div>
                             <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">جست و جو</button>
                         </form>
                     </div>
-                </div>
-            </div>
-            <!--Top Side Of Content Start-->
-            <!--Top Side Of Content Start-->
-            <div class="col-lg-6 grid-margin stretch-card">
-                <div class="card">
-
-                    <div class="card-body">
-                        <h4 class="card-title">مدیران</h4>
-                        </p>
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th>نام کاربری</th>
-                                <th>نام و نام خانوادگی</th>
-                                <th>ویرایش</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-
-                            @{
-                            int admin_user_count = 0;
-                            }
-                            @for (int i = 0; i < User_Admin.All_User_Id.Count; i++)
-                            {
-                            if (long.Parse(User_Admin.All_User_Id[i]) != User.id)
-                            {
-                            admin_user_count++;
-                            <tr>
-                                <th scope="row">@User_Admin.All_User_Name[i]</th>
-                                <td>@User_Admin.All_User_Name[i]</td>
-                                <td><i onclick="Open_Link_Dialog(this, window.location.protocol + '//' + window.location.host + '/Admin/UserManager/Edit_User/@User_Admin.All_User_Id[i]')"><i class="mdi mdi-account-edit" style="font-size: 20px;color:#007bff;cursor: pointer;"></i></i></td>
-                            </tr>
-                            }
-                            }
-
-                            </tbody>
-                        </table>
-
-                        @if (admin_user_count <= 0)
-                        {
-                        <tr>
-                            <div style="margin-top:60px;">
-                                <img th:src="@{/Assets/Admin/images/icons/empty.png}" width="150px" style="display:block;margin:0 auto;" />
-                                <p style="width:100%;text-align:center;color:#666;margin-top:20px;">هیچ کاربری یافت نشد</p>
-                            </div>
-                        </tr>
-                        }
-
-                    </div>
-
                 </div>
             </div>
             <!--Top Side Of Content Start-->
@@ -86,37 +35,32 @@
                     <div class="card-body">
                         <h4 class="card-title">کاربران</h4>
                         </p>
-                        <table class="table">
+                        <table class="table" th:if="${users.size()>0}">
                             <thead>
                             <tr>
                                 <th>ردیف</th>
                                 <th>نام و نام خانوادگی</th>
+                                <th>نوع کاربر</th>
                                 <th>نام کاربری</th>
                                 <th>ویرایش</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            @for (int i = 0; i < Users.Users_Id.Count; i++)
-                            {
-                            <tr>
-                                <th scope="row">@Users.Users_Name_And_Family[i]</th>
-                                <th scope="row">@Users.Users_Name_And_Family[i]</th>
-                                <th scope="row">@Users.Users_Name_And_Family[i]</th>
-                                <td><i onclick="Open_Link_Dialog(this, window.location.protocol + '//' + window.location.host + '/Admin/UserManager/Notifications/@Users.Users_Id[i]')" class="mdi mdi-comment" style="font-size: 20px;color:#007bff;cursor: pointer;"></i></td>
+                            <tr th:each="user : ${users}" th:if="${user.getId() != user_data.getId()}">
+                                <th scope="row" th:text="${user.getId()}"/>
+                                <th scope="row" th:text="${user.getName()}+${user.getFamily()}"/>
+                                <th scope="row" th:text="${user.getUser_type()=='USER'}?کاربر:مدیرکل"/>
+                                <th scope="row" th:text="${user.getUsername()}"/>
+                                <td><i th:onclick="Open_Link_Dialog(this, window.location.protocol + '//' + window.location.host + '/Admin/Panel/UserManager/User/[[${user.getId()}]]')"><i class="mdi mdi-table-edit" style="font-size: 20px;color:#007bff;cursor: pointer;"></i></i></td>
                             </tr>
-                            }
-
-                            @if (@Users.Users_Id.Count <= 0)
-                            {
-                            <div style="margin-top:60px;">
-                                <img th:src="@{/Assets/Admin/images/icons/empty.png}" width="150px" style="display:block;margin:0 auto;" />
-                                <p style="width:100%;text-align:center;color:#FFFF;">هیچ کاربری یافت نشد</p>
-                            </div>
-                            }
 
                             </tbody>
                         </table>
+                        <div style="margin-top:60px;" th:unless="${users.size()>0}">
+                            <img th:src="@{/Assets/Admin/images/icons/empty.png}" width="150px" style="display:block;margin:0 auto;" />
+                            <p style="width:100%;text-align:center;">هیچ کاربری یافت نشد</p>
+                        </div>
                     </div>
                 </div>
             </div>
