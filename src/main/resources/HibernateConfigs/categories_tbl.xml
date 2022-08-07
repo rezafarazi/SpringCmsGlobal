@@ -14,14 +14,14 @@
             <generator class="native"/>
         </id>
 
-        <property name = "titie" column = "titie" type = "string"/>
-        <property name = "icon_address" column = "icon_address" type = "string"/>
-        <property name = "type" column = "type" type = "string"/>
-        <property name = "create_date" column = "create_date" type = "string"/>
-        <property name = "enabled_flag" column = "enabled_flag" type = "string"/>
-        <property name = "root_id" column = "root_id" type = "string"/>
-        <property name = "user_id" column = "user_id" type = "int"/>
-        <property name = "cat_link" column = "cat_link" type = "string"/>
+        <property name = "title" column="title" type = "string"/>
+        <property name = "icon_address" column="icon_address" type = "string"/>
+        <property name = "type" column="type" type = "string"/>
+        <property name = "create_date" column="create_date" type = "string"/>
+        <property name = "enabled_flag" column="enabled_flag" type = "string"/>
+        <property name = "root_id" column="root_id" type = "int"/>
+        <property name = "user_id" column="user_id" type = "int"/>
+        <property name = "cat_link" column="cat_link" type = "string"/>
 
 
     </class>

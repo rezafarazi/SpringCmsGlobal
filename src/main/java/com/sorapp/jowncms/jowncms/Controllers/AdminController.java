@@ -1,32 +1,24 @@
 package com.sorapp.jowncms.jowncms.Controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.common.hash.Hashing;
-import com.sorapp.jowncms.jowncms.Models.categories_tbl;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
-import com.sorapp.jowncms.jowncms.Repository.Category.CategoryRepo;
+import com.sorapp.jowncms.jowncms.Repository.Category.CatsRepo;
 import com.sorapp.jowncms.jowncms.Repository.Users.UsersRepo;
 import com.sorapp.jowncms.jowncms.Service.Encript.EncriptService;
-import org.aspectj.lang.annotation.Before;
+import org.hibernate.annotations.Parameter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
 
 @Controller
 @RequestMapping("/Admin")
@@ -41,7 +33,7 @@ public class AdminController
     EncriptService Encription;
 
     @Autowired
-    CategoryRepo category_repository;
+    CatsRepo categories_repository;
 
     users_tbl user_data;
 
@@ -153,11 +145,45 @@ public class AdminController
         response.addObject("title","دسته بندی ها");
         response.setViewName("Admin/categories");
         response.addObject("user_data",user_data);
-
-        ArrayList<categories_tbl> cats=category_repository.GetAllCategories();
-
-        //response.addObject("categories",category_repository.GetAllCategories());
+        response.addObject("categories",categories_repository.GetAllCategories());
         return response;
+    }
+
+    @PostMapping("Panel/Categoreis/New")
+    public String NewCategory(HttpServletResponse response,HttpServletRequest request,String Category_Name,String Root_Cat,String Visibleity)
+    {
+        Get_User_Data(request);
+        categories_repository.InsertNewCategory(Category_Name,Root_Cat,Visibleity,user_data.getId());
+        return "redirect:/Admin/Panel/Categories";
+    }
+
+    @RequestMapping(value = "Panel/Categoreis/Delete/{id}",method = RequestMethod.GET)
+    public String DeleteCategory(HttpServletResponse response,HttpServletRequest request,@PathVariable("id") String id)
+    {
+        Get_User_Data(request);
+        categories_repository.DeleteCategory(Integer.parseInt(id));
+        return "redirect:/Admin/Panel/Categories";
+    }
+
+    @RequestMapping(value = "Panel/Categoreis/Update/{id}",method = RequestMethod.GET)
+    public ModelAndView UpdateCategory(HttpServletRequest request,@PathVariable("id") String id)
+    {
+        Get_User_Data(request);
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","دسته بندی ها");
+        response.setViewName("Admin/categories");
+        response.addObject("user_data",user_data);
+        response.addObject("categories",categories_repository.GetAllCategories());
+        response.addObject("update_category_categories",categories_repository.GetCategory(Integer.parseInt(id)));
+        return response;
+    }
+
+    @RequestMapping(value = "Panel/Categoreis/Update/Done",method = RequestMethod.POST)
+    public String DeleteCategory(HttpServletResponse response,HttpServletRequest request,String Category_Name,String Root_Cat,String Visibleity,String Category_Id)
+    {
+        Get_User_Data(request);
+        categories_repository.UpdateCategory(Integer.parseInt(Category_Id),Category_Name,Root_Cat,Visibleity);
+        return "redirect:/Admin/Panel/Categories";
     }
     /****************Categories End****************/
 

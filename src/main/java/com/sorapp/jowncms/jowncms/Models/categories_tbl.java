@@ -1,6 +1,8 @@
 package com.sorapp.jowncms.jowncms.Models;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 
 @Entity
 public class categories_tbl
@@ -10,30 +12,14 @@ public class categories_tbl
     @GeneratedValue
     int id;
 
-    @Column(nullable = true)
-    String titie;
-
-    @Column(nullable = true)
+    String title;
     String icon_address;
-
-    @Column(nullable = true)
     String type;
-
-    @Column(nullable = true)
     String create_date;
-
-    @Column(nullable = true)
     String enabled_flag;
-
-    @Column(nullable = true)
-    String root_id;
-
-    @ManyToOne
-    users_tbl user_id;
-
-    @Column(nullable = true)
+    int root_id;
+    int user_id;
     String cat_link;
-
 
     public int getId() {
         return id;
@@ -43,12 +29,12 @@ public class categories_tbl
         this.id = id;
     }
 
-    public String getTitie() {
-        return titie;
+    public String getTitle() {
+        return title;
     }
 
-    public void setTitie(String titie) {
-        this.titie = titie;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getIcon_address() {
@@ -83,19 +69,19 @@ public class categories_tbl
         this.enabled_flag = enabled_flag;
     }
 
-    public String getRoot_id() {
+    public int getRoot_id() {
         return root_id;
     }
 
-    public void setRoot_id(String root_id) {
+    public void setRoot_id(int root_id) {
         this.root_id = root_id;
     }
 
-    public users_tbl getUser_id() {
+    public int getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(users_tbl user_id) {
+    public void setUser_id(int user_id) {
         this.user_id = user_id;
     }
 
