@@ -5,6 +5,8 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.common.hash.Hashing;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
 import com.sorapp.jowncms.jowncms.Repository.Category.CatsRepo;
+import com.sorapp.jowncms.jowncms.Repository.Configs.ConfigsRepo;
+import com.sorapp.jowncms.jowncms.Repository.Posts.PostsRepo;
 import com.sorapp.jowncms.jowncms.Repository.Users.UsersRepo;
 import com.sorapp.jowncms.jowncms.Service.Encript.EncriptService;
 import org.hibernate.annotations.Parameter;
@@ -34,6 +36,12 @@ public class AdminController
 
     @Autowired
     CatsRepo categories_repository;
+
+    @Autowired
+    PostsRepo posts_repository;
+
+    @Autowired
+    ConfigsRepo configs_repository;
 
     users_tbl user_data;
 
@@ -113,7 +121,16 @@ public class AdminController
         response.addObject("title","پست جدید");
         response.setViewName("Admin/newpost");
         response.addObject("user_data",user_data);
+        response.addObject("categories",categories_repository.GetAllCategories());
         return response;
+    }
+
+    @RequestMapping("/Panel/NewPost/Done")
+    public String NewPostSubmit(HttpServletRequest request,String title,String category,String post_image_address,String Visibleity,String Content)
+    {
+        Get_User_Data(request);
+        posts_repository.NewPost(title,Content,Visibleity,user_data.getId(),Integer.parseInt(category),post_image_address);
+        return "redirect:/Admin/Panel/NewPost";
     }
     /****************Categories End****************/
 
@@ -121,7 +138,7 @@ public class AdminController
 
 
     /****************Categories Start****************/
-    @RequestMapping("//PanelAllPosts")
+    @RequestMapping("/Panel/AllPosts")
     public ModelAndView AllPosts(HttpServletRequest request)
     {
         Get_User_Data(request);
@@ -129,7 +146,37 @@ public class AdminController
         response.addObject("title","همه پست ها");
         response.setViewName("Admin/allposts");
         response.addObject("user_data",user_data);
+        response.addObject("posts",posts_repository.GetAllPosts());
         return response;
+    }
+
+    @RequestMapping("/Panel/Post/Delete/{id}")
+    public String DeletePost(HttpServletRequest request,@PathVariable String id)
+    {
+        Get_User_Data(request);
+        posts_repository.DeletePost(Integer.parseInt(id));
+        return "redirect:/Admin/Panel/AllPosts";
+    }
+
+    @RequestMapping("/Panel/Post/Edit/{id}")
+    public ModelAndView AllPosts(HttpServletRequest request,@PathVariable String id)
+    {
+        Get_User_Data(request);
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","ویرایش پست");
+        response.setViewName("Admin/editpost");
+        response.addObject("user_data",user_data);
+        response.addObject("categories",categories_repository.GetAllCategories());
+        response.addObject("post",posts_repository.GetPost(Integer.parseInt(id)));
+        return response;
+    }
+
+    @RequestMapping("/Panel/Post/Edit/Done")
+    public String EditDonePost(HttpServletRequest request,String post_id,String title,String category,String post_image_address,String Visibleity,String Content)
+    {
+        Get_User_Data(request);
+        posts_repository.EditPost(Integer.parseInt(post_id),title,Content,Visibleity,user_data.getId(),Integer.parseInt(category),post_image_address);
+        return "redirect:/Admin/Panel/Post/Edit/"+post_id;
     }
     /****************Categories End****************/
 
@@ -302,7 +349,16 @@ public class AdminController
         response.addObject("title","تنظیمات");
         response.setViewName("Admin/settings");
         response.addObject("user_data",user_data);
+        response.addObject("configs",configs_repository.GetConfigs().get(0).getConfigs_json());
         return response;
+    }
+
+    @RequestMapping(value = "/Panel/Settings/Done",method = RequestMethod.POST)
+    public String SettingsSubmit(HttpServletRequest request,String Config)
+    {
+        Get_User_Data(request);
+        configs_repository.SetConfigs(Config);
+        return "redirect:/Admin/Panel/Settings";
     }
     /****************Settings End****************/
 

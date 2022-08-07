@@ -16,10 +16,10 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <form class="forms-sample" method="post">
+                        <form class="forms-sample" method="post" th:action="@{/Admin/Panel/Settings/Done}">
                             <div class="form-group">
                                 <label for="exampleInputUsername1">تنظیمات</label>
-                                <textarea style="direction:ltr;resize:vertical;height:250px;" class="form-control" id="exampleInputUsername1" name="Config">{}</textarea>
+                                <textarea style="direction:ltr;resize:vertical;height:250px;" class="form-control" id="exampleInputUsername1" name="Config">[[${configs}]]</textarea>
                             </div>
                             <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">تایید</button>
                         </form>

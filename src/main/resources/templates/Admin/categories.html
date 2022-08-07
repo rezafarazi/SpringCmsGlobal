@@ -50,7 +50,7 @@
                     <div class="card-body">
                         <h4 class="card-title" style="text-align: right;">دسته بندی ها</h4>
                         </p>
-                        <table class="table">
+                        <table class="table" th:if="${categories.size>0}">
                             <thead>
                             <tr>
                                 <th>ردیف</th>
@@ -72,6 +72,12 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <div th:unless="${categories.size>0}">
+                            <div style="margin-top:60px;">
+                                <img th:src="@{/Assets/Admin/images/icons/empty.png}" style="display:block;margin:0 auto;" width="150px">
+                                <p style="width:100%;text-align:center;color:#666;margin-top:20px;">هیچ موردی یافت نشد</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

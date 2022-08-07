@@ -20,7 +20,7 @@
                     <div class="card-body">
                         <h4 class="card-title" style="text-align: right;">پست ها</h4>
                         </p>
-                        <table class="table">
+                        <table class="table" th:if="${posts.size>0}">
                             <thead>
                             <tr>
                                 <th>ردیف</th>
@@ -31,9 +31,21 @@
                             </tr>
                             </thead>
                             <tbody>
-
+                                <tr th:each="post :${posts}">
+                                    <td th:text="${post.getId()}" />
+                                    <td th:text="${post.getTitle()}" />
+                                    <td th:text="${post.getEnabled_flag()=='1'}?بالا:پایین" />
+                                    <td><i th:onclick="Open_Link_Dialog(this, window.location.protocol + '//' + window.location.host + '/Admin/Panel/Post/Edit/[[${post.getId()}]]')"><i class="mdi mdi-table-edit" style="font-size: 20px;color:#007bff;cursor: pointer;"></i></i></td>
+                                    <td><a th:href="@{/Admin/Panel/Post/Delete/{post_id}(post_id=${post.getId()})}"><i class="mdi mdi-delete" style="color: #F00;font-size: 20px;"></i></a></td>
+                                </tr>
                             </tbody>
                         </table>
+                        <div th:unless="${posts.size>0}">
+                            <div style="margin-top:60px;">
+                                <img th:src="@{/Assets/Admin/images/icons/empty.png}" style="display:block;margin:0 auto;" width="150px">
+                                <p style="width:100%;text-align:center;color:#666;margin-top:20px;">هیچ موردی یافت نشد</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

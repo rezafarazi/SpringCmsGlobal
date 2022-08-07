@@ -14,6 +14,8 @@
 
         <mapping resource="HibernateConfigs/users_tbl.xml"/>
         <mapping resource="HibernateConfigs/categories_tbl.xml"/>
+        <mapping resource="HibernateConfigs/posts_tbl.xml"/>
+        <mapping resource="HibernateConfigs/configs_tbl.xml"/>
 
     </session-factory>
 
