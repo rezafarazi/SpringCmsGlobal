@@ -125,7 +125,6 @@ public class UsersRepo
         user.setAddress(address);
         user.setCity(city);
 
-
         session.update(user);
         t.commit();
         factory.close();

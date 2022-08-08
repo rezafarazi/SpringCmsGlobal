@@ -15,11 +15,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.nio.charset.StandardCharsets;
 
 @Controller
@@ -333,15 +335,76 @@ public class AdminController
 
 
     /****************Profile Start****************/
+    String Upload_Path="C:/Users/Rezafta/Desktop/jowncms/Uploads";
+
     @RequestMapping("/Panel/FileManager")
     public ModelAndView FileManager(HttpServletRequest request)
     {
         Get_User_Data(request);
+        String Path=request.getParameter("path");
         ModelAndView response=new ModelAndView();
         response.addObject("title","مدیریت فایل");
         response.setViewName("Admin/filemanager");
         response.addObject("user_data",user_data);
+        response.addObject("address",Path);
+
+        if(Path==null) {
+            File folder = new File(Upload_Path);
+            File[] folders = folder.listFiles();
+            response.addObject("files",folder.listFiles());
+            response.addObject("curentlocation",Upload_Path);
+        }
+        else{
+            File folder = new File(Upload_Path+"/"+Path);
+            File[] folders = folder.listFiles();
+            response.addObject("files",folder.listFiles());
+            response.addObject("curentlocation",Upload_Path);
+        }
+
         return response;
+    }
+
+    @RequestMapping(value = "/Panel/FileManager/CreateFolder",method = RequestMethod.POST)
+    public String CreateFolder(HttpServletRequest request,String Folder_Name,String Addrs)
+    {
+        try
+        {
+
+            if(Addrs==null)
+            {
+                File NewFolder = new File(Upload_Path + "/" + Folder_Name);
+                LOGGER.info(Upload_Path + "/" + Folder_Name);
+                NewFolder.mkdir();
+                NewFolder.mkdirs();
+            }
+            else
+            {
+                File NewFolder = new File(Upload_Path + "/" + Addrs + "/" + Folder_Name);
+                LOGGER.info(Upload_Path + "/" + Addrs + "/" + Folder_Name);
+                NewFolder.mkdir();
+                NewFolder.mkdirs();
+            }
+        }
+        catch (Exception e)
+        {
+            LOGGER.info(e.getMessage());
+        }
+        return "redirect:" + request.getHeader("referer");
+    }
+
+    @RequestMapping(value = "/Panel/FileManager/Upload",method = RequestMethod.POST)
+    public String UploadFile(HttpServletRequest request,MultipartFile Upload_File,String Address)
+    {
+        try
+        {
+            String FileName = Upload_File.getOriginalFilename();
+            Upload_File.transferTo(new File(Upload_Path+"/"+Address+"/"+FileName));
+        }
+        catch (Exception e)
+        {
+
+        }
+        return "redirect:" + request.getHeader("referer");
     }
     /****************Profile End****************/
 

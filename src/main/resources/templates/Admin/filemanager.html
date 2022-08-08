@@ -18,7 +18,7 @@
                 <div class="card">
                     <div class="card-body">
                         <h4 class="card-title">آپلود فایل جدید</h4>
-                        <form action="Upload_File" method="POST" class="form-validate" enctype="multipart/form-data">
+                        <form th:action="@{/Admin/Panel/FileManager/Upload}" method="POST" class="form-validate" enctype="multipart/form-data">
 
                             <br />
                             <!--File Select Start-->
@@ -26,7 +26,7 @@
                             <label class="upload_file_label" for="file_upload_btn" id="address_bar_file_upload">انتخاب فایل</label>
 
                             <!--Address Start-->
-                            <input type="text" name="Address" style="display:none;" id="Upload_Address" value=@(Request.QueryString.Get("Dir")) />
+                            <input type="text" name="Address" style="display:none;" id="Upload_Address" th:value="${address}" />
                             <!--Address End-->
                             <!--File Select Start-->
                             <br />
@@ -45,7 +45,7 @@
                     <div class="card-body">
                         <h4 class="card-title">پوشه جدید</h4>
                         </p>
-                        <form action="New_Folder" method="POST" class="form-validate">
+                        <form th:action="@{/Admin/Panel/FileManager/CreateFolder}" method="POST" class="form-validate">
 
                             <div class="form-group">
                                 <label for="exampleInputPassword1" style="width: 100%;text-align: right;">نام پوشه جدید</label>
@@ -53,7 +53,7 @@
                             </div>
 
                             <!--Address Start-->
-                            <input type="hidden" name="Addrs" style="display:none;" id="New_Folder_Address" value=@(Request.QueryString.Get("Dir")) />
+                            <input type="hidden" name="Addrs" style="display:none;" id="New_Folder_Address" th:value="${address}" />
                             <!--Address End-->
 
                             <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">تایید</button>
@@ -80,55 +80,25 @@
                             </thead>
                             <tbody>
 
-                            @{
-
-                            for (int i = 0; i < File_Manager.Files.Count; i++)
-                            {
-
-                            Own_Cms.Functions.Statics.FileManager.File_Manager_Items F_File = File_Manager.Files[i];
-
-                            <tr>
-
-
-                                <!--File Type Start-->
-                                @if (F_File.Type == "File")
-                                {
+                            <tr th:each="file : ${files}" th:if="${!file.isDirectory()}">
                                 <th scope="row">
-                                    <a href="@F_File.Address">
-                                        @F_File.Name
+                                    <a th:href="@{${(address==null)}? ${curentlocation}+'/'+${file.getName()}:${curentlocation}+'/'+${address}+'/'+${file.getName()}}">
+                                        <p th:text="${file.getName()}" />
                                     </a>
                                 </th>
                                 <td><i style="font-size:18px;" class="mdi mdi-file menu-icon"></i></td>
                                 <td><a href="/Admin/Delete_File?Delete=@F_File.Address"><i style="color:red;font-size:18px;" class="mdi mdi-delete menu-icon"></i></a></td>
-                                }
-                                else
-                                {
+                            </tr>
+                            <tr th:each="file : ${files}" th:unless="${!file.isDirectory()}">
                                 <th scope="row">
-
-                                    @if (Request.QueryString.Get("Dir") != null)
-                                    {
-                                    <a href="@Request.Url/@F_File.Name">
-                                        @F_File.Name
+                                    <a th:href="@{${(address==null)}?'?path='+${file.getName()}:'?path='+${address}+'/'+${file.getName()}}">
+                                        <p th:text="${file.getName()}" />
                                     </a>
-                                    }
-                                    else
-                                    {
-                                    <a href="@Request.Path?Dir=@F_File.Name">
-                                        @F_File.Name
-                                    </a>
-                                    }
-
                                 </th>
                                 <td><i style="font-size:18px;" class="mdi mdi-folder menu-icon"></i></td>
-                                <td><a style="color:red;font-size:18px;" href="/Admin/Delete_File?Delete=@F_File.Address"><i class="mdi mdi-delete menu-icon"></i></a></td>
-                                }
-                                <!--File Type Start-->
-
-
+                                <td><a href="/Admin/Delete_File?Delete=@F_File.Address"><i style="color:red;font-size:18px;" class="mdi mdi-delete menu-icon"></i></a></td>
                             </tr>
-                            }
 
-                            }
                             </tbody>
                         </table>
                     </div>
