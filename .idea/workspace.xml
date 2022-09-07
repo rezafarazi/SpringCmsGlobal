@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51dfcb19-5dd8-4e7f-b8c8-3f25e47fb0a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Config/Google2FConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Credential/CredentialRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/active2f.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/login2f.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Controllers/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Users/UsersRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Users/UsersRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/Components/panel_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/Components/panel_header.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/editpost.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/editpost.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/newpost.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/newpost.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/newpost.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/newpost.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +54,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/libs/javase-java6-3.2.0.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -82,17 +78,6 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="JowncmsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="jowncms" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.sorapp.jowncms.jowncms.JowncmsApplication" />
@@ -123,6 +108,8 @@
       <workItem from="1659941073864" duration="4398000" />
       <workItem from="1659953609593" duration="4337000" />
       <workItem from="1659960772822" duration="11431000" />
+      <workItem from="1662545525893" duration="1704000" />
+      <workItem from="1662547306761" duration="150000" />
     </task>
     <servers />
   </component>
