@@ -1,0 +1,35 @@
+<hdr class="insert" th:insert="@{/Admin/Components/panel_header}" />
+
+
+
+<!-- partial -->
+<div class="main-panel">
+    <!--Send Notification To User Start-->
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                    <i class="mdi mdi-qrcode-scan "></i>
+                </span>فعال سازی رمز دوم
+            </h3>
+        </div>
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title" style="text-align: center;">فعال سازی رمز دوم</h4>
+                        <p class="card-description" style="text-align: center;">لظفا کیو ار کد زیر را اسکن کنید</p>
+                        <div>
+                            <img style="display:block;margin:0 auto;" th:src="${qrcode}" width="150px" height="150px" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Send Notification To User End-->
+
+
+<hdr class="insert" th:insert="@{/Admin/Components/panel_footer}" />
+
+

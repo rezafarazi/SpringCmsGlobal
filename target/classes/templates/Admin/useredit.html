@@ -1,0 +1,69 @@
+<hdr class="insert" th:insert="@{/Admin/Components/empty_header}" />
+
+
+    <!--Send Notification To User Start-->
+    <div class="content-wrapper">
+        <div class="row">
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title" style="text-align: center;">پروفایل</h4>
+                        <p class="card-description" style="text-align: center;">لطفا فیلد های زیر را پر کنید</p>
+                        <form class="forms-sample" th:action="@{/Admin/Panel/UserManager/User/Edit/Done}" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="user_id" th:value="${edit_user_data.id}"/>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1" style="width: 100%;text-align: right;">نام کاربری</label>
+                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="نام کاربری" name="username" th:value="${edit_user_data.username}">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1" style="width: 100%;text-align: right;">نام</label>
+                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="نام" name="name" th:value="${edit_user_data.name}">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1" style="width: 100%;text-align: right;">نام خانوادگی</label>
+                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="نام خانوادگی" name="family" th:value="${edit_user_data.family}">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" style="width: 100%;text-align: right;">کلمه عبور جدید</label>
+                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="کلمه عبور جدید" name="password">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" style="width: 100%;text-align: right;">ایمیل</label>
+                                <input type="email" class="form-control" id="exampleInputPassword1" placeholder="ایمیل" name="email" th:value="${edit_user_data.email}">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" style="width: 100%;text-align: right;">شماره موبایل</label>
+                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="شماره موبایل" name="phone" th:value="${edit_user_data.phone}">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" style="width: 100%;text-align: right;">نوع کاربری</label>
+                                <select class="form-control" name="usertype">
+                                    <option value="USER" th:selected="${edit_user_data.getUser_type=='USER'}">کاربر</option>
+                                    <option value="ADMIN" th:selected="${edit_user_data.getUser_type=='ADMIN'}">مدیر کل</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" style="width: 100%;text-align: right;">وضعیت کاربر</label>
+                                <select class="form-control" name="active_user">
+                                    <option th:selected="${edit_user_data.getActive_user_flag=='1'}" value="1">فعال</option>
+                                    <option th:selected="${edit_user_data.getActive_user_flag=='0'}" value="0">غیرفعال</option>
+                                </select>
+                            </div>
+                            <br>
+                            <br>
+                            <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">تایید</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Send Notification To User End-->
+
+
+
+
+
+    <hdr class="insert" th:insert="@{/Admin/Components/empty_footer}" />
+
+

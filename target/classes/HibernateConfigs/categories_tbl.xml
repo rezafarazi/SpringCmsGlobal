@@ -1,0 +1,28 @@
+<?xml version = "1.0" encoding = "utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping>
+    <class name = "com.sorapp.jowncms.jowncms.Models.categories_tbl" table = "categories_tbl">
+
+        <meta attribute = "class-description">
+            This class contains the employee detail.
+        </meta>
+
+        <id name = "id" type = "int" column = "id">
+            <generator class="native"/>
+        </id>
+
+        <property name = "title" column="title" type = "string"/>
+        <property name = "icon_address" column="icon_address" type = "string"/>
+        <property name = "type" column="type" type = "string"/>
+        <property name = "create_date" column="create_date" type = "string"/>
+        <property name = "enabled_flag" column="enabled_flag" type = "string"/>
+        <property name = "root_id" column="root_id" type = "int"/>
+        <property name = "user_id" column="user_id" type = "int"/>
+        <property name = "cat_link" column="cat_link" type = "string"/>
+
+
+    </class>
+</hibernate-mapping>

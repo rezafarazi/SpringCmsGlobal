@@ -1,0 +1,63 @@
+<hdr class="insert" th:insert="@{/Admin/Components/empty_header}" />
+
+<!-- partial -->
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                    <i class="mdi mdi-cube-send"></i>
+                </span>ویرایش پست
+            </h3>
+        </div>
+
+        <div class="row">
+
+            <!--Right Side Of Content Start-->
+            <div class="col-md-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="forms-sample" method="post" th:action="@{/Admin/Panel/Post/Edit/Done}">
+                            <input type="hidden" name="post_id" th:value="${post.getId()}">
+                            <div class="form-group">
+                                <label for="exampleInputUsername1" style="width: 100%;text-align: right;">عنوان</label>
+                                <input th:value="${post.getTitle()}" type="text" class="form-control" id="exampleInputUsername1" placeholder="عنوان" name="title">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" style="width: 100%;text-align: right;">دسته بندی</label>
+                                <select id="category_combat" class="form-control" name="category" onchange="onchange_category(this)">
+                                    <option th:each="category : ${categories}" th:value="${category.getId()}" th:text="${category.getTitle()}" th:selected="${post.getCategory_id()==category.getId()}"/>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1" style="width: 100%;text-align: right;">آدرس لینک عکس عنوان</label>
+                                <input th:value="${post.getImage_address()}" type="text" class="form-control" id="exampleInputUsername1" placeholder="آدرس عکس تصویر پست" name="post_image_address">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" style="width: 100%;text-align: right;">قابل مشاهده بودن</label>
+                                <select class="form-control" name="Visibleity">
+                                    <option value="1" th:selected="${post.getEnabled_flag()=='1'}">قابل مشاهده بودن</option>
+                                    <option value="0" th:selected="${post.getEnabled_flag()=='0'}">غیر قابل مشاهده بودن</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputUsername1" style="width: 100%;text-align: right;">محتوا</label>
+                                <textarea style="direction:ltr;resize:vertical;height:250px;" class="form-control" id="exampleInputUsername1" name="Content" th:text="${post.getContent()}"/>
+                            </div>
+                            <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">تایید</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--Right Side Of Content End-->
+        </div>
+
+    </div>
+    <!-- content-wrapper ends -->
+
+
+
+
+
+
+
+    <ftr class="insert" th:insert="@{/Admin/Components/empty_footer}" />

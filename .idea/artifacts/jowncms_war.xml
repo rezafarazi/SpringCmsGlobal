@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jowncms:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>jowncms</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="jowncms-0.0.1-SNAPSHOT.war">
+      <element id="artifact" artifact-name="jowncms:war exploded" />
+    </root>
+  </artifact>
+</component>
