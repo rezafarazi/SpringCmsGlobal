@@ -44,9 +44,12 @@
                                     <input type="text" class="form-control" id="exampleInputPassword1" placeholder="شماره موبایل" name="phone" th:value="${user_data.phone}">
                                 </div>
                                 <br>
-                                <br>
-                                <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">فعال سازی رمز دوم</button>
-                                <br>
+                                <div th:if="${(user_data.getGoogle2f()=='')}">
+                                    <a th:href="@{/Admin/Panel/Profile/Active2F}" style="width: 100%;" class="btn btn-gradient-primary mr-2">فعال سازی رمز دوم</a>
+                                </div>
+                                <div th:unless="${(user_data.getGoogle2f()=='')}">
+                                    <a th:href="@{/Admin/Panel/Profile/Diactive2F}" style="width: 100%;" class="btn btn-gradient-primary mr-2">غیرفعال سازی رمز دوم</a>
+                                </div>
                                 <br>
                                 <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">تایید</button>
                             </form>

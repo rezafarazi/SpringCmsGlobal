@@ -32,7 +32,7 @@
                             <span class="availability-status online"></span>
                         </div>
                         <div class="nav-profile-text">
-                            <p class="mb-1 text-black" th:text="${user_data.name+user_data.family}" />
+                            <p class="mb-1 text-black" th:text="${user_data.name+' '+user_data.family}" />
                         </div>
                     </a>
                     <div class="dropdown-menu navbar-dropdown" aria-labelledby="profileDropdown">
@@ -67,7 +67,7 @@
                             <!--change to offline or busy as needed-->
                         </div>
                         <div class="nav-profile-text d-flex flex-column" style="margin-right: 10px;">
-                            <span class="font-weight-bold mb-2" th:text="${user_data.name+user_data.family}"/>
+                            <span class="font-weight-bold mb-2" th:text="${user_data.name+' '+user_data.family}"/>
                             <span class="text-secondary text-small">مدیرکل</span>
                         </div>
                         <i class="mdi mdi-bookmark-check text-success nav-profile-badge"></i>

@@ -20,6 +20,7 @@ import org.springframework.stereotype.Component;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 @Component
 public class UsersRepo
@@ -37,7 +38,7 @@ public class UsersRepo
         SessionFactory factory=meta.getSessionFactoryBuilder().build();
         Session session=factory.openSession();
         Transaction t=session.beginTransaction();
-        String hql = "FROM users_tbl users WHERE users.username = '"+Username+"' AND users.password='"+Password+"'";
+        String hql = "FROM users_tbl users WHERE users.active_user_flag='1' AND users.username = '"+Username+"' AND users.password='"+Password+"'";
         Query query = session.createQuery(hql);
         List results = query.list();
 
@@ -53,6 +54,32 @@ public class UsersRepo
         throw new Exception("User Not Found");
     }
     //Check Login User End
+
+
+
+    //Get User By Token Start
+    public users_tbl GetUserByToken(String LoginToken) throws Exception {
+        StandardServiceRegistry ssr=new StandardServiceRegistryBuilder().configure("HibernateConfigs/hibernate.cfg.xml").build();
+        Metadata meta=new MetadataSources(ssr).getMetadataBuilder().build();
+        SessionFactory factory=meta.getSessionFactoryBuilder().build();
+        Session session=factory.openSession();
+        Transaction t=session.beginTransaction();
+        String hql = "FROM users_tbl users WHERE users.active_user_flag='1' AND users.login_token='"+LoginToken+"'";
+        Query query = session.createQuery(hql);
+        List results = query.list();
+
+        t.commit();
+        factory.close();
+        session.close();
+
+        if(results.size()>0)
+        {
+            return (users_tbl) results.get(0);
+        }
+
+        throw new Exception("User Not Found");
+    }
+    //Get User By Token End
 
 
 
@@ -152,6 +179,64 @@ public class UsersRepo
         return (users_tbl) results.get(0);
     }
     //Get User Data End
+
+
+
+
+    //Google2F User Start
+    public void Google2F(int user_id,String State,String key)
+    {
+        StandardServiceRegistry ssr=new StandardServiceRegistryBuilder().configure("HibernateConfigs/hibernate.cfg.xml").build();
+        Metadata meta=new MetadataSources(ssr).getMetadataBuilder().build();
+        SessionFactory factory=meta.getSessionFactoryBuilder().build();
+        Session session=factory.openSession();
+        Transaction t=session.beginTransaction();
+
+        users_tbl old_user_data = GetUserData(user_id);
+
+        if(State=="Active") {
+            users_tbl user = new users_tbl();
+            user.setId(old_user_data.getId());
+            user.setUsername(old_user_data.getUsername());
+            user.setName(old_user_data.getName());
+            user.setFamily(old_user_data.getFamily());
+            user.setEmail(old_user_data.getEmail());
+            user.setPhone(old_user_data.getPhone());
+            user.setLogin_token(old_user_data.getLogin_token());
+            user.setPassword(old_user_data.getPassword());
+            user.setGoogle2f(key);
+            user.setUser_type(old_user_data.getUser_type());
+            user.setActive_user_flag(old_user_data.getActive_user_flag());
+            user.setCreate_datetime(old_user_data.getCreate_datetime());
+            user.setAddress(old_user_data.getAddress());
+            user.setCity(old_user_data.getCity());
+            session.update(user);
+        }
+        else {
+            users_tbl user = new users_tbl();
+            user.setId(old_user_data.getId());
+            user.setUsername(old_user_data.getUsername());
+            user.setName(old_user_data.getName());
+            user.setFamily(old_user_data.getFamily());
+            user.setEmail(old_user_data.getEmail());
+            user.setPhone(old_user_data.getPhone());
+            user.setLogin_token(old_user_data.getLogin_token());
+            user.setPassword(old_user_data.getPassword());
+            user.setGoogle2f("");
+            user.setUser_type(old_user_data.getUser_type());
+            user.setActive_user_flag(old_user_data.getActive_user_flag());
+            user.setCreate_datetime(old_user_data.getCreate_datetime());
+            user.setAddress(old_user_data.getAddress());
+            user.setCity(old_user_data.getCity());
+            session.update(user);
+        }
+
+
+        t.commit();
+        factory.close();
+        session.close();
+    }
+    //Google2F User Start
 
 
 

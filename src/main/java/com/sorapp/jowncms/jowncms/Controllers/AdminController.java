@@ -1,15 +1,26 @@
 package com.sorapp.jowncms.jowncms.Controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.common.hash.Hashing;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
 import com.sorapp.jowncms.jowncms.Repository.Category.CatsRepo;
 import com.sorapp.jowncms.jowncms.Repository.Configs.ConfigsRepo;
 import com.sorapp.jowncms.jowncms.Repository.Posts.PostsRepo;
 import com.sorapp.jowncms.jowncms.Repository.Users.UsersRepo;
 import com.sorapp.jowncms.jowncms.Service.Encript.EncriptService;
-import org.hibernate.annotations.Parameter;
+import com.warrenstrange.googleauth.GoogleAuthenticator;
+import com.warrenstrange.googleauth.GoogleAuthenticatorKey;
+import com.warrenstrange.googleauth.GoogleAuthenticatorQRGenerator;
+import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.el.util.Validation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,12 +29,19 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 
+@Slf4j
+@RequiredArgsConstructor
 @Controller
 @RequestMapping("/Admin")
 public class AdminController
@@ -48,6 +66,7 @@ public class AdminController
     users_tbl user_data;
 
     private static final Logger LOGGER=LoggerFactory.getLogger(AdminController.class);
+    private final GoogleAuthenticator gAuth;
 
 
 
@@ -63,24 +82,31 @@ public class AdminController
     }
 
     @PostMapping("/Login")
-    public String Login(String username, String password, HttpServletResponse response)
+    public String Login(String username, String password, HttpServletResponse response,HttpServletRequest request)
     {
         try
         {
             String pass = Hashing.sha256().hashString(password, StandardCharsets.UTF_8).toString();
-            users_tbl user_data = users_repository.LOGIN_USER(username, pass);
+            user_data = users_repository.LOGIN_USER(username, pass);
             if (user_data != null)
             {
-                ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
-                String json = ow.writeValueAsString(user_data);
+                if(user_data.getGoogle2f().equals("")) {
+                    ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+                    String json = ow.writeValueAsString(user_data);
 
-                //Most Change This
-                //String Berar_Token = Base64.getEncoder().encodeToString(json.getBytes());
+                    //Most Change This
+                    //String Berar_Token = Base64.getEncoder().encodeToString(json.getBytes());
 
-                String Berar_Token = Encription.ENC(json);
+                    String Berar_Token = Encription.ENC(json);
 
-                response.addCookie(new Cookie("auth",Berar_Token));
-                return "redirect:/Admin/Panel/Dashboard";
+                    response.addCookie(new Cookie("auth", Berar_Token));
+                    return "redirect:/Admin/Panel/Dashboard";
+                }
+                else
+                {
+                    request.getSession().setAttribute("lgt",user_data.getLogin_token());
+                    return "redirect:/Admin/Login2F";
+                }
             }
             else
             {
@@ -91,6 +117,41 @@ public class AdminController
         {
             LOGGER.info(e.getMessage());
             return "redirect:/Admin/Login";
+        }
+    }
+
+    @RequestMapping("/Login2F")
+    public ModelAndView Login2F(HttpServletRequest request)
+    {
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","ورود - پنل کاربری");
+        response.setViewName("Admin/login2f");
+        return response;
+    }
+
+    @PostMapping("/Login2F")
+    public String Login2FSubmit(HttpServletRequest request,HttpServletResponse response,String twofpass) throws Exception
+    {
+        String Token=request.getSession().getAttribute("lgt").toString();
+        user_data = users_repository.GetUserByToken(Token);
+
+        boolean auth_status = gAuth.authorizeUser(user_data.getUsername(), Integer.parseInt(twofpass));
+
+        if(auth_status)
+        {
+            ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+            String json = ow.writeValueAsString(user_data);
+
+            String Berar_Token = Encription.ENC(json);
+
+            response.addCookie(new Cookie("auth", Berar_Token));
+            request.getSession().setAttribute("lgt",null);
+            return "redirect:/Admin/Panel/Dashboard";
+        }
+        else
+        {
+            request.getSession().setAttribute("lgt",null);
+            return "redirect:/";
         }
     }
     /************************Login End**************************/
@@ -419,8 +480,49 @@ public class AdminController
         ModelAndView response=new ModelAndView();
         response.addObject("title","پروفایل");
         response.addObject("user_data",user_data);
+        LOGGER.info(user_data.getEmail());
         response.setViewName("Admin/profile");
         return response;
+    }
+
+    @SneakyThrows
+    @RequestMapping("/Panel/Profile/Active2F")
+    public ModelAndView ProfileActive2F(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException
+    {
+        Get_User_Data(request);
+        ModelAndView responsee=new ModelAndView();
+        responsee.addObject("title","فعال سازی رمز دوم");
+        responsee.addObject("user_data",user_data);
+
+        responsee.addObject("qrcode","/Admin/Panel/Profile/Active2F/QRCODE");
+
+        responsee.setViewName("Admin/active2f");
+
+        return responsee;
+    }
+
+    @RequestMapping("/Panel/Profile/Active2F/QRCODE")
+    public void GetActive2FQR(HttpServletRequest request,HttpServletResponse response) throws Exception
+    {
+        Get_User_Data(request);
+        SetAuthToken(response,request,user_data.getUsername(),user_data.getPassword());
+        final GoogleAuthenticatorKey key = gAuth.createCredentials(user_data.getUsername());
+        users_repository.Google2F(user_data.getId(),"Active",key.getKey());
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        String otpAuthURL = GoogleAuthenticatorQRGenerator.getOtpAuthTotpURL("jowncms", user_data.getUsername(), key);
+        BitMatrix bitMatrix = qrCodeWriter.encode(otpAuthURL, BarcodeFormat.QR_CODE, 200, 200);
+        ServletOutputStream outputStream = response.getOutputStream();
+        MatrixToImageWriter.writeToStream(bitMatrix, "PNG", outputStream);
+        outputStream.close();
+    }
+
+    @RequestMapping("/Panel/Profile/Diactive2F")
+    public String ProfileDiactive2F(HttpServletRequest request,HttpServletResponse response) throws Exception
+    {
+        Get_User_Data(request);
+        users_repository.Google2F(user_data.getId(),"Diactive","");
+        SetAuthToken(response,request,user_data.getUsername(),user_data.getPassword());
+        return "redirect:/Admin/Panel/Profile";
     }
 
     @PostMapping("/Panel/Profile")
