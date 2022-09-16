@@ -6,10 +6,18 @@
   <component name="ChangeListManager">
     <list default="true" id="51dfcb19-5dd8-4e7f-b8c8-3f25e47fb0a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/Components/panel_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/Components/panel_header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jowncms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jowncms.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/posts_tbl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/posts_tbl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Posts/PostsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Posts/PostsRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/editpost.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/editpost.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/newpost.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/newpost.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Repository/Posts/PostsRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Repository/Posts/PostsRepo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/editpost.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/editpost.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/newpost.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/newpost.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,6 +118,8 @@
       <workItem from="1659960772822" duration="11431000" />
       <workItem from="1662545525893" duration="1704000" />
       <workItem from="1662547306761" duration="150000" />
+      <workItem from="1663334969497" duration="1709000" />
+      <workItem from="1663336862676" duration="227000" />
     </task>
     <servers />
   </component>

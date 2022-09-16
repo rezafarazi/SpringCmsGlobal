@@ -135,21 +135,21 @@ public class PostsRepo
 
 
     //Get A Post All Data Start
-    public posts_tbl GetPost(int id)
+    public posts_tbl GetPost(int post_id)
     {
         StandardServiceRegistry ssr=new StandardServiceRegistryBuilder().configure("HibernateConfigs/hibernate.cfg.xml").build();
         Metadata meta=new MetadataSources(ssr).getMetadataBuilder().build();
         SessionFactory factory=meta.getSessionFactoryBuilder().build();
         Session session=factory.openSession();
         Transaction t=session.beginTransaction();
-        String hql = "FROM posts_tbl posts WHERE posts.id=id and posts.enabled_flag!='2'";
+        String hql = "FROM posts_tbl posts WHERE posts.id="+post_id+"and posts.enabled_flag!='2'";
         Query query = session.createQuery(hql);
         List results = query.list();
 
         t.commit();
         factory.close();
         session.close();
-        return (posts_tbl) results.get(0);
+        return (posts_tbl) results.get(results.size()-1);
     }
     //Get A Post All Data End
 

@@ -11,7 +11,6 @@ public class posts_tbl
     @Id
     @GeneratedValue
     int id;
-
     String title;
     String content;
     String enabled_flag;
