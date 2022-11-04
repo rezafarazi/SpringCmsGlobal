@@ -6,15 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="51dfcb19-5dd8-4e7f-b8c8-3f25e47fb0a7" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uploads/attachment_91476002.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Uploads/xxx/sss/attachment_91476002.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Controllers/AdminController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/filemanager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/filemanager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/usermanager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/usermanager.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Controllers/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Controllers/AdminController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Repository/Posts/PostsRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Repository/Posts/PostsRepo.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/filemanager.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/filemanager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/usermanager.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/usermanager.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +116,12 @@
       <workItem from="1663336862676" duration="227000" />
       <workItem from="1667550344034" duration="594000" />
       <workItem from="1667554048299" duration="1710000" />
-      <workItem from="1667555832148" duration="612000" />
+      <workItem from="1667555832148" duration="1749000" />
+      <workItem from="1667557727452" duration="1895000" />
+      <workItem from="1667559826603" duration="1610000" />
+      <workItem from="1667561805452" duration="1382000" />
+      <workItem from="1667564657894" duration="1002000" />
+      <workItem from="1667566567376" duration="1180000" />
     </task>
     <servers />
   </component>

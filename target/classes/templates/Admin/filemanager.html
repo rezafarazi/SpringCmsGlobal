@@ -87,7 +87,7 @@
                                     </a>
                                 </th>
                                 <td><i style="font-size:18px;" class="mdi mdi-file menu-icon"></i></td>
-                                <td><a href="/Admin/Delete_File?Delete=@F_File.Address"><i style="color:red;font-size:18px;" class="mdi mdi-delete menu-icon"></i></a></td>
+                                <td><a th:href="@{'/Admin/Panel/FileManager/Delete?name='+${file.getName()}+'&path='+${address}}"><i style="color:red;font-size:18px;" class="mdi mdi-delete menu-icon"></i></a></td>
                             </tr>
                             <tr th:each="file : ${files}" th:unless="${!file.isDirectory()}">
                                 <th scope="row">
@@ -96,7 +96,7 @@
                                     </a>
                                 </th>
                                 <td><i style="font-size:18px;" class="mdi mdi-folder menu-icon"></i></td>
-                                <td><a href="/Admin/Delete_File?Delete=@F_File.Address"><i style="color:red;font-size:18px;" class="mdi mdi-delete menu-icon"></i></a></td>
+                                <td><a th:href="@{'/Admin/Panel/FileManager/DeleteDir?path='+${address}+'/'+${file.getName()}}"><i style="color:red;font-size:18px;" class="mdi mdi-delete menu-icon"></i></a></td>
                             </tr>
 
                             </tbody>

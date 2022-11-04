@@ -21,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.el.util.Validation;
+import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -462,6 +463,46 @@ public class AdminController
         {
             String FileName = Upload_File.getOriginalFilename();
             Upload_File.transferTo(new File(Upload_Path+"/"+Address+"/"+FileName));
+        }
+        catch (Exception e)
+        {
+
+        }
+        return "redirect:" + request.getHeader("referer");
+    }
+
+    @RequestMapping(value = "/Panel/FileManager/Delete",method = RequestMethod.GET)
+    public String RemoveFile(HttpServletRequest request)
+    {
+        try
+        {
+            String path=request.getParameter("path");
+            String name=request.getParameter("name");
+            if(path.equals("null"))
+            {
+                File file = new File(Upload_Path + "\\" + name);
+                file.delete();
+            }
+            else
+            {
+                File file = new File(Upload_Path + "\\" + path + "\\" + name);
+                file.delete();
+            }
+        }
+        catch (Exception e)
+        {
+
+        }
+        return "redirect:" + request.getHeader("referer");
+    }
+
+    @RequestMapping(value = "/Panel/FileManager/DeleteDir",method = RequestMethod.GET)
+    public String RemoveDirectory(HttpServletRequest request)
+    {
+        try
+        {
+            String path=request.getParameter("path").replace("null/","");
+            FileUtils.deleteDirectory(new File(Upload_Path+"\\"+path));
         }
         catch (Exception e)
         {
