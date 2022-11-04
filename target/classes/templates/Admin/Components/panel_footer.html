@@ -49,6 +49,24 @@
         Dialog.style.display = "none";
     }
     //Browser Dialog End
+
+
+    //Mobile Menu Start
+    var MobileMenuStatus=false;
+    function OpenMobileHamburgerMenu(e){
+        var menu = window.document.getElementsByClassName("sidebar-offcanvas")[0];
+
+        if(!MobileMenuStatus) {
+            menu.style.right = 0;
+            MobileMenuStatus=true;
+        }
+        else{
+            menu.style.right = -720;
+            MobileMenuStatus=false;
+        }
+    }
+    //Mobile Menu End
+
 </script>
 
 
