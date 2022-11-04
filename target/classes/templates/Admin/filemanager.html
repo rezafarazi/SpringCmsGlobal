@@ -70,7 +70,7 @@
                     <div class="card-body">
                         <h4 class="card-title">فایل های مسیر جاری</h4>
                         </p>
-                        <table class="table">
+                        <table th:if="${fileslen>0}" class="table">
                             <thead>
                             <tr>
                                 <th>نام</th>
@@ -101,6 +101,10 @@
 
                             </tbody>
                         </table>
+                        <div style="margin-top:60px;" th:unless="${fileslen>0}">
+                            <img th:src="@{/Assets/Admin/images/icons/empty.png}" width="150px" style="display:block;margin:0 auto;" />
+                            <p style="width:100%;text-align:center;">هیچ موردی یافت نشد</p>
+                        </div>
                     </div>
                 </div>
             </div>

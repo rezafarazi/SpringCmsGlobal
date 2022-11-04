@@ -396,7 +396,7 @@ public class AdminController
 
 
     /****************Profile Start****************/
-    String Upload_Path="C:/Users/Rezafta/Desktop/jowncms/Uploads";
+    String Upload_Path="C:\\Users\\Rezafta\\Desktop\\SpringCms\\Uploads";
 
     @RequestMapping("/Panel/FileManager")
     public ModelAndView FileManager(HttpServletRequest request)
@@ -412,12 +412,14 @@ public class AdminController
         if(Path==null) {
             File folder = new File(Upload_Path);
             File[] folders = folder.listFiles();
+            response.addObject("fileslen",folder.listFiles().length);
             response.addObject("files",folder.listFiles());
             response.addObject("curentlocation",Upload_Path);
         }
         else{
             File folder = new File(Upload_Path+"/"+Path);
             File[] folders = folder.listFiles();
+            response.addObject("fileslen",folder.listFiles().length);
             response.addObject("files",folder.listFiles());
             response.addObject("curentlocation",Upload_Path);
         }

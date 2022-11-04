@@ -35,7 +35,7 @@
                     <div class="card-body">
                         <h4 class="card-title">کاربران</h4>
                         </p>
-                        <table class="table" th:if="${users.size()>0}">
+                        <table class="table" th:if="${users.size()>1}">
                             <thead>
                             <tr>
                                 <th>ردیف</th>
@@ -57,7 +57,7 @@
 
                             </tbody>
                         </table>
-                        <div style="margin-top:60px;" th:unless="${users.size()>0}">
+                        <div style="margin-top:60px;" th:unless="${users.size()>1}">
                             <img th:src="@{/Assets/Admin/images/icons/empty.png}" width="150px" style="display:block;margin:0 auto;" />
                             <p style="width:100%;text-align:center;">هیچ کاربری یافت نشد</p>
                         </div>
