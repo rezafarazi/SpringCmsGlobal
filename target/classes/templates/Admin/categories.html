@@ -1,0 +1,139 @@
+<hdr class="insert" th:insert="@{/Admin/Components/panel_header}" />
+
+
+<!-- partial -->
+<div class="main-panel">
+    <div class="content-wrapper">
+        <div class="page-header">
+            <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                    <i class="mdi mdi-format-list-bulleted"></i>
+                </span>
+                <span th:text="#{label.categories}"/>
+            </h3>
+        </div>
+
+        <div class="row">
+
+            <!--Right Side Of Content Start-->
+            <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <form class="forms-sample" method="post" th:action="${update_category_categories!=null}?@{/Admin/Panel/Categoreis/Update/Done}:@{/Admin/Panel/Categoreis/New}">
+                            <input type="text" th:value="${update_category_categories!=null}?${update_category_categories.getId()}:''" name="Category_Id" style="display:none;" />
+                            <div class="form-group">
+                                <label for="exampleInputUsername1" style="width: 100%;text-align: right;" th:text="#{label.title}"/>
+                                <input type="text" class="form-control" id="exampleInputUsername1" th:placeholder="#{label.title}" name="Category_Name" th:value="${update_category_categories!=null}?${update_category_categories.getTitle()}:''">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" style="width: 100%;text-align: right;" th:text="#{label.category}"/>
+                                <select id="category_combat" class="form-control" name="Root_Cat" onchange="onchange_category(this)">
+                                    <option value="0" th:text="#{label.root}"/>
+                                    <option th:each="category : ${categories}" th:value="${category.getId()}" th:text="${category.getTitle()}" th:selected="${update_category_categories!=null}?${category.getId()==update_category_categories.getRoot_id()}:false"/>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1" style="width: 100%;text-align: right;" th:text="#{label.visiblity}"/>
+                                <select class="form-control" name="Visibleity">
+                                    <option value="1" th:selected="${update_category_categories!=null}?${update_category_categories.getEnabled_flag()=='1'}:false" th:text="#{label.visible}"/>
+                                    <option value="0" th:selected="${update_category_categories!=null}?${update_category_categories.getEnabled_flag()=='0'}:false" th:text="#{label.hide}"/>
+                                </select>
+                            </div>
+                            <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2" th:text="${update_category_categories!=null}?#{label.edit}:#{label.done}"/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!--Right Side Of Content End-->
+            <!--Bottom Side Of Content Start-->
+            <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title" style="text-align: right;" th:text="#{label.categories}"/>
+                        </p>
+                        <table class="table" th:if="${categories.size>0}">
+                            <thead>
+                            <tr>
+                                <th th:text="#{label.id}"/>
+                                <th th:text="#{label.title}"/>
+                                <th th:text="#{label.condition}"/>
+                                <th th:text="#{label.root_id}"/>
+                                <th th:text="#{label.opration}"/>
+                                <th th:text="#{label.delete}"/>
+                            </tr>
+                            </thead>
+                            <tbody th:each="category : ${categories}">
+                                <tr>
+                                    <td th:text="${category.getId()}"/>
+                                    <td th:text="${category.getTitle()}"/>
+                                    <td th:text="${category.getEnabled_flag()=='1'}?بالا:پایین"/>
+                                    <td th:text="${category.getRoot_id != 0 }?${category.getRoot_id}:ریشه"/>
+                                    <td><a th:href="@{/Admin/Panel/Categoreis/Update/{cat_id}(cat_id=${category.getId()})}"><i class="mdi mdi-table-edit" style="font-size: 20px;"></i></a></td>
+                                    <td><a th:href="@{/Admin/Panel/Categoreis/Delete/{cat_id}(cat_id=${category.getId()})}"><i class="mdi mdi-delete" style="color: #F00;font-size: 20px;"></i></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div th:unless="${categories.size>0}">
+                            <div style="margin-top:60px;">
+                                <img th:src="@{/Assets/Admin/images/icons/empty.png}" style="display:block;margin:0 auto;" width="150px">
+                                <p style="width:100%;text-align:center;color:#666;margin-top:20px;" th:text="#{label.categories_is_empty}"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Bottom Side Of Content Start-->
+
+        </div>
+
+    </div>
+    <!-- content-wrapper ends -->
+
+
+
+
+
+
+
+
+    <script>
+
+        function onchange_category(e)
+        {
+            var sub_section = window.document.getElementById('sub_section');
+            var category_combat = window.document.getElementById('category_combat');
+
+            if (category_combat.value == "Root")
+            {
+                sub_section.style.display = "none";
+            }
+            else
+            {
+                sub_section.style.display = "block";
+            }
+        }
+
+        window.addEventListener('load', function (e) {
+            var sub_section = window.document.getElementById('sub_section');
+            var category_combat = window.document.getElementById('category_combat');
+
+            if (category_combat.value == "Root") {
+                sub_section.style.display = "none";
+            }
+            else {
+                sub_section.style.display = "block";
+            }
+        });
+
+    </script>
+
+    <style>
+
+        #sub_section
+        {
+            display: block;
+        }
+
+    </style>
+
+<ftr class="insert" th:insert="@{/Admin/Components/panel_footer}" />
