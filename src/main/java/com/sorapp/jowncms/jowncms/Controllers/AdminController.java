@@ -261,10 +261,10 @@ public class AdminController
     }
 
     @PostMapping("Panel/Categoreis/New")
-    public String NewCategory(HttpServletResponse response,HttpServletRequest request,String Category_Name,String Root_Cat,String Visibleity)
+    public String NewCategory(HttpServletResponse response,HttpServletRequest request,String Category_Name,String Root_Cat,String Visibleity,String Cat_link)
     {
         Get_User_Data(request);
-        categories_repository.InsertNewCategory(Category_Name,Root_Cat,Visibleity,user_data.getId());
+        categories_repository.InsertNewCategory(Category_Name,Root_Cat,Visibleity,user_data.getId(),Cat_link);
         return "redirect:/Admin/Panel/Categories";
     }
 
