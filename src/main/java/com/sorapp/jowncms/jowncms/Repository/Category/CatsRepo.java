@@ -49,7 +49,7 @@ public class CatsRepo
 
 
     //New Category Start
-    public void InsertNewCategory(String Category_Name,String Root_Cat,String Visibleity,int user_id)
+    public void InsertNewCategory(String Category_Name,String Root_Cat,String Visibleity,int user_id,String Cat_link)
     {
         StandardServiceRegistry ssr=new StandardServiceRegistryBuilder().configure("HibernateConfigs/hibernate.cfg.xml").build();
         Metadata meta=new MetadataSources(ssr).getMetadataBuilder().build();
@@ -65,7 +65,7 @@ public class CatsRepo
         category.setType((Root_Cat.equals("0")?"ROOT":"Sub"));
         category.setCreate_date(GetDatetime());
         category.setUser_id(user_id);
-        category.setCat_link("");
+        category.setCat_link(Cat_link);
 
         t.commit();
         session.save(category);
@@ -76,7 +76,7 @@ public class CatsRepo
 
 
     //Update Category Start
-    public void UpdateCategory(int Category_Id,String Category_Name,String Root_Cat,String Visibleity)
+    public void UpdateCategory(int Category_Id,String Category_Name,String Root_Cat,String Visibleity,String Cat_link)
     {
         StandardServiceRegistry ssr=new StandardServiceRegistryBuilder().configure("HibernateConfigs/hibernate.cfg.xml").build();
         Metadata meta=new MetadataSources(ssr).getMetadataBuilder().build();
@@ -95,7 +95,7 @@ public class CatsRepo
         category.setCreate_date(old_data.getCreate_date());
         category.setRoot_id(Integer.parseInt(Root_Cat));
         category.setUser_id(old_data.getUser_id());
-        category.setCat_link(old_data.getCat_link());
+        category.setCat_link(Cat_link);
 
         session.update(category);
         t.commit();
