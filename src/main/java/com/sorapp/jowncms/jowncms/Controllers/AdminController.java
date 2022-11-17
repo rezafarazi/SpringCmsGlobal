@@ -290,10 +290,10 @@ public class AdminController
     }
 
     @RequestMapping(value = "Panel/Categoreis/Update/Done",method = RequestMethod.POST)
-    public String DeleteCategory(HttpServletResponse response,HttpServletRequest request,String Category_Name,String Root_Cat,String Visibleity,String Category_Id)
+    public String UpdateCategory(HttpServletResponse response,HttpServletRequest request,String Category_Name,String Root_Cat,String Visibleity,String Category_Id,String Cat_link)
     {
         Get_User_Data(request);
-        categories_repository.UpdateCategory(Integer.parseInt(Category_Id),Category_Name,Root_Cat,Visibleity);
+        categories_repository.UpdateCategory(Integer.parseInt(Category_Id),Category_Name,Root_Cat,Visibleity,Cat_link);
         return "redirect:/Admin/Panel/Categories";
     }
     /****************Categories End****************/
