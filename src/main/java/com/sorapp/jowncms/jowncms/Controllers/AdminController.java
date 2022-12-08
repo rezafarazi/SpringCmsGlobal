@@ -1,6 +1,5 @@
 package com.sorapp.jowncms.jowncms.Controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.common.hash.Hashing;
@@ -9,18 +8,17 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
-import com.sorapp.jowncms.jowncms.Repository.Category.CatsRepo;
-import com.sorapp.jowncms.jowncms.Repository.Configs.ConfigsRepo;
-import com.sorapp.jowncms.jowncms.Repository.Posts.PostsRepo;
-import com.sorapp.jowncms.jowncms.Repository.Users.UsersRepo;
-import com.sorapp.jowncms.jowncms.Service.Encript.EncriptService;
+import com.sorapp.jowncms.jowncms.Service.Category.CatsRepo;
+import com.sorapp.jowncms.jowncms.Service.Configs.ConfigsRepo;
+import com.sorapp.jowncms.jowncms.Service.Posts.PostsRepo;
+import com.sorapp.jowncms.jowncms.Service.Users.UsersRepo;
+import com.sorapp.jowncms.jowncms.Function.Encript.EncriptService;
 import com.warrenstrange.googleauth.GoogleAuthenticator;
 import com.warrenstrange.googleauth.GoogleAuthenticatorKey;
 import com.warrenstrange.googleauth.GoogleAuthenticatorQRGenerator;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.el.util.Validation;
 import org.apache.tomcat.util.http.fileupload.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -35,10 +33,8 @@ import javax.servlet.ServletOutputStream;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.OutputStream;
 import java.nio.charset.StandardCharsets;
 
 @Slf4j

@@ -1,4 +1,4 @@
-package com.sorapp.jowncms.jowncms.Service.Encript;
+package com.sorapp.jowncms.jowncms.Function.Encript;
 
 import org.springframework.stereotype.Component;
 

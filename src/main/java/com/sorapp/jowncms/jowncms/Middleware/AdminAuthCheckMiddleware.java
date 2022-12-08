@@ -1,9 +1,7 @@
 package com.sorapp.jowncms.jowncms.Middleware;
 
-import com.sorapp.jowncms.jowncms.Controllers.AdminController;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
-import com.sorapp.jowncms.jowncms.Service.Encript.EncriptService;
-import org.json.JSONObject;
+import com.sorapp.jowncms.jowncms.Function.Encript.EncriptService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.sorapp.jowncms.jowncms.Repository.Credential;
+package com.sorapp.jowncms.jowncms.Service.Credential;
 
 import com.warrenstrange.googleauth.ICredentialRepository;
 import lombok.AllArgsConstructor;
