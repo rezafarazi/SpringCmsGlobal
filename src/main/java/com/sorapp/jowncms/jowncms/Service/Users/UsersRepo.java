@@ -1,9 +1,7 @@
-package com.sorapp.jowncms.jowncms.Repository.Users;
+package com.sorapp.jowncms.jowncms.Service.Users;
 
-import com.google.common.hash.Hashing;
 import com.sorapp.jowncms.jowncms.Controllers.AdminController;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
-import com.sun.istack.Nullable;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -14,13 +12,10 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 @Component
 public class UsersRepo

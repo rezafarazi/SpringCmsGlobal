@@ -1,6 +1,5 @@
-package com.sorapp.jowncms.jowncms.Repository.Category;
+package com.sorapp.jowncms.jowncms.Service.Category;
 
-import com.sorapp.jowncms.jowncms.Controllers.AdminController;
 import com.sorapp.jowncms.jowncms.Models.categories_tbl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

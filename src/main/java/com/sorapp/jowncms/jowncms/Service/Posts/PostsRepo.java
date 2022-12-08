@@ -1,6 +1,5 @@
-package com.sorapp.jowncms.jowncms.Repository.Posts;
+package com.sorapp.jowncms.jowncms.Service.Posts;
 
-import com.sorapp.jowncms.jowncms.Models.categories_tbl;
 import com.sorapp.jowncms.jowncms.Models.posts_tbl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

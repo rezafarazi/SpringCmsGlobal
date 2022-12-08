@@ -1,4 +1,4 @@
-package com.sorapp.jowncms.jowncms.Repository.Configs;
+package com.sorapp.jowncms.jowncms.Service.Configs;
 
 import com.sorapp.jowncms.jowncms.Models.configs_tbl;
 import org.hibernate.Session;

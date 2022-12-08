@@ -5,10 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51dfcb19-5dd8-4e7f-b8c8-3f25e47fb0a7" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Config/Google2FConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Config/Google2FConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Controllers/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Category/CatsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Category/CatsRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Middleware/AdminAuthCheckMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Middleware/AdminAuthCheckMiddleware.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Category/CatsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Category/CatsRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Configs/ConfigsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Configs/ConfigsRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Credential/CredentialRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Credential/CredentialRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Posts/PostsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Posts/PostsRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Users/UsersRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Users/UsersRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Encript/EncriptService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Function/Encript/EncriptService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Config/Google2FConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Config/Google2FConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Controllers/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Controllers/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Middleware/AdminAuthCheckMiddleware.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Middleware/AdminAuthCheckMiddleware.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Repository/Category/CatsRepo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Repository/Configs/ConfigsRepo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Repository/Credential/CredentialRepo$UserTOTP.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Repository/Credential/CredentialRepo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Repository/Posts/PostsRepo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Repository/Users/UsersRepo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Service/Encript/EncriptService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -122,6 +139,7 @@
       <workItem from="1667566567376" duration="1180000" />
       <workItem from="1668670254626" duration="533000" />
       <workItem from="1668671004216" duration="563000" />
+      <workItem from="1670515359277" duration="217000" />
     </task>
     <servers />
   </component>

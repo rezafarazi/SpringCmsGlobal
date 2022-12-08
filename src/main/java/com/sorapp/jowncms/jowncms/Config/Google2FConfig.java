@@ -1,6 +1,6 @@
 package com.sorapp.jowncms.jowncms.Config;
 
-import com.sorapp.jowncms.jowncms.Repository.Credential.CredentialRepo;
+import com.sorapp.jowncms.jowncms.Service.Credential.CredentialRepo;
 import com.warrenstrange.googleauth.GoogleAuthenticator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
