@@ -1,6 +1,6 @@
 package com.sorapp.jowncms.jowncms.Service.Configs;
 
-import com.sorapp.jowncms.jowncms.Models.configs_tbl;
+import com.sorapp.jowncms.jowncms.Models.settings_tbl;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -19,7 +19,7 @@ public class ConfigsRepo
 {
 
     //Get Configs Start
-    public ArrayList<configs_tbl> GetConfigs()
+    public ArrayList<settings_tbl> GetConfigs()
     {
         StandardServiceRegistry ssr=new StandardServiceRegistryBuilder().configure("HibernateConfigs/hibernate.cfg.xml").build();
         Metadata meta=new MetadataSources(ssr).getMetadataBuilder().build();
@@ -33,7 +33,7 @@ public class ConfigsRepo
         t.commit();
         factory.close();
         session.close();
-        return (ArrayList<configs_tbl>) results;
+        return (ArrayList<settings_tbl>) results;
     }
     //Get Configs End
 
@@ -48,7 +48,7 @@ public class ConfigsRepo
         Session session=factory.openSession();
         Transaction t=session.beginTransaction();
 
-        configs_tbl conf=new configs_tbl();
+        settings_tbl conf=new settings_tbl();
         conf.setId(1);
         conf.setConfigs_json(json);
 

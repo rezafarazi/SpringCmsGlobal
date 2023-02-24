@@ -1,10 +1,9 @@
 package com.sorapp.jowncms.jowncms.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "posts_tbls")
 public class posts_tbl
 {
 
@@ -13,11 +12,30 @@ public class posts_tbl
     int id;
     String title;
     String content;
-    String enabled_flag;
-    String edit_time;
-    int user_id;
-    int category_id;
-    String image_address;
+    String image;
+    String date;
+    String delete_flag;
+    String visible;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    users_tbl user_id;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    categories_tbl category_id;
+
+    public posts_tbl() {
+    }
+
+    public posts_tbl(String title, String content, String image, String date, String delete_flag, String visible, users_tbl user_id, categories_tbl category_id) {
+        this.title = title;
+        this.content = content;
+        this.image = image;
+        this.date = date;
+        this.delete_flag = delete_flag;
+        this.visible = visible;
+        this.user_id = user_id;
+        this.category_id = category_id;
+    }
 
     public int getId() {
         return id;
@@ -43,43 +61,51 @@ public class posts_tbl
         this.content = content;
     }
 
-    public String getEnabled_flag() {
-        return enabled_flag;
+    public String getImage() {
+        return image;
     }
 
-    public void setEnabled_flag(String enabled_flag) {
-        this.enabled_flag = enabled_flag;
+    public void setImage(String image) {
+        this.image = image;
     }
 
-    public String getEdit_time() {
-        return edit_time;
+    public String getDate() {
+        return date;
     }
 
-    public void setEdit_time(String edit_time) {
-        this.edit_time = edit_time;
+    public void setDate(String date) {
+        this.date = date;
     }
 
-    public int getUser_id() {
+    public String getDelete_flag() {
+        return delete_flag;
+    }
+
+    public void setDelete_flag(String delete_flag) {
+        this.delete_flag = delete_flag;
+    }
+
+    public String getVisible() {
+        return visible;
+    }
+
+    public void setVisible(String visible) {
+        this.visible = visible;
+    }
+
+    public users_tbl getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(users_tbl user_id) {
         this.user_id = user_id;
     }
 
-    public int getCategory_id() {
+    public categories_tbl getCategory_id() {
         return category_id;
     }
 
-    public void setCategory_id(int category_id) {
+    public void setCategory_id(categories_tbl category_id) {
         this.category_id = category_id;
-    }
-
-    public String getImage_address() {
-        return image_address;
-    }
-
-    public void setImage_address(String image_address) {
-        this.image_address = image_address;
     }
 }

@@ -3,23 +3,36 @@ package com.sorapp.jowncms.jowncms.Models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name = "categories_tbls")
 public class categories_tbl
 {
 
     @Id
     @GeneratedValue
     int id;
-
     String title;
+    int root_cat_id;
     String icon_address;
-    String type;
-    String create_date;
-    String enabled_flag;
-    int root_id;
-    int user_id;
-    String cat_link;
+    String datetime;
+    String castom_link;
+    String visible;
+    String delete_flag;
+
+    public categories_tbl() {
+    }
+
+    public categories_tbl(String title, int root_cat_id, String icon_address, String datetime, String castom_link, String visible, String delete_flag) {
+        this.title = title;
+        this.root_cat_id = root_cat_id;
+        this.icon_address = icon_address;
+        this.datetime = datetime;
+        this.castom_link = castom_link;
+        this.visible = visible;
+        this.delete_flag = delete_flag;
+    }
 
     public int getId() {
         return id;
@@ -37,6 +50,14 @@ public class categories_tbl
         this.title = title;
     }
 
+    public int getRoot_cat_id() {
+        return root_cat_id;
+    }
+
+    public void setRoot_cat_id(int root_cat_id) {
+        this.root_cat_id = root_cat_id;
+    }
+
     public String getIcon_address() {
         return icon_address;
     }
@@ -45,51 +66,35 @@ public class categories_tbl
         this.icon_address = icon_address;
     }
 
-    public String getType() {
-        return type;
+    public String getDatetime() {
+        return datetime;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setDatetime(String datetime) {
+        this.datetime = datetime;
     }
 
-    public String getCreate_date() {
-        return create_date;
+    public String getCastom_link() {
+        return castom_link;
     }
 
-    public void setCreate_date(String create_date) {
-        this.create_date = create_date;
+    public void setCastom_link(String castom_link) {
+        this.castom_link = castom_link;
     }
 
-    public String getEnabled_flag() {
-        return enabled_flag;
+    public String getVisible() {
+        return visible;
     }
 
-    public void setEnabled_flag(String enabled_flag) {
-        this.enabled_flag = enabled_flag;
+    public void setVisible(String visible) {
+        this.visible = visible;
     }
 
-    public int getRoot_id() {
-        return root_id;
+    public String getDelete_flag() {
+        return delete_flag;
     }
 
-    public void setRoot_id(int root_id) {
-        this.root_id = root_id;
-    }
-
-    public int getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(int user_id) {
-        this.user_id = user_id;
-    }
-
-    public String getCat_link() {
-        return cat_link;
-    }
-
-    public void setCat_link(String cat_link) {
-        this.cat_link = cat_link;
+    public void setDelete_flag(String delete_flag) {
+        this.delete_flag = delete_flag;
     }
 }
