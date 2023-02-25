@@ -5,35 +5,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51dfcb19-5dd8-4e7f-b8c8-3f25e47fb0a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/city_tbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/discount_code_tbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/file_tbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/hospital_img_tbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/hospital_tbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/notifications_tbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/orders_tbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/report_tbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/reports_tbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/settings_tbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/store_categories_tbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/store_images_tbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/store_tbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/transcation_tbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/user_verify_tbl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/userstype_tbl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Category_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/City_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Discount_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/File_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Hospital_Img_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Hospital_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Notification_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Orders_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Posts_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Report_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Reports_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Setting_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Store_Categories_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Store_Images_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Store_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Transcation_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/User_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/User_Verify_Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Users_Type_Repo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jowncms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jowncms.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/categories_tbl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/categories_tbl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/configs_tbl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/posts_tbl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/posts_tbl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/users_tbl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/users_tbl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Configs/ConfigsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Configs/ConfigsRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/HibernateConfigs/categories_tbl.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/HibernateConfigs/configs_tbl.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/HibernateConfigs/posts_tbl.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/HibernateConfigs/users_tbl.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/HibernateConfigs/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/HibernateConfigs/hibernate.cfg.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,6 +38,7 @@
         <option value="AnnotationType" />
         <option value="HTML File" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -74,17 +67,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "jdk.selected.JAVA_MODULE": "17",
-    "last_opened_file_path": "/home/rezafta/Downloads/SpringCms",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;17&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/rezafta/Downloads/SpringCms&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.sorapp.jowncms.jowncms.Annonations" />
