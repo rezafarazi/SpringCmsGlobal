@@ -5,12 +5,13 @@ import com.sorapp.jowncms.jowncms.Models.report_tbl;
 import com.sorapp.jowncms.jowncms.Models.posts_tbl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface Reports_Repo
 {
 
     //Get All Unseen Reports
-    public ArrayList<reports_tbl> GetAllUnseenReports();
+    public List<reports_tbl> GetAllUnseenReports();
 
     //Get Report
     public reports_tbl GetReport(int id);

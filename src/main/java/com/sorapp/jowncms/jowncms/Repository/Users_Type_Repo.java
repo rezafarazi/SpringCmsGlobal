@@ -3,12 +3,13 @@ package com.sorapp.jowncms.jowncms.Repository;
 import com.sorapp.jowncms.jowncms.Models.userstype_tbl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface Users_Type_Repo
 {
 
     //Get All User Type
-    public ArrayList<userstype_tbl> GetAllUserType();
+    public List<userstype_tbl> GetAllUserType();
 
     //Get User Type
     public userstype_tbl GetUserType(int user_type_id);

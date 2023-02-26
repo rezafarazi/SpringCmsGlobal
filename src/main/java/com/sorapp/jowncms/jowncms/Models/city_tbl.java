@@ -13,14 +13,14 @@ public class city_tbl
     @GeneratedValue
     int id;
     String name;
-    String area;
+    int area;
     String status;
     String datetime;
 
     public city_tbl() {
     }
 
-    public city_tbl(String name, String area, String status, String datetime) {
+    public city_tbl(String name, int area, String status, String datetime) {
         this.name = name;
         this.area = area;
         this.status = status;
@@ -43,11 +43,11 @@ public class city_tbl
         this.name = name;
     }
 
-    public String getArea() {
+    public int getArea() {
         return area;
     }
 
-    public void setArea(String area) {
+    public void setArea(int area) {
         this.area = area;
     }
 

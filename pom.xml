@@ -74,11 +74,11 @@
 			<version>20180130</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/com.google.zxing/javase -->
+		<!--Jpa-->
 		<dependency>
-			<groupId>com.google.zxing</groupId>
-			<artifactId>javase</artifactId>
-			<version>3.5.0</version>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<scope>compile</scope>
 		</dependency>
 
 		<dependency>

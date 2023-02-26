@@ -5,12 +5,13 @@ import com.sorapp.jowncms.jowncms.Models.file_tbl;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface User_Repo
 {
 
     //Get All Users
-    public ArrayList<users_tbl> GetAllUsers();
+    public List<users_tbl> GetAllUsers();
 
     //Get User
     public users_tbl GetUser(int id);

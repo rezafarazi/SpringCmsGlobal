@@ -5,6 +5,7 @@ import com.sorapp.jowncms.jowncms.Models.store_tbl;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface Orders_Repo
 {
@@ -13,7 +14,7 @@ public interface Orders_Repo
     public orders_tbl GetOrderSearchResult(String code);
 
     //Get All Current orders
-    public ArrayList<orders_tbl> GetCurrentOrders();
+    public List<orders_tbl> GetCurrentOrders();
 
     //New Order
     public orders_tbl NewOrder(String type, String date, String time, String order_status, String price, store_tbl store_id, users_tbl user_id);

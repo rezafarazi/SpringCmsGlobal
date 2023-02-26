@@ -3,6 +3,7 @@ package com.sorapp.jowncms.jowncms.Repository;
 import com.sorapp.jowncms.jowncms.Models.categories_tbl;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public interface Category_Repo
 {
@@ -11,12 +12,12 @@ public interface Category_Repo
     public categories_tbl GetCategory(int id);
 
     //Get Categories
-    public ArrayList<categories_tbl> GetCategories();
+    public List<categories_tbl> GetCategories();
 
     //Insert Cateogry
     public categories_tbl NewCategory(String title,int root_cat_id,String icon_address,String datetime,String castom_link,String visible,String delete_flag);
 
     //Update Category
-    public categories_tbl UpdateCategory(int id,String title,int root_cat_id,String icon_address,String datetime,String castom_link,String visible,String delete_flag);
+    public categories_tbl UpdateCategory(int id,String title,int root_cat_id,String icon_address,String castom_link,String visible,String delete_flag);
 
 }
