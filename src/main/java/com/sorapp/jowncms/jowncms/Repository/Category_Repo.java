@@ -2,8 +2,16 @@ package com.sorapp.jowncms.jowncms.Repository;
 
 import com.sorapp.jowncms.jowncms.Models.categories_tbl;
 
+import java.util.ArrayList;
+
 public interface Category_Repo
 {
+
+    //Get Category
+    public categories_tbl GetCategory(int id);
+
+    //Get Categories
+    public ArrayList<categories_tbl> GetCategories();
 
     //Insert Cateogry
     public categories_tbl NewCategory(String title,int root_cat_id,String icon_address,String datetime,String castom_link,String visible,String delete_flag);

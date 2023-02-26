@@ -4,8 +4,16 @@ import com.sorapp.jowncms.jowncms.Models.city_tbl;
 import com.sorapp.jowncms.jowncms.Models.file_tbl;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
 
+import java.util.ArrayList;
+
 public interface User_Repo
 {
+
+    //Get All Users
+    public ArrayList<users_tbl> GetAllUsers();
+
+    //Get User
+    public users_tbl GetUser(int id);
 
     //Insert
     public users_tbl NewUser(String name, String family, String username, String password, String LoginToken, String phone, String email, String bio, String date_time, String user_type, String status, String website, String address, String google_auth, file_tbl profile_image_file_id, city_tbl city_id);

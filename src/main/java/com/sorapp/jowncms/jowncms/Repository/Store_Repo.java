@@ -2,8 +2,19 @@ package com.sorapp.jowncms.jowncms.Repository;
 
 import com.sorapp.jowncms.jowncms.Models.*;
 
+import java.util.ArrayList;
+
 public interface Store_Repo
 {
+
+    //Get All Posts
+    public ArrayList<store_tbl> GetAllPosts();
+
+    //Get Post
+    public store_tbl GetPost(int store_id);
+
+    //Get Search Post result
+    public ArrayList<store_tbl> GetSearchPost(String Search);
 
     //New Post
     public store_tbl NewPost(String title, String content, String type, String date, String delete_flag, String visible, String json, String price, String discount, String adiscount, users_tbl user_id, store_categories_tbl category_id,file_tbl file_id);
