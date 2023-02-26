@@ -17,9 +17,6 @@ public interface Orders_Repo
     public List<orders_tbl> GetCurrentOrders();
 
     //New Order
-    public orders_tbl NewOrder(String type, String date, String time, String order_status, String price, store_tbl store_id, users_tbl user_id);
-
-    //Remove Order
-    public void NewOrder(int Order_Id);
+    public orders_tbl NewOrder(String type, String date, String time, String price, store_tbl store_id, users_tbl user_id);
 
 }

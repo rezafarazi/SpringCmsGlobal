@@ -60,7 +60,7 @@ public class Category_Service implements Category_Repo
 
         DBRepository.session.update(NCategory);
         DBRepository.TA.commit();
-        return null;
+        return NCategory;
     }
 
 }

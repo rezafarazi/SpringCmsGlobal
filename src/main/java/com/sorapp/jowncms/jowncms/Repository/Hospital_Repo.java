@@ -22,6 +22,6 @@ public interface Hospital_Repo
     public hospital_tbl UpdateHospital(int id,String name, String bio, String lat, String lng, String address, String start_time, String end_time, String tel, String status, city_tbl city_id);
 
     //Remove Hospital
-    public hospital_tbl RemoveHospital(int id);
+    public void RemoveHospital(int id);
 
 }

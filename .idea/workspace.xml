@@ -5,48 +5,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="51dfcb19-5dd8-4e7f-b8c8-3f25e47fb0a7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/DatabaseRepository/DBRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Function/Hash/HashService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Category/Category_Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/City/City_Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Discount/Discount_Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Setting/Setting_Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Store/Store_Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/StoreImage/StoreImage_Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Transation/Transation_Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/UserType/UserType_Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/UserVerify/UserVerify_Service.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Users/Users_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_beust_jcommander_1_82.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_jai_imageio_jai_imageio_core_1_4_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_zxing_core_3_5_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_zxing_javase_3_5_0.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/File/File_Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Hospital/Hospital_Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/HospitalImg/Hospital_Img_Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Notification/Notification_Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Order/Order_service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Post/Post_Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Report/Report_Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Reports/Reports_Service.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/StoreCategory/StoreCategory_Service.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/jowncms.iml" beforeDir="false" afterPath="$PROJECT_DIR$/jowncms.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/JowncmsApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/JowncmsApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/city_tbl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/city_tbl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Category_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Category_Repo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/City_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/City_Repo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Discount_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Discount_Repo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Hospital_Img_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Hospital_Img_Repo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/File_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/File_Repo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Hospital_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Hospital_Repo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Notification_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Notification_Repo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Orders_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Orders_Repo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Posts_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Posts_Repo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Report_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Report_Repo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Reports_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Reports_Repo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Store_Categories_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Store_Categories_Repo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Store_Images_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Store_Images_Repo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Store_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Store_Repo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Transcation_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Transcation_Repo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/User_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/User_Repo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Users_Type_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Users_Type_Repo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Category/CatsRepo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Configs/ConfigsRepo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Credential/CredentialRepo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Posts/PostsRepo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Users/UsersRepo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Category/Category_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Category/Category_Service.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

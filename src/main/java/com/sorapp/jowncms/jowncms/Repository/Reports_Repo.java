@@ -3,6 +3,7 @@ package com.sorapp.jowncms.jowncms.Repository;
 import com.sorapp.jowncms.jowncms.Models.reports_tbl;
 import com.sorapp.jowncms.jowncms.Models.report_tbl;
 import com.sorapp.jowncms.jowncms.Models.posts_tbl;
+import com.sorapp.jowncms.jowncms.Models.users_tbl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +18,7 @@ public interface Reports_Repo
     public reports_tbl GetReport(int id);
 
     //New Report
-    public reports_tbl NewReport(String content,String date_time,String condition,report_tbl report_id,posts_tbl post_id);
+    public reports_tbl NewReport(String content, String date_time, String condition, report_tbl report_id, posts_tbl post_id, users_tbl user_id);
 
     //Remove Report
     public void RemoveReport(int id);

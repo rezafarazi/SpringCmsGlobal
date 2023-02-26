@@ -20,10 +20,10 @@ public interface Posts_Repo
     public List<posts_tbl> GetSearchPost(String Search);
 
     //New Post
-    public posts_tbl NewPost(String title, String content, String image, String date, String delete_flag, String visible, users_tbl user_id, categories_tbl categpry_id);
+    public posts_tbl NewPost(String title, String content, String image, String date, String visible, users_tbl user_id, categories_tbl categpry_id);
 
     //Update post
-    public posts_tbl UpdatePost(int id,String title, String content, String image, String date, String delete_flag, String visible, users_tbl user_id, categories_tbl categpry_id);
+    public posts_tbl UpdatePost(int id,String title, String content, String image, String date, String visible, users_tbl user_id, categories_tbl categpry_id);
 
     //Remove post
     public void RemovePost(int id);
