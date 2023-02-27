@@ -18,6 +18,7 @@ com/sorapp/jowncms/jowncms/ServletInitializer.class
 com/sorapp/jowncms/jowncms/Repository/Notification_Repo.class
 com/sorapp/jowncms/jowncms/Models/userstype_tbl.class
 com/sorapp/jowncms/jowncms/Repository/Setting_Repo.class
+com/sorapp/jowncms/jowncms/Config/Google2FConfig.class
 com/sorapp/jowncms/jowncms/Models/user_verify_tbl.class
 com/sorapp/jowncms/jowncms/Service/Order/Order_service.class
 com/sorapp/jowncms/jowncms/DatabaseRepository/DBRepository.class
@@ -27,6 +28,7 @@ com/sorapp/jowncms/jowncms/Service/Hospital/Hospital_Service.class
 com/sorapp/jowncms/jowncms/Models/hospital_tbl.class
 com/sorapp/jowncms/jowncms/Service/Reports/Reports_Service.class
 com/sorapp/jowncms/jowncms/JowncmsApplication.class
+com/sorapp/jowncms/jowncms/Repository/CredentialRepo$UserTOTP.class
 com/sorapp/jowncms/jowncms/Controllers/FilePeresintController.class
 com/sorapp/jowncms/jowncms/Models/categories_tbl.class
 com/sorapp/jowncms/jowncms/Service/File/File_Service.class
@@ -64,5 +66,6 @@ com/sorapp/jowncms/jowncms/Repository/Users_Type_Repo.class
 com/sorapp/jowncms/jowncms/Repository/Hospital_Repo.class
 com/sorapp/jowncms/jowncms/Repository/Transcation_Repo.class
 com/sorapp/jowncms/jowncms/Repository/Reports_Repo.class
+com/sorapp/jowncms/jowncms/Repository/CredentialRepo.class
 com/sorapp/jowncms/jowncms/Models/notifications_tbl.class
 com/sorapp/jowncms/jowncms/Repository/User_Repo.class

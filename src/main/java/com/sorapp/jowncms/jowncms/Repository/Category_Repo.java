@@ -20,4 +20,7 @@ public interface Category_Repo
     //Update Category
     public categories_tbl UpdateCategory(int id,String title,int root_cat_id,String icon_address,String castom_link,String visible,String delete_flag);
 
+    //Remove Category
+    public void RemoveCategory(int id);
+
 }

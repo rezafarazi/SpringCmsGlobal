@@ -33,6 +33,8 @@ public class Users_Service implements User_Repo
         return Result;
     }
 
+
+
     @Override
     public users_tbl GetUser(int id)
     {
@@ -42,6 +44,42 @@ public class Users_Service implements User_Repo
         users_tbl Result = (users_tbl) HQL.list().get(0);
         return Result;
     }
+
+
+    @Override
+    public users_tbl Login(String username, String password)
+    {
+        try
+        {
+            DBRepository.session = DBRepository.SF.openSession();
+            DBRepository.TA = DBRepository.session.beginTransaction();
+            Query HQL = DBRepository.session.createQuery("FROM users_tbl user WHERE user.username LIKE '"+username+"' AND user.password LIKE '"+password+"'");
+            users_tbl Result = (users_tbl) HQL.list().get(0);
+            return Result;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
+    @Override
+    public users_tbl LoginByToken(String token)
+    {
+        try
+        {
+            DBRepository.session = DBRepository.SF.openSession();
+            DBRepository.TA = DBRepository.session.beginTransaction();
+            Query HQL = DBRepository.session.createQuery("FROM users_tbl user WHERE user.login_token LIKE '"+token+"'");
+            users_tbl Result = (users_tbl) HQL.list().get(0);
+            return Result;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
 
     @Override
     public users_tbl NewUser(String name, String family, String username, String password, String LoginToken, String phone, String email, String bio, String date_time, String user_type, String status, String website, String address, String google_auth, file_tbl profile_image_file_id, city_tbl city_id)

@@ -16,6 +16,12 @@ public interface User_Repo
     //Get User
     public users_tbl GetUser(int id);
 
+    //Login User
+    public users_tbl Login(String username,String password);
+
+    //Login User
+    public users_tbl LoginByToken(String token);
+
     //Insert
     public users_tbl NewUser(String name, String family, String username, String password, String LoginToken, String phone, String email, String bio, String date_time, String user_type, String status, String website, String address, String google_auth, file_tbl profile_image_file_id, city_tbl city_id);
 

@@ -1,8 +1,8 @@
-@font-face 
+@font-face
 {
     font-family: 'iran_sans';
     src: url('../fonts/IRANSans/IRANSans.ttf');
-}  
+}
 
 *
 {
@@ -28,7 +28,7 @@ body
     margin-right: auto;
 }
 
-.sidebar .nav .nav-item .nav-link i.menu-arrow + .menu-icon 
+.sidebar .nav .nav-item .nav-link i.menu-arrow + .menu-icon
 {
     margin-left: 0;
     margin-right: .25rem;
@@ -149,4 +149,10 @@ body
 .card-title
 {
     text-align: right;
+}
+
+
+.form-group>label
+{
+    width: 100%;text-align: right;
 }

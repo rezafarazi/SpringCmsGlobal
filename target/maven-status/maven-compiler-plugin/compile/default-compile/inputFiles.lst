@@ -20,8 +20,10 @@
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Function/Encript/EncriptService.java
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Repository/Discount_Repo.java
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Service/HospitalImg/Hospital_Img_Service.java
+/home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Config/Google2FConfig.java
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Service/File/File_Service.java
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Service/Transation/Transation_Service.java
+/home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Repository/CredentialRepo.java
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Controllers/AdminController.java
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Repository/Setting_Repo.java
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Service/Setting/Setting_Service.java
@@ -64,4 +66,5 @@
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Config/WebConfig.java
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Service/Report/Report_Service.java
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Service/UserVerify/UserVerify_Service.java
+/home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Controllers/FilePeresintController.java
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Models/user_verify_tbl.java

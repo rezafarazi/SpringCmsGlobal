@@ -25,7 +25,7 @@ public class Category_Service implements Category_Repo
     {
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
-        Query HQL= DBRepository.session.createQuery("FROM categories_tbl WHERE categories_tbl.id="+id);
+        Query HQL= DBRepository.session.createQuery("FROM categories_tbl cat WHERE cat.id="+id);
         categories_tbl Result = (categories_tbl) HQL.list().get(0);
         return Result;
     }
@@ -35,7 +35,7 @@ public class Category_Service implements Category_Repo
     {
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
-        Query HQL=DBRepository.session.createQuery("FROM categories_tbl WHERE categories_tbl.delete_flag='0'");
+        Query HQL=DBRepository.session.createQuery("FROM categories_tbl cat WHERE cat.delete_flag LIKE '0'");
         List<categories_tbl> Result = HQL.getResultList();
         return Result;
     }
@@ -80,6 +80,20 @@ public class Category_Service implements Category_Repo
         DBRepository.session.update(NCategory);
         DBRepository.TA.commit();
         return NCategory;
+    }
+
+    @Override
+    public void RemoveCategory(int id)
+    {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
+
+        categories_tbl NCategory=GetCategory(id);
+
+        NCategory.setDelete_flag("1");
+
+        DBRepository.session.update(NCategory);
+        DBRepository.TA.commit();
     }
 
 }
