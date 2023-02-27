@@ -8,7 +8,7 @@ public class user_verify_tbl
 {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String hash_code;
     @ManyToOne

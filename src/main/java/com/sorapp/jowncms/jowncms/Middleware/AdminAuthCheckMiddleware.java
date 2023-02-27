@@ -17,6 +17,9 @@ import java.io.IOException;
 public class AdminAuthCheckMiddleware implements HandlerInterceptor
 {
 
+    //User
+    public static users_tbl AuthUser;
+
     //Check Log Variable
     private static final Logger LOGGER=LoggerFactory.getLogger(AdminAuthCheckMiddleware.class);
 
@@ -46,6 +49,7 @@ public class AdminAuthCheckMiddleware implements HandlerInterceptor
             {
                 String json = Encription.DEC(auth);
                 users_tbl user = new users_tbl().FromJson(json);
+                AuthUser=user;
                 return true;
             }
             catch (Exception e)

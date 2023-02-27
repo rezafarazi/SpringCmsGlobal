@@ -11,14 +11,7 @@ public class JowncmsApplication {
 	{
 
 		//Database start
-		new Thread(
-			new Runnable() {
-				@Override
-				public void run() {
-					new DBRepository();
-				}
-			}
-		).start();
+		new DBRepository();
 		//Database end
 
 		SpringApplication.run(JowncmsApplication.class, args);

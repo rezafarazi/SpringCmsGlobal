@@ -17,7 +17,7 @@ public class WebConfig implements WebMvcConfigurer
     @Override
     public void addInterceptors(InterceptorRegistry registry)
     {
-        registry.addInterceptor(AdminAuthCheck).addPathPatterns("/Admin/Panel/*");
+        //registry.addInterceptor(AdminAuthCheck).addPathPatterns("/Admin/Panel/*");
     }
     //Admin Auth Check End
 

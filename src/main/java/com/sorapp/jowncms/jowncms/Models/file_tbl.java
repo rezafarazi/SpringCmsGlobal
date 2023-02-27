@@ -7,7 +7,7 @@ import javax.persistence.*;
 public class file_tbl
 {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String file_name;
     String file_address;
@@ -17,14 +17,11 @@ public class file_tbl
     String file_size;
     String file_hash;
     String file_date_time;
-    @ManyToOne
-    @JoinColumn(name = "user_id")
-    users_tbl user_id;
 
     public file_tbl() {
     }
 
-    public file_tbl(String file_name, String file_address, String file_address_server, String file_type, String file_extention, String file_size, String file_hash, String file_date_time, users_tbl user_id) {
+    public file_tbl(String file_name, String file_address, String file_address_server, String file_type, String file_extention, String file_size, String file_hash, String file_date_time) {
         this.file_name = file_name;
         this.file_address = file_address;
         this.file_address_server = file_address_server;
@@ -33,7 +30,6 @@ public class file_tbl
         this.file_size = file_size;
         this.file_hash = file_hash;
         this.file_date_time = file_date_time;
-        this.user_id = user_id;
     }
 
     public int getId() {
@@ -108,11 +104,4 @@ public class file_tbl
         this.file_date_time = file_date_time;
     }
 
-    public users_tbl getUser_id() {
-        return user_id;
-    }
-
-    public void setUser_id(users_tbl user_id) {
-        this.user_id = user_id;
-    }
 }

@@ -8,7 +8,7 @@ public class store_tbl
 {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String title;
     String content;

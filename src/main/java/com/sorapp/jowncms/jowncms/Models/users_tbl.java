@@ -13,7 +13,7 @@ public class users_tbl
 {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String username;
     String password;
@@ -30,16 +30,54 @@ public class users_tbl
     String address;
     String google_auth;
     @ManyToOne
-    @JoinColumn(name = "profile_image_id")
-    file_tbl profile_image_id;
+    @JoinColumn(name = "profile_image_file_id")
+    file_tbl profile_image_file_id;
     @ManyToOne
     @JoinColumn(name = "city_id")
     city_tbl city_id;
 
+    public users_tbl FromJson(String jsonstring)
+    {
+        JSONObject json=new JSONObject(jsonstring);
+        return new users_tbl(
+                Integer.parseInt(json.get("id").toString()),
+                json.get("username").toString(),
+                json.get("password").toString(),
+                json.get("name").toString(),
+                json.get("family").toString(),
+                json.get("phone").toString(),
+                json.get("email").toString(),
+                json.get("bio").toString(),
+                json.get("login_token").toString(),
+                json.get("date_time").toString(),
+                json.get("user_type").toString(),
+                json.get("status").toString(),
+                json.get("website").toString(),
+                json.get("address").toString()
+        );
+    }
+
     public users_tbl() {
     }
 
-    public users_tbl(String username, String password, String name, String family, String phone, String email, String bio, String login_token, String date_time, String user_type, String status, String website, String address, String google_auth, file_tbl profile_image_id, city_tbl city_id) {
+    public users_tbl(int id, String username, String password, String name, String family, String phone, String email, String bio, String login_token, String date_time, String user_type, String status, String website, String address) {
+        this.id = id;
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.family = family;
+        this.phone = phone;
+        this.email = email;
+        this.bio = bio;
+        this.login_token = login_token;
+        this.date_time = date_time;
+        this.user_type = user_type;
+        this.status = status;
+        this.website = website;
+        this.address = address;
+    }
+
+    public users_tbl(String username, String password, String name, String family, String phone, String email, String bio, String login_token, String date_time, String user_type, String status, String website, String address, String google_auth, file_tbl profile_image_file_id, city_tbl city_id) {
         this.username = username;
         this.password = password;
         this.name = name;
@@ -54,7 +92,7 @@ public class users_tbl
         this.website = website;
         this.address = address;
         this.google_auth = google_auth;
-        this.profile_image_id = profile_image_id;
+        this.profile_image_file_id = profile_image_file_id;
         this.city_id = city_id;
     }
 
@@ -179,11 +217,11 @@ public class users_tbl
     }
 
     public file_tbl getProfile_image_id() {
-        return profile_image_id;
+        return profile_image_file_id;
     }
 
     public void setProfile_image_id(file_tbl profile_image_id) {
-        this.profile_image_id = profile_image_id;
+        this.profile_image_file_id = profile_image_id;
     }
 
     public city_tbl getCity_id() {

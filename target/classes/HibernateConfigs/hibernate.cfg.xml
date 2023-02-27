@@ -1,21 +1,39 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
-        "-//Hibernate/Hibernate Configuration DTD 5.3//EN"
-        "http://hibernate.sourceforge.net/hibernate-configuration-5.3.dtd">
-
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
 
     <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:3306/jowncms_db</property>
-        <property name="connection.username">root</property>
-        <property name="connection.password"></property>
-        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+        <property name="connection.url">jdbc:mysql://localhost:3306/laravel_DB</property>
+        <property name="dialect">org.hibernate.dialect.MySQL8Dialect</property>
+        <property name="connection.username">rot</property>
+        <property name="connection.password">@R1e2z3a4</property>
         <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
 
-        <mapping resource="HibernateConfigs/users_tbl.xml"/>
-        <mapping resource="HibernateConfigs/categories_tbl.xml"/>
-        <mapping resource="HibernateConfigs/posts_tbl.xml"/>
-        <mapping resource="HibernateConfigs/configs_tbl.xml"/>
+
+        <mapping class="com.sorapp.jowncms.jowncms.Models.users_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.userstype_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.user_verify_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.categories_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.posts_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.store_categories_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.store_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.store_images_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.report_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.reports_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.transcation_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.notifications_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.settings_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.hospital_img_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.discount_code_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.city_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.hospital_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.file_tbl"/>
+        <mapping class="com.sorapp.jowncms.jowncms.Models.orders_tbl"/>
+
+
 
     </session-factory>
 

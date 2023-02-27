@@ -8,7 +8,7 @@ public class orders_tbl
 {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String type;
     String date;

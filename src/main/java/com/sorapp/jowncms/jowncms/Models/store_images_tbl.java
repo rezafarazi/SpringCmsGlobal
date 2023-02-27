@@ -8,7 +8,7 @@ public class store_images_tbl
 {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String date;
     @ManyToOne

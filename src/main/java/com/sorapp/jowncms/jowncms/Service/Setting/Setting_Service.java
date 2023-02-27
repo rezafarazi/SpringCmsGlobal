@@ -5,13 +5,18 @@ import com.sorapp.jowncms.jowncms.Models.settings_tbl;
 import com.sorapp.jowncms.jowncms.Models.store_images_tbl;
 import com.sorapp.jowncms.jowncms.Repository.Setting_Repo;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Setting_Service implements Setting_Repo
 {
 
     @Override
     public settings_tbl GetSetting()
     {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
+
         Query HQL= DBRepository.session.createQuery("FROM settings_tbl");
         settings_tbl Result = (settings_tbl) HQL.list().get(HQL.list().size()-1);
         return Result;
@@ -20,6 +25,9 @@ public class Setting_Service implements Setting_Repo
     @Override
     public settings_tbl NewSetting(String parametrs, String discountall)
     {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
+
         settings_tbl settings_tbl=new settings_tbl();
 
         settings_tbl.setDiscountall(discountall);

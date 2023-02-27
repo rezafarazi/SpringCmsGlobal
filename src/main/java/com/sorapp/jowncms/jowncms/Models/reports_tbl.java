@@ -8,7 +8,7 @@ public class reports_tbl
 {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String content;
     String date_time;

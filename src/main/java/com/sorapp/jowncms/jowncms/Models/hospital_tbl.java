@@ -8,7 +8,7 @@ public class hospital_tbl
 {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String name;
     String bio;

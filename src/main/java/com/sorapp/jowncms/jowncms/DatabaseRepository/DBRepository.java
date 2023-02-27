@@ -24,9 +24,8 @@ public class DBRepository
         SSR=new StandardServiceRegistryBuilder().configure("HibernateConfigs/hibernate.cfg.xml").build();
         Meta=new MetadataSources(SSR).getMetadataBuilder().build();
         SF=Meta.getSessionFactoryBuilder().build();
-        session=SF.openSession();
-        TA=session.beginTransaction();
     }
     //Constractor end
+
 
 }

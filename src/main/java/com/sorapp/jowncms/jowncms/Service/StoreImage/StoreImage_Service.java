@@ -7,15 +7,20 @@ import com.sorapp.jowncms.jowncms.Models.store_tbl;
 import com.sorapp.jowncms.jowncms.Models.*;
 import com.sorapp.jowncms.jowncms.Repository.*;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class StoreImage_Service implements Store_Images_Repo
 {
 
     @Override
     public List<store_images_tbl> GetAllStoreImages(int store_id)
     {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
+
         Query HQL= DBRepository.session.createQuery("FROM store_images_tbl");
         List<store_images_tbl> Result = HQL.getResultList();
         return Result;
@@ -24,6 +29,9 @@ public class StoreImage_Service implements Store_Images_Repo
     @Override
     public store_images_tbl NewStoreImage(String date, store_tbl store_id, file_tbl file_id)
     {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
+
         store_images_tbl store_images_tbl=new store_images_tbl();
         store_images_tbl.setStore_id(store_id);
         store_images_tbl.setFile_id(file_id);
@@ -38,6 +46,9 @@ public class StoreImage_Service implements Store_Images_Repo
     @Override
     public void RemoveStoreImage(int id)
     {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
+
         Query HQL= DBRepository.session.createQuery("FROM store_images_tbl WHERE store_images_tbl.id="+id);
         store_images_tbl Result = (store_images_tbl) HQL.list().get(0);
 

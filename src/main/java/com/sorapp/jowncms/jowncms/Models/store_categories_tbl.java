@@ -1,9 +1,6 @@
 package com.sorapp.jowncms.jowncms.Models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "store_categories_tbls")
@@ -11,7 +8,7 @@ public class store_categories_tbl
 {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String title;
     int root_cat_id;

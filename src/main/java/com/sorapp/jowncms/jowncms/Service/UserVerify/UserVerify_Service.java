@@ -6,10 +6,12 @@ import com.sorapp.jowncms.jowncms.Models.userstype_tbl;
 import com.sorapp.jowncms.jowncms.Repository.User_Verify_Repo;
 import org.hibernate.query.Query;
 import com.sorapp.jowncms.jowncms.Models.*;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Random;
 
+@Component
 public class UserVerify_Service implements User_Verify_Repo
 {
 
@@ -21,6 +23,8 @@ public class UserVerify_Service implements User_Verify_Repo
 
         if(Result.size()>0)
         {
+            DBRepository.session=DBRepository.SF.openSession();
+            DBRepository.TA=DBRepository.session.beginTransaction();
             Query HQLRemove= DBRepository.session.createQuery("FROM user_verify_tbl WHERE user_verify_tbl.user_id.id="+user_id);
             List<userstype_tbl> RemoveResult = HQLRemove.getResultList();
             DBRepository.session.remove(RemoveResult);
@@ -34,6 +38,8 @@ public class UserVerify_Service implements User_Verify_Repo
     @Override
     public void NewUserVerifyCode(String hash_code, users_tbl user_id)
     {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
         Random rnd=new Random();
 
         user_verify_tbl NUser=new user_verify_tbl();
@@ -47,6 +53,8 @@ public class UserVerify_Service implements User_Verify_Repo
     @Override
     public void RemoveUserVerifyCode(users_tbl user_id)
     {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
         Query HQLRemove= DBRepository.session.createQuery("FROM user_verify_tbl WHERE user_verify_tbl.user_id.id="+user_id);
         List<userstype_tbl> RemoveResult = HQLRemove.getResultList();
         DBRepository.session.remove(RemoveResult);

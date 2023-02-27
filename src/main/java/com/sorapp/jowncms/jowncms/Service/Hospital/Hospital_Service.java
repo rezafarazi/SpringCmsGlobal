@@ -5,15 +5,28 @@ import com.sorapp.jowncms.jowncms.Models.city_tbl;
 import com.sorapp.jowncms.jowncms.Models.hospital_tbl;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
 import com.sorapp.jowncms.jowncms.Repository.Hospital_Repo;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.boot.Metadata;
+import org.hibernate.boot.MetadataSources;
+import org.hibernate.boot.registry.StandardServiceRegistry;
+import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class Hospital_Service implements Hospital_Repo
 {
+
     @Override
     public hospital_tbl GetHospital(int id)
     {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
+
         Query HQL= DBRepository.session.createQuery("FROM hospital_tbl WHERE hospital_tbl.id="+id);
         hospital_tbl Result = (hospital_tbl) HQL.list().get(0);
         return Result;
@@ -22,6 +35,9 @@ public class Hospital_Service implements Hospital_Repo
     @Override
     public List<hospital_tbl> GetAllHospitals()
     {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
+
         Query HQL=DBRepository.session.createQuery("FROM hospital_tbl");
         List<hospital_tbl> Result = HQL.getResultList();
         return Result;
@@ -30,6 +46,9 @@ public class Hospital_Service implements Hospital_Repo
     @Override
     public hospital_tbl NewHospital(String name, String bio, String lat, String lng, String address, String start_time, String end_time, String tel, String status, city_tbl city_id)
     {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
+
         hospital_tbl Hospital=new hospital_tbl();
         Hospital.setAddress(address);
         Hospital.setBio(bio);
@@ -51,8 +70,10 @@ public class Hospital_Service implements Hospital_Repo
     @Override
     public hospital_tbl UpdateHospital(int id, String name, String bio, String lat, String lng, String address, String start_time, String end_time, String tel, String status, city_tbl city_id)
     {
-        hospital_tbl Hospital=GetHospital(id);
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
 
+        hospital_tbl Hospital=GetHospital(id);
         Hospital.setAddress(address);
         Hospital.setBio(bio);
         Hospital.setName(name);
@@ -73,8 +94,12 @@ public class Hospital_Service implements Hospital_Repo
     @Override
     public void RemoveHospital(int id)
     {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
+
         hospital_tbl Hospital=GetHospital(id);
         Hospital.setStatus("0");
+
         DBRepository.session.update(Hospital);
         DBRepository.TA.commit();
     }

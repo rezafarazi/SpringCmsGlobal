@@ -7,15 +7,20 @@ import com.sorapp.jowncms.jowncms.Models.reports_tbl;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
 import com.sorapp.jowncms.jowncms.Repository.Reports_Repo;
 import org.hibernate.query.Query;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class Reports_Service implements Reports_Repo
 {
 
     @Override
     public List<reports_tbl> GetAllUnseenReports()
     {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
+
         Query HQL=DBRepository.session.createQuery("FROM reports_tbl");
         List<reports_tbl> Result = HQL.getResultList();
         return Result;
@@ -24,6 +29,9 @@ public class Reports_Service implements Reports_Repo
     @Override
     public reports_tbl GetReport(int id)
     {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
+
         Query HQL= DBRepository.session.createQuery("FROM reports_tbl");
         reports_tbl Result = (reports_tbl) HQL.list().get(0);
         return Result;
@@ -32,6 +40,9 @@ public class Reports_Service implements Reports_Repo
     @Override
     public reports_tbl NewReport(String content, String date_time, String condition, report_tbl report_id, posts_tbl post_id,users_tbl user_id)
     {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
+
         reports_tbl Reports=new reports_tbl();
         Reports.setDate_time(date_time);
         Reports.setCondition(condition);
@@ -48,6 +59,8 @@ public class Reports_Service implements Reports_Repo
     @Override
     public void RemoveReport(int id)
     {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
         reports_tbl Reports=GetReport(id);
         DBRepository.session.remove(Reports);
         DBRepository.TA.commit();
@@ -56,6 +69,8 @@ public class Reports_Service implements Reports_Repo
     @Override
     public void SeenReport(int id)
     {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
         reports_tbl Reports=GetReport(id);
         Reports.setCondition("1");
         DBRepository.session.update(Reports);

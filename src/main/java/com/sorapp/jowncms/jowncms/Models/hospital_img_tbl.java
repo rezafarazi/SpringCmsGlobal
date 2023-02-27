@@ -8,7 +8,7 @@ public class hospital_img_tbl
 {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     @ManyToOne
     @JoinColumn(name = "hospital_id")

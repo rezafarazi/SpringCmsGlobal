@@ -8,7 +8,7 @@ public class transcation_tbl
 {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     String value;
     String date;
