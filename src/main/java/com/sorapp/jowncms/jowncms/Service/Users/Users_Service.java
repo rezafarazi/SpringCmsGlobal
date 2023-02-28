@@ -116,7 +116,7 @@ public class Users_Service implements User_Repo
     }
 
     @Override
-    public users_tbl UpdateUser(int id, String name, String family, String username, String password, String LoginToken, String phone, String email, String bio, String date_time, String user_type, String status, String website, String address, String google_auth, file_tbl profile_image_file_id, city_tbl city_id)
+    public users_tbl UpdateUser(int id, String name, String family, String username, String password, String phone, String email, String bio, String date_time, String user_type, String status, String website, String address, file_tbl profile_image_file_id, city_tbl city_id)
     {
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
@@ -147,5 +147,27 @@ public class Users_Service implements User_Repo
 
         return NUser;
     }
+
+    @Override
+    public void Google2F(users_tbl user_id, String State, String Key)
+    {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
+
+        users_tbl NUser=GetUser(user_id.getId());
+
+        if(State.equals("Active"))
+        {
+            NUser.setGoogle_auth(Key);
+        }
+        else
+        {
+            NUser.setGoogle_auth("");
+        }
+
+        DBRepository.session.update(NUser);
+        DBRepository.TA.commit();
+    }
+
 
 }

@@ -19,6 +19,7 @@ com/sorapp/jowncms/jowncms/Repository/Notification_Repo.class
 com/sorapp/jowncms/jowncms/Models/userstype_tbl.class
 com/sorapp/jowncms/jowncms/Repository/Setting_Repo.class
 com/sorapp/jowncms/jowncms/Config/Google2FConfig.class
+com/sorapp/jowncms/jowncms/Repository/FileUpload_Repo.class
 com/sorapp/jowncms/jowncms/Models/user_verify_tbl.class
 com/sorapp/jowncms/jowncms/Service/Order/Order_service.class
 com/sorapp/jowncms/jowncms/DatabaseRepository/DBRepository.class

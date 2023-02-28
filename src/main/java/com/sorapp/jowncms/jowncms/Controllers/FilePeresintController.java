@@ -1,7 +1,7 @@
 package com.sorapp.jowncms.jowncms.Controllers;
 
 import com.sorapp.jowncms.jowncms.Service.File.File_Service;
-import org.apache.commons.io.IOUtils;
+//import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.core.io.Resource;

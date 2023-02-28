@@ -3,21 +3,42 @@ package com.sorapp.jowncms.jowncms.Controllers;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import com.google.common.hash.Hashing;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import com.sorapp.jowncms.jowncms.Function.Encript.EncriptService;
+import com.sorapp.jowncms.jowncms.Models.categories_tbl;
+import com.sorapp.jowncms.jowncms.Models.city_tbl;
+import com.sorapp.jowncms.jowncms.Models.file_tbl;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
+import com.sorapp.jowncms.jowncms.Repository.FileUpload_Repo;
 import com.sorapp.jowncms.jowncms.Service.Category.Category_Service;
+import com.sorapp.jowncms.jowncms.Service.City.City_Service;
+import com.sorapp.jowncms.jowncms.Service.Post.Post_Service;
 import com.sorapp.jowncms.jowncms.Service.Users.Users_Service;
 import com.warrenstrange.googleauth.GoogleAuthenticator;
+import com.warrenstrange.googleauth.GoogleAuthenticatorKey;
+import com.warrenstrange.googleauth.GoogleAuthenticatorQRGenerator;
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.ServletOutputStream;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.File;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 
@@ -36,6 +57,18 @@ public class AdminController
 
     @Autowired
     Category_Service Category_Services;
+
+    @Autowired
+    Post_Service Posts_Services;
+
+    @Autowired
+    City_Service City_Services;
+
+    @Autowired
+    FileUpload_Repo FileUploadRepo;
+
+    @Value("${FileManagerRoot}")
+    String FileManager;
 
     public static users_tbl user_data;
 
@@ -201,6 +234,387 @@ public class AdminController
         return "redirect:/Admin/Panel/Categories";
     }
     /****************Categories End****************/
+
+
+
+
+
+
+    /****************NewPost Start****************/
+    @RequestMapping("/Panel/NewPost")
+    public ModelAndView NewPost(HttpServletRequest request)
+    {
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","پست جدید");
+        response.setViewName("Admin/newpost");
+        response.addObject("user_data",user_data);
+        response.addObject("categories",Category_Services.GetCategories());
+        return response;
+    }
+
+    @RequestMapping("/Panel/NewPost/Done")
+    public String NewPostSubmit(HttpServletRequest request,String title,String category,String post_image_address,String Visibleity,String Content)
+    {
+        LocalDateTime datetime = LocalDateTime.now();
+        String time=datetime.getYear()+"/"+datetime.getMonthValue()+"/"+datetime.getDayOfMonth()+" "+datetime.getHour()+":"+datetime.getMinute()+":"+datetime.getSecond();
+
+        categories_tbl cat = Category_Services.GetCategory(Integer.parseInt(category));
+
+        Posts_Services.NewPost(title,Content,post_image_address,time,Visibleity,user_data,cat);
+        return "redirect:/Admin/Panel/NewPost";
+    }
+    /****************NewPost End****************/
+
+
+
+
+    /****************All Posts Start****************/
+    @RequestMapping("/Panel/AllPosts")
+    public ModelAndView AllPosts(HttpServletRequest request)
+    {
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","همه پست ها");
+        response.setViewName("Admin/allposts");
+        response.addObject("user_data",user_data);
+        response.addObject("posts",Posts_Services.GetAllPosts());
+        return response;
+    }
+
+    @RequestMapping("/Panel/Post/Delete/{id}")
+    public String DeletePost(HttpServletRequest request,@PathVariable String id)
+    {
+        Posts_Services.RemovePost(Integer.parseInt(id));
+        return "redirect:/Admin/Panel/AllPosts";
+    }
+
+    @RequestMapping("/Panel/Post/Edit/{id}")
+    public ModelAndView AllPosts(HttpServletRequest request,@PathVariable String id)
+    {
+        System.out.println("salam");
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","ویرایش پست");
+        response.setViewName("Admin/editpost");
+        response.addObject("user_data",user_data);
+        response.addObject("categories",Category_Services.GetCategories());
+        response.addObject("post",Posts_Services.GetPost(Integer.parseInt(id)));
+        return response;
+    }
+
+    @RequestMapping(value = "/Panel/Post/Edit/Done",method = RequestMethod.POST)
+    public String EditDonePost(HttpServletRequest request,String id,String title,String category,String img_adrs,String visible,String cntent)
+    {
+        LocalDateTime datetime = LocalDateTime.now();
+        String time=datetime.getYear()+"/"+datetime.getMonthValue()+"/"+datetime.getDayOfMonth()+" "+datetime.getHour()+":"+datetime.getMinute()+":"+datetime.getSecond();
+
+        categories_tbl cat = Category_Services.GetCategory(Integer.parseInt(category));
+
+        Posts_Services.UpdatePost(Integer.parseInt(id),title,cntent,img_adrs,time,visible,user_data,cat);
+        return "redirect:/Admin/Panel/Post/Edit/"+id;
+    }
+    /****************All Posts End****************/
+
+
+
+
+
+
+    /****************Chart Start****************/
+    @RequestMapping("/Panel/Charts")
+    public ModelAndView Chart(HttpServletRequest request)
+    {
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","آمار");
+        response.setViewName("Admin/chart");
+        response.addObject("user_data",user_data);
+        return response;
+    }
+    /****************Chart End****************/
+
+
+
+
+
+
+
+    /****************Profile Start****************/
+    @RequestMapping("/Panel/Profile")
+    public ModelAndView Profile(HttpServletRequest request)
+    {
+        users_tbl user = User_Services.GetUser(user_data.getId());
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","پروفایل");
+        response.addObject("user_data",user);
+
+        //Google Auth Start
+        if(user.getGoogle_auth().length()==0)
+        {
+            response.addObject("google_auth", true);
+        }
+        else
+        {
+            response.addObject("google_auth", false);
+        }
+        //Google Auth End
+
+        //Get All Cites
+        response.addObject("Cites",City_Services.GetCites());
+
+        response.setViewName("Admin/profile");
+        return response;
+    }
+
+    @SneakyThrows
+    @RequestMapping("/Panel/Profile/Active2F")
+    public ModelAndView ProfileActive2F(HttpServletRequest request,HttpServletResponse response) throws Exception
+    {
+        ModelAndView responsee=new ModelAndView();
+        responsee.addObject("title","فعال سازی رمز دوم");
+        responsee.addObject("user_data",user_data);
+
+        responsee.addObject("qrcode","/Admin/Panel/Profile/Active2F/QRCODE");
+
+        responsee.setViewName("Admin/active2f");
+
+        return responsee;
+    }
+
+    @RequestMapping("/Panel/Profile/Active2F/QRCODE")
+    public void GetActive2FQR(HttpServletRequest request,HttpServletResponse response) throws Exception
+    {
+        SetAuthToken(response,request,user_data.getUsername(),user_data.getPassword());
+        final GoogleAuthenticatorKey key = gAuth.createCredentials(user_data.getUsername());
+        User_Services.Google2F(user_data,"Active",key.getKey());
+        QRCodeWriter qrCodeWriter = new QRCodeWriter();
+        String otpAuthURL = GoogleAuthenticatorQRGenerator.getOtpAuthTotpURL("jowncms", user_data.getUsername(), key);
+        BitMatrix bitMatrix = qrCodeWriter.encode(otpAuthURL, BarcodeFormat.QR_CODE, 200, 200);
+        ServletOutputStream outputStream = response.getOutputStream();
+        MatrixToImageWriter.writeToStream(bitMatrix, "PNG", outputStream);
+        outputStream.close();
+    }
+
+    @RequestMapping("/Panel/Profile/Diactive2F")
+    public String ProfileDiactive2F(HttpServletRequest request,HttpServletResponse response) throws Exception
+    {
+        User_Services.Google2F(user_data,"Diactive","");
+        SetAuthToken(response,request,user_data.getUsername(),user_data.getPassword());
+        return "redirect:/Admin/Panel/Profile";
+    }
+
+    @PostMapping("/Panel/Profile")
+    public String ProfileSubmit(HttpServletRequest request,HttpServletResponse response,String username,String name,String family,String password,String email,String phone,String address,String city,String bio,MultipartFile profile_image) throws Exception
+    {
+
+        LocalDateTime datetime = LocalDateTime.now();
+        String time=datetime.getYear()+"/"+datetime.getMonthValue()+"/"+datetime.getDayOfMonth()+" "+datetime.getHour()+":"+datetime.getMinute()+":"+datetime.getSecond();
+
+        System.out.println("Upload" + city);
+        city_tbl cityi = City_Services.GetCity(Integer.parseInt(city));
+
+        System.out.println("Upload");
+
+        if(profile_image!=null)
+        {
+            file_tbl file = FileUploadRepo.UploadFile_Repo(profile_image);
+
+            User_Services.UpdateUser(
+                    user_data.getId(),
+                    name,
+                    family,
+                    username,
+                    password,
+                    phone,
+                    email,
+                    bio,
+                    time,
+                    user_data.getUser_type(),
+                    user_data.getStatus(),
+                    user_data.getWebsite(),
+                    address,
+                    file,
+                    cityi);
+        }
+        else
+        {
+            User_Services.UpdateUser(
+                    user_data.getId(),
+                    name,
+                    family,
+                    username,
+                    password,
+                    phone,
+                    email,
+                    bio,
+                    time,
+                    user_data.getUser_type(),
+                    user_data.getStatus(),
+                    user_data.getWebsite(),
+                    address,
+                    user_data.getProfile_image_id(),
+                    cityi);
+
+        }
+
+        SetAuthToken(response,request,username,password);
+
+        return "redirect:/Admin/Panel/Profile";
+    }
+    /****************Profile End****************/
+
+
+
+
+
+
+    /****************FileMnager Start****************/
+    @RequestMapping("/Panel/FileManager")
+    public ModelAndView FileManager(HttpServletRequest request)
+    {
+        String Path=request.getParameter("path");
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","مدیریت فایل");
+        response.setViewName("Admin/filemanager");
+        response.addObject("user_data",user_data);
+        response.addObject("address",Path);
+
+        if(Path==null) {
+            File folder = new File(FileManager);
+            File[] folders = folder.listFiles();
+            response.addObject("fileslen",folder.listFiles().length);
+            response.addObject("files",folder.listFiles());
+            response.addObject("curentlocation",FileManager);
+        }
+        else{
+            File folder = new File(FileManager+"/"+Path);
+            File[] folders = folder.listFiles();
+            response.addObject("fileslen",folder.listFiles().length);
+            response.addObject("files",folder.listFiles());
+            response.addObject("curentlocation",FileManager);
+        }
+
+        return response;
+    }
+
+    @RequestMapping(value = "/Panel/FileManager/CreateFolder",method = RequestMethod.POST)
+    public String CreateFolder(HttpServletRequest request,String Folder_Name,String Addrs)
+    {
+        try
+        {
+
+            if(Addrs==null)
+            {
+                File NewFolder = new File(FileManager + "/" + Folder_Name);
+                NewFolder.mkdir();
+                NewFolder.mkdirs();
+            }
+            else
+            {
+                File NewFolder = new File(FileManager + "/" + Addrs + "/" + Folder_Name);
+                NewFolder.mkdir();
+                NewFolder.mkdirs();
+            }
+        }
+        catch (Exception e)
+        {
+
+        }
+        return "redirect:" + request.getHeader("referer");
+    }
+
+    @RequestMapping(value = "/Panel/FileManager/Upload",method = RequestMethod.POST)
+    public String UploadFile(HttpServletRequest request,MultipartFile Upload_File,String Address)
+    {
+        try
+        {
+            String FileName = Upload_File.getOriginalFilename();
+            Upload_File.transferTo(new File(FileManager+"/"+Address+"/"+FileName));
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+        return "redirect:" + request.getHeader("referer");
+    }
+
+    @RequestMapping(value = "/Panel/FileManager/Delete",method = RequestMethod.GET)
+    public String RemoveFile(HttpServletRequest request)
+    {
+        System.out.println("Get remove file");
+        try
+        {
+            String path=request.getParameter("path");
+            String name=request.getParameter("name");
+            if(path.equals("null"))
+            {
+                File file = new File(FileManager + "/" + name);
+                file.delete();
+                System.out.println("Removed"+file.getPath());
+            }
+            else
+            {
+                File file = new File(FileManager + "/" + path + "/" + name);
+                file.delete();
+                System.out.println("Removed"+file.getPath());
+            }
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.getMessage());
+        }
+        return "redirect:" + request.getHeader("referer");
+    }
+
+    @RequestMapping(value = "/Panel/FileManager/DeleteDir",method = RequestMethod.GET)
+    public String RemoveDirectory(HttpServletRequest request)
+    {
+        try
+        {
+            String path=request.getParameter("path").replace("null/","");
+            FileUtils.deleteDirectory(new File(FileManager+"\\"+path));
+        }
+        catch (Exception e)
+        {
+
+        }
+        return "redirect:" + request.getHeader("referer");
+    }
+    /****************FileMnager End****************/
+
+
+
+
+    /****************Logout Start****************/
+    @RequestMapping("/Panel/Logout")
+    public String Logout(HttpServletResponse response)
+    {
+        Cookie auth_c = new Cookie("auth",null);
+        auth_c.setPath("/Admin");
+        response.addCookie(auth_c);
+        return "redirect:/";
+    }
+    /****************Settings End****************/
+
+
+
+
+
+
+
+    /****************Set Auth Token Start****************/
+    private void SetAuthToken(HttpServletResponse response,HttpServletRequest request,String username,String password) throws Exception
+    {
+        //Set Reload Auth Token
+        users_tbl user_data = User_Services.Login(username, password);
+        ObjectWriter ow = new ObjectMapper().writer().withDefaultPrettyPrinter();
+        String json = ow.writeValueAsString(user_data);
+        String Berar_Token = Encription.ENC(json);
+        Cookie auth_c = new Cookie("auth",Berar_Token);
+        auth_c.setPath("/Admin");
+        response.addCookie(auth_c);
+    }
+    /****************Set Auth Token End****************/
+
+
+
 
 
 

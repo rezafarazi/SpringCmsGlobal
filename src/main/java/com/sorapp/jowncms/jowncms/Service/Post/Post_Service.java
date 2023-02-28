@@ -27,7 +27,7 @@ public class Post_Service implements Posts_Repo
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
 
-        Query HQL= DBRepository.session.createQuery("FROM posts_tbl");
+        Query HQL= DBRepository.session.createQuery("FROM posts_tbl posts WHERE posts.delete_flag='0'");
         List<posts_tbl> Result = HQL.getResultList();
         return Result;
     }
@@ -38,7 +38,7 @@ public class Post_Service implements Posts_Repo
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
 
-        Query HQL=DBRepository.session.createQuery("FROM posts_tbl WHERE posts_tbl.id="+post_id);
+        Query HQL=DBRepository.session.createQuery("FROM posts_tbl post WHERE post.id="+post_id);
         posts_tbl Result = (posts_tbl) HQL.list().get(0);
         return Result;
     }

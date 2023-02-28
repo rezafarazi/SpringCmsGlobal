@@ -34,7 +34,7 @@
                                 <tr th:each="post :${posts}">
                                     <td th:text="${post.getId()}" />
                                     <td th:text="${post.getTitle()}" />
-                                    <td th:text="${post.getEnabled_flag()=='1'}?بالا:پایین" />
+                                    <td th:text="${post.getVisible()=='1'}?فعال:غیرفعال" />
                                     <td><i th:onclick="Open_Link_Dialog(this, window.location.protocol + '//' + window.location.host + '/Admin/Panel/Post/Edit/[[${post.getId()}]]')"><i class="mdi mdi-table-edit" style="font-size: 20px;color:#007bff;cursor: pointer;"></i></i></td>
                                     <td><a th:href="@{/Admin/Panel/Post/Delete/{post_id}(post_id=${post.getId()})}"><i class="mdi mdi-delete" style="color: #F00;font-size: 20px;"></i></a></td>
                                 </tr>

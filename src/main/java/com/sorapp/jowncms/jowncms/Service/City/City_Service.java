@@ -18,7 +18,7 @@ public class City_Service implements City_Repo
     {
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
-        Query HQL= DBRepository.session.createQuery("FROM city_tbl WHERE id"+id);
+        Query HQL= DBRepository.session.createQuery("FROM city_tbl city WHERE city.id="+id);
         city_tbl Result = (city_tbl) HQL.list().get(0);
         return Result;
     }
