@@ -36,6 +36,10 @@ public class users_tbl
     @JoinColumn(name = "city_id")
     city_tbl city_id;
 
+    @ManyToOne
+    @JoinColumn(name = "user_type_id")
+    userstype_tbl user_type_id;
+
     public users_tbl FromJson(String jsonstring)
     {
         JSONObject json=new JSONObject(jsonstring);
@@ -55,6 +59,14 @@ public class users_tbl
                 json.get("website").toString(),
                 json.get("address").toString()
         );
+    }
+
+    public userstype_tbl getUser_type_id() {
+        return user_type_id;
+    }
+
+    public void setUser_type_id(userstype_tbl user_type_id) {
+        this.user_type_id = user_type_id;
     }
 
     public users_tbl() {

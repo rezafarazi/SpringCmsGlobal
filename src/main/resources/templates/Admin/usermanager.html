@@ -15,7 +15,7 @@
         <div class="row">
 
             <!--Top Side Of Content Start-->
-            <div class="col-lg-6 grid-margin stretch-card">
+            <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
                         <form class="forms-sample" method="post">
@@ -50,7 +50,7 @@
                             <tr th:each="user : ${users}" th:if="${user.getId() != user_data.getId()}">
                                 <th scope="row" th:text="${user.getId()}"/>
                                 <th scope="row" th:text="${user.getName()}+${user.getFamily()}"/>
-                                <th scope="row" th:text="${user.getUser_type()=='USER'}?کاربر:مدیرکل"/>
+                                <th scope="row" th:text="${user.getUser_type_id().getTitle()}"/>
                                 <th scope="row" th:text="${user.getUsername()}"/>
                                 <td><i th:onclick="Open_Link_Dialog(this, window.location.protocol + '//' + window.location.host + '/Admin/Panel/UserManager/User/[[${user.getId()}]]')"><i class="mdi mdi-table-edit" style="font-size: 20px;color:#007bff;cursor: pointer;"></i></i></td>
                             </tr>

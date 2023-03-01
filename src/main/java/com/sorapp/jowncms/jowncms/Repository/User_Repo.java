@@ -3,6 +3,7 @@ package com.sorapp.jowncms.jowncms.Repository;
 import com.sorapp.jowncms.jowncms.Models.city_tbl;
 import com.sorapp.jowncms.jowncms.Models.file_tbl;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
+import com.sorapp.jowncms.jowncms.Models.userstype_tbl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +29,13 @@ public interface User_Repo
     //Update
     public users_tbl UpdateUser(int id,String name, String family, String username, String password, String phone, String email, String bio, String date_time, String user_type, String status, String website, String address, file_tbl profile_image_file_id, city_tbl city_id);
 
+    //Update User BY Admin
+    public users_tbl UpdateUserByAdmin(int id,String name, String family, String username, String password, String phone, String email, String bio, String date_time, String user_type, String status, String website, String address, file_tbl profile_image_file_id, city_tbl city_id , userstype_tbl usertype_id);
+
     //Active 2F
     public void Google2F(users_tbl user_id,String State,String Key);
+
+    //Get Seach User
+    public List<users_tbl> GetSeachUser(String seach);
 
 }

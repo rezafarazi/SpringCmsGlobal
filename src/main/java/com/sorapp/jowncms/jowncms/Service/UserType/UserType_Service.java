@@ -32,7 +32,7 @@ public class UserType_Service implements Users_Type_Repo
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
 
-        Query HQL= DBRepository.session.createQuery("FROM categories_tbl WHERE userstype_tbl.id="+user_type_id);
+        Query HQL= DBRepository.session.createQuery("FROM userstype_tbl usrtype WHERE usrtype.id="+user_type_id);
         userstype_tbl Result = (userstype_tbl) HQL.list().get(0);
         return Result;
     }

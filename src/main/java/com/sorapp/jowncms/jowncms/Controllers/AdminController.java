@@ -8,14 +8,12 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.qrcode.QRCodeWriter;
 import com.sorapp.jowncms.jowncms.Function.Encript.EncriptService;
-import com.sorapp.jowncms.jowncms.Models.categories_tbl;
-import com.sorapp.jowncms.jowncms.Models.city_tbl;
-import com.sorapp.jowncms.jowncms.Models.file_tbl;
-import com.sorapp.jowncms.jowncms.Models.users_tbl;
+import com.sorapp.jowncms.jowncms.Models.*;
 import com.sorapp.jowncms.jowncms.Repository.FileUpload_Repo;
 import com.sorapp.jowncms.jowncms.Service.Category.Category_Service;
 import com.sorapp.jowncms.jowncms.Service.City.City_Service;
 import com.sorapp.jowncms.jowncms.Service.Post.Post_Service;
+import com.sorapp.jowncms.jowncms.Service.UserType.UserType_Service;
 import com.sorapp.jowncms.jowncms.Service.Users.Users_Service;
 import com.warrenstrange.googleauth.GoogleAuthenticator;
 import com.warrenstrange.googleauth.GoogleAuthenticatorKey;
@@ -66,6 +64,9 @@ public class AdminController
 
     @Autowired
     FileUpload_Repo FileUploadRepo;
+
+    @Autowired
+    UserType_Service UserType_Services;
 
     @Value("${FileManagerRoot}")
     String FileManager;
@@ -407,10 +408,7 @@ public class AdminController
         LocalDateTime datetime = LocalDateTime.now();
         String time=datetime.getYear()+"/"+datetime.getMonthValue()+"/"+datetime.getDayOfMonth()+" "+datetime.getHour()+":"+datetime.getMinute()+":"+datetime.getSecond();
 
-        System.out.println("Upload" + city);
         city_tbl cityi = City_Services.GetCity(Integer.parseInt(city));
-
-        System.out.println("Upload");
 
         if(profile_image!=null)
         {
@@ -459,6 +457,137 @@ public class AdminController
         return "redirect:/Admin/Panel/Profile";
     }
     /****************Profile End****************/
+
+
+
+
+
+
+    /****************Usermanager Start****************/
+    @RequestMapping("/Panel/UserManager")
+    public ModelAndView UserManager(HttpServletRequest request)
+    {
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","مدیریت کاربران");
+        response.setViewName("Admin/usermanager");
+        response.addObject("user_data",user_data);
+        response.addObject("users",User_Services.GetAllUsers());
+        return response;
+    }
+
+
+    @RequestMapping(value = "/Panel/UserManager",method = RequestMethod.POST)
+    public ModelAndView UserManager(HttpServletRequest request,String SearchValue)
+    {
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","مدیریت کاربران");
+        response.setViewName("Admin/usermanager");
+        response.addObject("user_data",user_data);
+        response.addObject("users",User_Services.GetSeachUser(SearchValue));
+        return response;
+    }
+
+
+    @RequestMapping("/Panel/UserManager/User/{id}")
+    public ModelAndView GetUserProfile(HttpServletRequest request,@PathVariable String id)
+    {
+        users_tbl user=User_Services.GetUser(Integer.parseInt(id));
+
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","مدیریت کاربران");
+        response.setViewName("Admin/useredit");
+        response.addObject("user_data",user_data);
+        response.addObject("user_types",UserType_Services.GetAllUserType());
+        response.addObject("edit_user_data",user);
+
+        //Google Auth Start
+        if(user.getGoogle_auth().length()==0)
+        {
+            response.addObject("google_auth", true);
+        }
+        else
+        {
+            response.addObject("google_auth", false);
+        }
+        //Google Auth End
+
+        //Get All Cites
+        response.addObject("Cites",City_Services.GetCites());
+
+        return response;
+    }
+
+
+
+    @RequestMapping("/Panel/UserManager/User/DisableGoogleAuth/{id}")
+    public String DisableGoogleAuth(HttpServletRequest request,HttpServletResponse response,@PathVariable String id) throws Exception
+    {
+        User_Services.Google2F(User_Services.GetUser(Integer.parseInt(id)),"Diactive","");
+        return "redirect:/Admin/Panel/UserManager/User/"+id;
+    }
+
+
+    @RequestMapping(value = "/Panel/UserManager/User/Edit/Done",method = RequestMethod.POST)
+    public String EditUserProfile(HttpServletRequest request,HttpServletResponse response,String user_id,String username,String name,String family,String password,String email,String phone,String address,String city,String bio,MultipartFile profile_image,String user_type) throws Exception
+    {
+
+        users_tbl user_dt=User_Services.GetUser(Integer.parseInt(user_id));
+
+        LocalDateTime datetime = LocalDateTime.now();
+        String time=datetime.getYear()+"/"+datetime.getMonthValue()+"/"+datetime.getDayOfMonth()+" "+datetime.getHour()+":"+datetime.getMinute()+":"+datetime.getSecond();
+
+        city_tbl cityi = City_Services.GetCity(Integer.parseInt(city));
+
+        userstype_tbl usrtype= UserType_Services.GetUserType(Integer.parseInt(user_type));
+
+        if(profile_image!=null)
+        {
+            file_tbl file = FileUploadRepo.UploadFile_Repo(profile_image);
+
+            User_Services.UpdateUserByAdmin(
+                    user_dt.getId(),
+                    name,
+                    family,
+                    username,
+                    password,
+                    phone,
+                    email,
+                    bio,
+                    time,
+                    user_dt.getUser_type(),
+                    user_dt.getStatus(),
+                    user_dt.getWebsite(),
+                    address,
+                    file,
+                    cityi,
+                    usrtype);
+        }
+        else
+        {
+            User_Services.UpdateUserByAdmin(
+                    user_dt.getId(),
+                    name,
+                    family,
+                    username,
+                    password,
+                    phone,
+                    email,
+                    bio,
+                    time,
+                    user_dt.getUser_type(),
+                    user_dt.getStatus(),
+                    user_dt.getWebsite(),
+                    address,
+                    user_dt.getProfile_image_id(),
+                    cityi,
+                    usrtype);
+
+        }
+
+
+        return "redirect:/Admin/Panel/UserManager/User/"+user_dt.getId();
+    }
+    /****************Usermanager End****************/
 
 
 

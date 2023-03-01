@@ -16,6 +16,7 @@
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/JowncmsApplication.java
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Repository/Orders_Repo.java
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Repository/Notification_Repo.java
+/home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Repository/FileUpload_Repo.java
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Models/transcation_tbl.java
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Function/Encript/EncriptService.java
 /home/rezafta/Downloads/SpringCms/src/main/java/com/sorapp/jowncms/jowncms/Repository/Discount_Repo.java
