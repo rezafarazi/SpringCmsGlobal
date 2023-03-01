@@ -42,6 +42,7 @@
                                 <th>نام و نام خانوادگی</th>
                                 <th>نوع کاربر</th>
                                 <th>نام کاربری</th>
+                                <th>نوتیفیکیشن</th>
                                 <th>ویرایش</th>
                             </tr>
                             </thead>
@@ -52,6 +53,7 @@
                                 <th scope="row" th:text="${user.getName()}+${user.getFamily()}"/>
                                 <th scope="row" th:text="${user.getUser_type_id().getTitle()}"/>
                                 <th scope="row" th:text="${user.getUsername()}"/>
+                                <td><i th:onclick="Open_Link_Dialog(this, window.location.protocol + '//' + window.location.host + '/Admin/Panel/UserManager/User/SendNotification/[[${user.getId()}]]')"><i class="mdi mdi-comment" style="font-size: 20px;color:#007bff;cursor: pointer;"></i></i></td>
                                 <td><i th:onclick="Open_Link_Dialog(this, window.location.protocol + '//' + window.location.host + '/Admin/Panel/UserManager/User/[[${user.getId()}]]')"><i class="mdi mdi-table-edit" style="font-size: 20px;color:#007bff;cursor: pointer;"></i></i></td>
                             </tr>
 

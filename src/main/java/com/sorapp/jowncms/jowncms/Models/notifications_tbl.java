@@ -13,7 +13,7 @@ public class notifications_tbl
     String title;
     String content;
     String link;
-    String from;
+    String from_user;
     boolean seen;
     @ManyToOne
     @JoinColumn(name = "user_id")
@@ -22,11 +22,11 @@ public class notifications_tbl
     public notifications_tbl() {
     }
 
-    public notifications_tbl(String title, String content, String link, String from, boolean seen, users_tbl user_id) {
+    public notifications_tbl(String title, String content, String link, String from_user, boolean seen, users_tbl user_id) {
         this.title = title;
         this.content = content;
         this.link = link;
-        this.from = from;
+        this.from_user = from_user;
         this.seen = seen;
         this.user_id = user_id;
     }
@@ -64,11 +64,11 @@ public class notifications_tbl
     }
 
     public String getFrom() {
-        return from;
+        return from_user;
     }
 
-    public void setFrom(String from) {
-        this.from = from;
+    public void setFrom(String from_user) {
+        this.from_user = from_user;
     }
 
     public boolean isSeen() {

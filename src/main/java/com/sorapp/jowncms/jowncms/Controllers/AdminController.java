@@ -12,6 +12,7 @@ import com.sorapp.jowncms.jowncms.Models.*;
 import com.sorapp.jowncms.jowncms.Repository.FileUpload_Repo;
 import com.sorapp.jowncms.jowncms.Service.Category.Category_Service;
 import com.sorapp.jowncms.jowncms.Service.City.City_Service;
+import com.sorapp.jowncms.jowncms.Service.Notification.Notification_Service;
 import com.sorapp.jowncms.jowncms.Service.Post.Post_Service;
 import com.sorapp.jowncms.jowncms.Service.UserType.UserType_Service;
 import com.sorapp.jowncms.jowncms.Service.Users.Users_Service;
@@ -67,6 +68,9 @@ public class AdminController
 
     @Autowired
     UserType_Service UserType_Services;
+
+    @Autowired
+    Notification_Service Notification_Services;
 
     @Value("${FileManagerRoot}")
     String FileManager;
@@ -524,6 +528,25 @@ public class AdminController
     {
         User_Services.Google2F(User_Services.GetUser(Integer.parseInt(id)),"Diactive","");
         return "redirect:/Admin/Panel/UserManager/User/"+id;
+    }
+
+
+    @RequestMapping("/Panel/UserManager/User/SendNotification/{id}")
+    public ModelAndView SendNotification(HttpServletRequest request,@PathVariable String id) throws Exception
+    {
+        ModelAndView response=new ModelAndView();
+        response.addObject("user_id",id);
+        response.setViewName("Admin/sendnotification");
+        return response;
+    }
+
+
+    @RequestMapping(value = "/Panel/UserManager/User/SendNotifications/Done",method = RequestMethod.POST)
+    public String SendNotification(HttpServletRequest request , String user_id,String title,String content_text,String link) throws Exception
+    {
+        users_tbl user = User_Services.GetUser(Integer.parseInt(user_id));
+        Notification_Services.NewNotification(title,content_text,link,user_data.getUsername(),false,user);
+        return "redirect:" + request.getHeader("referer");
     }
 
 

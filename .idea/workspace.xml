@@ -5,16 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58a6709a-b36f-4f2d-ae2c-8508826ee1ab" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/sendnotification.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DB/jowncms_db.sql" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Controllers/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/users_tbl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/users_tbl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/User_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/User_Repo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/UserType/UserType_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/UserType/UserType_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Users/Users_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Users/Users_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/useredit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/useredit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/notifications_tbl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Models/notifications_tbl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/usermanager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/usermanager.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Controllers/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Controllers/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/usermanager.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/usermanager.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +22,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -54,6 +52,7 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
