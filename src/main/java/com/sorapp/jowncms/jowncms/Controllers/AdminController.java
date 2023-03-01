@@ -14,6 +14,7 @@ import com.sorapp.jowncms.jowncms.Service.Category.Category_Service;
 import com.sorapp.jowncms.jowncms.Service.City.City_Service;
 import com.sorapp.jowncms.jowncms.Service.Notification.Notification_Service;
 import com.sorapp.jowncms.jowncms.Service.Post.Post_Service;
+import com.sorapp.jowncms.jowncms.Service.Setting.Setting_Service;
 import com.sorapp.jowncms.jowncms.Service.UserType.UserType_Service;
 import com.sorapp.jowncms.jowncms.Service.Users.Users_Service;
 import com.warrenstrange.googleauth.GoogleAuthenticator;
@@ -23,6 +24,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.io.FileUtils;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -65,6 +67,9 @@ public class AdminController
 
     @Autowired
     FileUpload_Repo FileUploadRepo;
+
+    @Autowired
+    Setting_Service Setting_Services;
 
     @Autowired
     UserType_Service UserType_Services;
@@ -734,6 +739,47 @@ public class AdminController
 
 
 
+
+
+    /****************Setting Start****************/
+
+    @RequestMapping("/Panel/Settings")
+    public ModelAndView Settins()
+    {
+        settings_tbl settings_tbl=Setting_Services.GetSetting();
+        JSONObject jsonObject=new JSONObject(settings_tbl.getParametrs());
+
+        ModelAndView response=new ModelAndView();
+
+        response.addObject("logo",jsonObject.get("logo"));
+        response.addObject("law",jsonObject.get("law"));
+        response.addObject("slider",jsonObject.get("slider"));
+        response.addObject("banner",jsonObject.get("banner"));
+        response.addObject("title","تنظیمات");
+        response.addObject("user_data",user_data);
+        response.setViewName("Admin/settings");
+        return response;
+    }
+
+    @RequestMapping(value = "/Panel/Settings/Done",method = RequestMethod.POST)
+    public String Settings(String slider,String banner,String law,String icon)
+    {
+        JSONObject jsonObject=new JSONObject();
+        jsonObject.put("logo",icon);
+        jsonObject.put("law",law);
+        jsonObject.put("slider",banner);
+        jsonObject.put("banner",slider);
+        settings_tbl settings_tbl=Setting_Services.GetSetting();
+        Setting_Services.NewSetting(jsonObject.toString(),settings_tbl.getDiscountall());
+        return "redirect:/Admin/Panel/Settings";
+    }
+
+    /****************Setting End****************/
+
+
+
+
+
     /****************Logout Start****************/
     @RequestMapping("/Panel/Logout")
     public String Logout(HttpServletResponse response)
@@ -743,7 +789,7 @@ public class AdminController
         response.addCookie(auth_c);
         return "redirect:/";
     }
-    /****************Settings End****************/
+    /****************Logout End****************/
 
 
 
