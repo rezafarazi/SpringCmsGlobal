@@ -15,6 +15,7 @@ import com.sorapp.jowncms.jowncms.Service.City.City_Service;
 import com.sorapp.jowncms.jowncms.Service.Notification.Notification_Service;
 import com.sorapp.jowncms.jowncms.Service.Post.Post_Service;
 import com.sorapp.jowncms.jowncms.Service.Setting.Setting_Service;
+import com.sorapp.jowncms.jowncms.Service.Transation.Transation_Service;
 import com.sorapp.jowncms.jowncms.Service.UserType.UserType_Service;
 import com.sorapp.jowncms.jowncms.Service.Users.Users_Service;
 import com.warrenstrange.googleauth.GoogleAuthenticator;
@@ -76,6 +77,9 @@ public class AdminController
 
     @Autowired
     Notification_Service Notification_Services;
+
+    @Autowired
+    Transation_Service Transation_Services;
 
     @Value("${FileManagerRoot}")
     String FileManager;
@@ -736,6 +740,23 @@ public class AdminController
     }
     /****************FileMnager End****************/
 
+
+
+
+
+    /****************Transactions Start****************/
+
+    @RequestMapping(value = "/Panel/Transactions")
+    public ModelAndView Transactions(HttpServletRequest request)
+    {
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","پرداخت ها");
+        response.setViewName("Admin/transactions");
+        response.addObject("user_data",user_data);
+        response.addObject("transactions",Transation_Services.GetAllTransations());
+        return response;
+    }
+    /****************Transactions End****************/
 
 
 
