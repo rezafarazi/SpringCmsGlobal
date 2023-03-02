@@ -767,8 +767,8 @@ public class AdminController
         JSONObject jsonObject=new JSONObject();
         jsonObject.put("logo",icon);
         jsonObject.put("law",law);
-        jsonObject.put("slider",banner);
-        jsonObject.put("banner",slider);
+        jsonObject.put("slider",slider);
+        jsonObject.put("banner",banner);
         settings_tbl settings_tbl=Setting_Services.GetSetting();
         Setting_Services.NewSetting(jsonObject.toString(),settings_tbl.getDiscountall());
         return "redirect:/Admin/Panel/Settings";
