@@ -34,7 +34,7 @@ public class File_Service implements File_Repo
     {
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
-        Query HQL=DBRepository.session.createQuery("FROM file_tbl");
+        Query HQL=DBRepository.session.createQuery("FROM file_tbl file WHERE file.id="+id);
         file_tbl Result = (file_tbl) HQL.list().get(0);
         return Result;
     }

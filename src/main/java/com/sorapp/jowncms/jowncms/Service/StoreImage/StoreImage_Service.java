@@ -16,12 +16,12 @@ public class StoreImage_Service implements Store_Images_Repo
 {
 
     @Override
-    public List<store_images_tbl> GetAllStoreImages(int store_id)
+    public List<store_images_tbl> GetAllStoreImages(store_tbl store_id)
     {
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
 
-        Query HQL= DBRepository.session.createQuery("FROM store_images_tbl");
+        Query HQL= DBRepository.session.createQuery("FROM store_images_tbl store WHERE store.store_id="+store_id.getId());
         List<store_images_tbl> Result = HQL.getResultList();
         return Result;
     }
@@ -55,4 +55,21 @@ public class StoreImage_Service implements Store_Images_Repo
         DBRepository.session.remove(Result);
         DBRepository.TA.commit();
     }
+
+    @Override
+    public void RemoveRange(store_tbl store_id)
+    {
+        DBRepository.session=DBRepository.SF.openSession();
+        DBRepository.TA=DBRepository.session.beginTransaction();
+
+        Query HQL= DBRepository.session.createQuery("FROM store_images_tbl st WHERE st.store_id="+store_id.getId());
+        List<store_images_tbl> Result = HQL.getResultList();
+
+        for(int i=0;i<Result.size();i++)
+        {
+            DBRepository.session.remove(Result.get(i));
+        }
+        DBRepository.TA.commit();
+    }
+
 }

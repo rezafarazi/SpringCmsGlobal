@@ -12,12 +12,14 @@ public interface Store_Images_Repo
 {
 
     //Get All store images
-    public List<store_images_tbl> GetAllStoreImages(int store_id);
+    public List<store_images_tbl> GetAllStoreImages(store_tbl store_id);
 
     //New Store Image
     public store_images_tbl NewStoreImage(String date, store_tbl store_id, file_tbl file_id);
 
     //Delete Store Image
     public void RemoveStoreImage(int id);
+
+    public void RemoveRange(store_tbl store_id);
 
 }
