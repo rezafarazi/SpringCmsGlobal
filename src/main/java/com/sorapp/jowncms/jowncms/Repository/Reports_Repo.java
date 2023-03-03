@@ -18,7 +18,7 @@ public interface Reports_Repo
     public reports_tbl GetReport(int id);
 
     //New Report
-    public reports_tbl NewReport(String content, String date_time, String condition, report_tbl report_id, posts_tbl post_id, users_tbl user_id);
+    public reports_tbl NewReport(String content, String date_time, boolean condition, report_tbl report_id, posts_tbl post_id, users_tbl user_id);
 
     //Remove Report
     public void RemoveReport(int id);

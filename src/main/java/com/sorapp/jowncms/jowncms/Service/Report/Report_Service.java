@@ -26,7 +26,7 @@ public class Report_Service implements Report_Repo
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
 
-        Query HQL=DBRepository.session.createQuery("FROM report_tbl");
+        Query HQL=DBRepository.session.createQuery("FROM report_tbl reports WHERE reports.delete_flag=false");
         List<report_tbl> Result = HQL.getResultList();
         return Result;
     }
@@ -37,7 +37,7 @@ public class Report_Service implements Report_Repo
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
 
-        Query HQL= DBRepository.session.createQuery("FROM report_tbl");
+        Query HQL= DBRepository.session.createQuery("FROM report_tbl report WHERE report.id="+id);
         report_tbl Result = (report_tbl) HQL.list().get(0);
         return Result;
     }

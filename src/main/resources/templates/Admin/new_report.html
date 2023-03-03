@@ -1,0 +1,81 @@
+<hdr class="insert" th:insert="@{/Admin/Components/panel_header}" />
+
+
+
+
+
+<!-- partial -->
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-chart-bubble"></i>
+                </span>تعریف گزارش جدید
+      </h3>
+    </div>
+
+    <div class="row">
+
+      <!--Right Side Of Content Start-->
+      <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <form class="forms-sample" method="post" action="/Admin/Panel/NewReport/Add">
+              <div class="form-group">
+                <label for="exampleInputUsername1">جدید</label>
+                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="جدید" name="new_report">
+              </div>
+              <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">تایید</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!--Right Side Of Content End-->
+
+      <!--Left Side Of Content Start-->
+      <div class="col-lg-6 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title" >همه گزارش ها</h4>
+            </p>
+            <table class="table" th:if="${all_reports.size>0}">
+              <thead>
+              <tr>
+                <th>ردیف</th>
+                <th>گزارش</th>
+                <th>حذف</th>
+              </tr>
+              </thead>
+              <tbody>
+
+              <tr th:each="report : ${all_reports}">
+                <th th:text="${report.getId()}"/>
+                <th th:text="${report.getTitle()}"/>
+                <td><a th:href="@{/Admin/Panel/NewReport/Remove/}+${report.getId()}"><i class="mdi mdi-delete" style="color: #F00;font-size: 20px;"></i></a></td>
+              </tr>
+
+              </tbody>
+            </table>
+
+            <div th:unless="${all_reports.size>0}">
+              <div style="margin-top:60px;">
+                <img th:src="@{/Assets/Admin/images/icons/empty.png}" style="display:block;margin:0 auto;" width="150px">
+                <p style="width:100%;text-align:center;color:#666;margin-top:20px;">هیچ موردی یافت نشد</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <!--Left Side Of Content End-->
+
+    </div>
+
+  </div>
+  <!-- content-wrapper ends -->
+
+
+
+
+<ftr class="insert" th:insert="@{/Admin/Components/panel_footer}" />

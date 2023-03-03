@@ -21,7 +21,7 @@ public class Reports_Service implements Reports_Repo
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
 
-        Query HQL=DBRepository.session.createQuery("FROM reports_tbl");
+        Query HQL=DBRepository.session.createQuery("FROM reports_tbl report WHERE report.condition=false");
         List<reports_tbl> Result = HQL.getResultList();
         return Result;
     }
@@ -32,13 +32,13 @@ public class Reports_Service implements Reports_Repo
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
 
-        Query HQL= DBRepository.session.createQuery("FROM reports_tbl");
+        Query HQL= DBRepository.session.createQuery("FROM reports_tbl report WHERE report.id="+id);
         reports_tbl Result = (reports_tbl) HQL.list().get(0);
         return Result;
     }
 
     @Override
-    public reports_tbl NewReport(String content, String date_time, String condition, report_tbl report_id, posts_tbl post_id,users_tbl user_id)
+    public reports_tbl NewReport(String content, String date_time, boolean condition, report_tbl report_id, posts_tbl post_id,users_tbl user_id)
     {
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
@@ -72,7 +72,7 @@ public class Reports_Service implements Reports_Repo
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
         reports_tbl Reports=GetReport(id);
-        Reports.setCondition("1");
+        Reports.setCondition(true);
         DBRepository.session.update(Reports);
         DBRepository.TA.commit();
     }

@@ -12,7 +12,7 @@ public class reports_tbl
     int id;
     String content;
     String date_time;
-    String condition;
+    boolean condition;
     @ManyToOne
     @JoinColumn(name = "report_id")
     report_tbl report_id;
@@ -26,7 +26,7 @@ public class reports_tbl
     public reports_tbl() {
     }
 
-    public reports_tbl(String content, String date_time, String condition, report_tbl report_id, users_tbl user_id, posts_tbl post_id) {
+    public reports_tbl(String content, String date_time, boolean condition, report_tbl report_id, users_tbl user_id, posts_tbl post_id) {
         this.content = content;
         this.date_time = date_time;
         this.condition = condition;
@@ -59,11 +59,11 @@ public class reports_tbl
         this.date_time = date_time;
     }
 
-    public String getCondition() {
+    public boolean getCondition() {
         return condition;
     }
 
-    public void setCondition(String condition) {
+    public void setCondition(boolean condition) {
         this.condition = condition;
     }
 
