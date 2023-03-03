@@ -1,6 +1,7 @@
 package com.sorapp.jowncms.jowncms.Middleware;
 
 import com.sorapp.jowncms.jowncms.Controllers.AdminController;
+import com.sorapp.jowncms.jowncms.Controllers.StoreController;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
 import com.sorapp.jowncms.jowncms.Function.Encript.EncriptService;
 import org.slf4j.Logger;
@@ -48,6 +49,7 @@ public class AdminAuthCheckMiddleware implements HandlerInterceptor
                 String json = Encription.DEC(auth);
                 users_tbl user = new users_tbl().FromJson(json);
                 AdminController.user_data=user;
+                StoreController.user_data=user;
                 return true;
             }
             catch (Exception e)

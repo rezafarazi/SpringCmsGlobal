@@ -20,6 +20,8 @@ import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.StandardCopyOption;
 import java.time.LocalDateTime;
+import java.util.HashMap;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/File")
@@ -34,10 +36,12 @@ public class FileController
 
     //Upload file start
     @RequestMapping(value = "Upload",method = RequestMethod.POST)
-    public String UploadFile(HttpServletRequest request, MultipartFile UploadFile) throws Exception
+    public Map<String,String> UploadFile(HttpServletRequest request, MultipartFile UploadFile) throws Exception
     {
         file_tbl file = FileUploadRepo.UploadFile_Repo(UploadFile);
-        return "{file_id:"+file.getId()+"}";
+        Map<String,String> result=new HashMap<>();
+        result.put("file_id",file.getId()+"");
+        return result;
     }
     //Upload file end
 

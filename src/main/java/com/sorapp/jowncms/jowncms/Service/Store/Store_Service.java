@@ -52,12 +52,12 @@ public class Store_Service implements Store_Repo
         DBRepository.TA=DBRepository.session.beginTransaction();
 
         store_tbl store=new store_tbl();
-        store.setTitle(content);
+        store.setTitle(title);
         store.setContent(content);
-        store.setJson(content);
-        store.setDiscount(content);
-        store.setType(content);
-        store.setPrice(content);
+        store.setJson(json);
+        store.setDiscount(discount);
+        store.setType(type);
+        store.setPrice(price);
         store.setCategory_id(category_id);
         store.setDelete_flag(delete_flag);
         store.setVisible(visible);
