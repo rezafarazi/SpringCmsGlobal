@@ -745,7 +745,6 @@ public class AdminController
 
 
     /****************Transactions Start****************/
-
     @RequestMapping(value = "/Panel/Transactions")
     public ModelAndView Transactions(HttpServletRequest request)
     {
@@ -757,6 +756,60 @@ public class AdminController
         return response;
     }
     /****************Transactions End****************/
+
+
+
+
+
+
+    /****************Cites Start****************/
+
+    @RequestMapping(value = "/Panel/Cities")
+    public ModelAndView Cites(HttpServletRequest request)
+    {
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","شهر ها");
+        response.setViewName("Admin/cites");
+        response.addObject("user_data",user_data);
+        response.addObject("Cites",City_Services.GetCites());
+        return response;
+    }
+
+    @RequestMapping(value = "/Panel/Cities/New",method = RequestMethod.POST)
+    public String City_New(HttpServletRequest request,String name,String area,String status)
+    {
+        LocalDateTime datetime = LocalDateTime.now();
+        String time=datetime.getYear()+"/"+datetime.getMonthValue()+"/"+datetime.getDayOfMonth()+" "+datetime.getHour()+":"+datetime.getMinute()+":"+datetime.getSecond();
+
+        City_Services.NewCity(name,Integer.parseInt(area),status,time);
+        return "redirect:" + request.getHeader("referer");
+    }
+
+    @RequestMapping(value = "/Panel/Cities/Edit/{id}")
+    public ModelAndView EditCity(HttpServletRequest request,@PathVariable String id)
+    {
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","شهر ها");
+        response.setViewName("Admin/cites");
+        response.addObject("user_data",user_data);
+        response.addObject("Cites",City_Services.GetCites());
+        response.addObject("edit_city",City_Services.GetCity(Integer.parseInt(id)));
+        return response;
+    }
+
+    @RequestMapping(value = "/Panel/Cities/Edit",method = RequestMethod.POST)
+    public String City_New(HttpServletRequest request,String id,String name,String area,String status)
+    {
+        LocalDateTime datetime = LocalDateTime.now();
+        String time=datetime.getYear()+"/"+datetime.getMonthValue()+"/"+datetime.getDayOfMonth()+" "+datetime.getHour()+":"+datetime.getMinute()+":"+datetime.getSecond();
+
+        City_Services.UpdateCity(Integer.parseInt(id),name,Integer.parseInt(area),status,time);
+        return "redirect:" + "/Admin/Panel/Cities";
+    }
+
+    /****************Cites End****************/
+
+
 
 
 
