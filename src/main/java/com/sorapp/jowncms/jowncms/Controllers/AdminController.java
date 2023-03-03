@@ -261,7 +261,6 @@ public class AdminController
 
 
 
-
     /****************NewPost Start****************/
     @RequestMapping("/Panel/NewPost")
     public ModelAndView NewPost(HttpServletRequest request)
@@ -764,6 +763,26 @@ public class AdminController
         return response;
     }
     /****************Transactions End****************/
+
+
+
+
+
+
+    /****************Hospitals Start****************/
+
+    @RequestMapping(value = "/Panel/Hospitals")
+    public ModelAndView Hospitals(HttpServletRequest request)
+    {
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","بیمارستان ها");
+        response.setViewName("Admin/hospitals");
+        response.addObject("user_data",user_data);
+        return response;
+    }
+
+    /****************Hospitals End****************/
+
 
 
 

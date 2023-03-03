@@ -18,7 +18,10 @@ public interface Store_Categories_Repo
     public store_categories_tbl NewCategory(String title, int root_cat_id, String icon_address, String datetime, String castom_link, String visible, String delete_flag);
 
     //Update Category
-    public store_categories_tbl UpdateCategory(int id,String title,int root_cat_id,String icon_address,String datetime,String castom_link,String visible,String delete_flag);
+    public store_categories_tbl UpdateCategory(int id,String title,int root_cat_id,String icon_address,String castom_link,String visible,String delete_flag);
+
+    //Remove Category
+    public void RemoveCategory(int id);
 
 
 }
