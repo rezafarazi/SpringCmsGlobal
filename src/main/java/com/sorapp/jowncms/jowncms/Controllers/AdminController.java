@@ -762,6 +762,44 @@ public class AdminController
 
 
 
+
+    /****************Access Start****************/
+
+    @RequestMapping(value = "/Panel/Groups")
+    public ModelAndView Access(HttpServletRequest request)
+    {
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","دسترسی ها");
+        response.setViewName("Admin/accesses");
+        response.addObject("user_data",user_data);
+        response.addObject("ussertypes",UserType_Services.GetAllUserType());
+        return response;
+    }
+
+
+    @RequestMapping(value = "/Panel/Groups/New",method = RequestMethod.POST)
+    public String AccessNew(HttpServletRequest request,String title,String en_title)
+    {
+        UserType_Services.NewType(title,en_title);
+        return "redirect:" + request.getHeader("referer");
+    }
+
+
+    @RequestMapping(value = "/Panel/Groups/Delete/{id}")
+    public String AccessRemove(HttpServletRequest request,@PathVariable String id)
+    {
+        UserType_Services.RemoveType(Integer.parseInt(id));
+        return "redirect:" + request.getHeader("referer");
+    }
+
+    /****************Access End****************/
+
+
+
+
+
+
+
     /****************Cites Start****************/
 
     @RequestMapping(value = "/Panel/Cities")

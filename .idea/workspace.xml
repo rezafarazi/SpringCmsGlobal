@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58a6709a-b36f-4f2d-ae2c-8508826ee1ab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/cites.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/accesses.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Controllers/AdminController.java" afterDir="false" />
     </list>
