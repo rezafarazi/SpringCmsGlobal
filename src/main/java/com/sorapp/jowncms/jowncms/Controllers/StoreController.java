@@ -5,6 +5,7 @@ import com.sorapp.jowncms.jowncms.Repository.FileUpload_Repo;
 import com.sorapp.jowncms.jowncms.Repository.File_Repo;
 import com.sorapp.jowncms.jowncms.Repository.Store_Categories_Repo;
 import com.sorapp.jowncms.jowncms.Service.File.File_Service;
+import com.sorapp.jowncms.jowncms.Service.Order.Order_service;
 import com.sorapp.jowncms.jowncms.Service.Store.Store_Service;
 import com.sorapp.jowncms.jowncms.Service.StoreCategory.StoreCategory_Service;
 import com.sorapp.jowncms.jowncms.Service.StoreImage.StoreImage_Service;
@@ -42,6 +43,9 @@ public class StoreController
 
     @Autowired
     FileUpload_Repo FileUploadRepo;
+
+    @Autowired
+    Order_service Order_services;
 
     @Autowired
     File_Service File_Services;
@@ -101,6 +105,88 @@ public class StoreController
         return "redirect:/Admin/Panel/Store/CategoryStore";
     }
     /****************Categories End****************/
+
+
+
+
+    /****************All Orders Start****************/
+
+    @RequestMapping("/AllOrders")
+    public ModelAndView AllOrders(HttpServletRequest request)
+    {
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","همه سفارش ها");
+        response.setViewName("Admin/allorders");
+        response.addObject("user_data",user_data);
+        return response;
+    }
+
+    @RequestMapping(value = "/AllOrders/Search",method = RequestMethod.POST)
+    public ModelAndView AllOrdersSearch(HttpServletRequest request,String search)
+    {
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","همه سفارش ها");
+        response.setViewName("Admin/searchorder");
+        response.addObject("user_data",user_data);
+        response.addObject("orders",Order_services.GetOrderSearchResult(Integer.parseInt(search)));
+        return response;
+    }
+
+
+    @RequestMapping(value = "/CurrentOrders")
+    public ModelAndView CurrentOrders(HttpServletRequest request)
+    {
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","همه سفارش ها");
+        response.setViewName("Admin/searchorder");
+        response.addObject("user_data",user_data);
+        response.addObject("orders",Order_services.GetCurrentOrders());
+        return response;
+    }
+
+    /****************All Orders End****************/
+
+
+
+
+
+
+    /****************Get Order Start****************/
+
+    @RequestMapping(value = "/Order/{id}")
+    public ModelAndView GetOrder(HttpServletRequest request,@PathVariable String id)
+    {
+        ModelAndView response=new ModelAndView();
+        response.addObject("title","همه سفارش ها");
+        response.setViewName("Admin/order");
+        response.addObject("user_data",user_data);
+        response.addObject("order",Order_services.GetOrder(Integer.parseInt(id)));
+        return response;
+    }
+
+    @RequestMapping(value = "/Order/SetRemove/{id}")
+    public String GetRemoveOrder(HttpServletRequest request,@PathVariable String id)
+    {
+        Order_services.RemoveSetStatus(Integer.parseInt(id));
+        return "redirect:" + request.getHeader("referer");
+    }
+
+    @RequestMapping(value = "/Order/SetPay/{id}")
+    public String GetPayOrder(HttpServletRequest request,@PathVariable String id)
+    {
+        Order_services.PaySetStatus(Integer.parseInt(id),AdminController.user_data);
+        return "redirect:" + request.getHeader("referer");
+    }
+
+    @RequestMapping(value = "/Order/SetOk/{id}")
+    public String GetOkOrder(HttpServletRequest request,@PathVariable String id)
+    {
+        Order_services.OKSetStatus(Integer.parseInt(id));
+        return "redirect:" + request.getHeader("referer");
+    }
+
+    /****************Get Order End****************/
+
 
 
 
@@ -213,7 +299,6 @@ public class StoreController
         String time=datetime.getYear()+"/"+datetime.getMonthValue()+"/"+datetime.getDayOfMonth()+" "+datetime.getHour()+":"+datetime.getMinute()+":"+datetime.getSecond();
 
         store_tbl store = Store_Services.GetPost(Integer.parseInt(id));
-        System.out.println("OK1");
         StoreImage_Services.RemoveRange(store);
         String []all_imgs=all_images.split(",");
 
@@ -222,11 +307,8 @@ public class StoreController
             file_tbl image = File_Services.GetFileById(Integer.parseInt(all_imgs[i]));
             StoreImage_Services.NewStoreImage(time,store,image);
         }
-        System.out.println("OK2");
 
         store_categories_tbl cat=Category_Services.GetCategory(Integer.parseInt(category));
-        System.out.println("OK3");
-
         String adiscount="";
 
         if(!discount.equals(""))
@@ -240,10 +322,8 @@ public class StoreController
                 adiscount = (Integer.parseInt(price) - Integer.parseInt(price) * (Integer.parseInt(discount) / 100)) + "";
             }
         }
-        System.out.println("OK4");
 
         Store_Services.UpdatePost(Integer.parseInt(id),title,cntent,store.getDate(),store.getDelete_flag(),visible,attr,price,discount,adiscount,store.getUser_id(),cat,store.getFile_id());
-        System.out.println("OK5");
 
         return "redirect:" + request.getHeader("referer");
     }
@@ -252,6 +332,7 @@ public class StoreController
     @RequestMapping("/AllStores/Remove/{id}")
     public String RemoveStorPost(HttpServletRequest request,@PathVariable String id)
     {
+        StoreImage_Services.RemoveRange(Store_Services.GetPost(Integer.parseInt(id)));
         Store_Services.RemovePost(Integer.parseInt(id));
         return "redirect:" + request.getHeader("referer");
     }

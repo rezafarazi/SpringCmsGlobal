@@ -1,0 +1,47 @@
+<hdr class="insert" th:insert="@{/Admin/Components/panel_header}" />
+
+
+
+
+
+<!-- partial -->
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-paperclip"></i>
+                </span></span>همه سفارش ها
+      </h3>
+    </div>
+
+    <div class="row">
+
+      <!--Top Side Of Content Start-->
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <form class="forms-sample" method="post" action="/Admin/Panel/Store/AllOrders/Search">
+              <div class="form-group">
+                <label for="exampleInputUsername1">کد پیگیری</label>
+                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="کد پیگیری" name="search">
+              </div>
+              <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">تایید</button>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!--Top Side Of Content Start-->
+
+
+    </div>
+
+  </div>
+  <!-- content-wrapper ends -->
+
+
+
+
+
+
+  <ftr class="insert" th:insert="@{/Admin/Components/panel_footer}" />

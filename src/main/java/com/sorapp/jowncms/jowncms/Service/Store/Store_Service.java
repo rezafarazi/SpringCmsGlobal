@@ -3,6 +3,7 @@ package com.sorapp.jowncms.jowncms.Service.Store;
 import com.sorapp.jowncms.jowncms.DatabaseRepository.DBRepository;
 import com.sorapp.jowncms.jowncms.Models.*;
 import com.sorapp.jowncms.jowncms.Repository.Store_Repo;
+import com.sorapp.jowncms.jowncms.Service.StoreImage.StoreImage_Service;
 import org.hibernate.query.Query;
 import org.springframework.stereotype.Component;
 
@@ -79,17 +80,16 @@ public class Store_Service implements Store_Repo
         DBRepository.TA=DBRepository.session.beginTransaction();
 
         store_tbl store=GetPost(id);
-        store.setTitle(content);
+        store.setTitle(title);
         store.setContent(content);
-        store.setJson(content);
-        store.setDiscount(content);
-        store.setType(content);
-        store.setPrice(content);
+        store.setJson(json);
+        store.setDiscount(discount);
+        store.setPrice(price);
+        store.setAdiscount(adiscount);
         store.setCategory_id(category_id);
         store.setDelete_flag(delete_flag);
         store.setVisible(visible);
         store.setDate(date);
-        store.setAdiscount(adiscount);
         store.setFile_id(file_id);
         store.setUser_id(user_id);
 

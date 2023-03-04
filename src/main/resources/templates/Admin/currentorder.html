@@ -1,0 +1,73 @@
+<hdr class="insert" th:insert="@{/Admin/Components/panel_header}" />
+
+
+
+
+
+<!-- partial -->
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title">
+                <span class="page-title-icon bg-gradient-primary text-white mr-2">
+                  <i class="mdi mdi-paperclip"></i>
+                </span>سفارش های در جریان
+      </h3>
+    </div>
+
+    <div class="row">
+
+
+
+      <div class="col-lg-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+
+            <table th:if="${orders.size>0}" class="table">
+              <thead>
+              <tr>
+                <th>ردیف</th>
+                <th>نوع محصول</th>
+                <th>وضعیت</th>
+                <th>ویژگی ها</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="order : ${orders}">
+                <td th:text="${order.getId()}"/>
+
+                <th th:if="${order.getType()=='FILE'}" th:text="فایل"/>
+                <th th:unless="${order.getType()=='FILE'}" th:text="محصول"/>
+
+                <th th:switch="${order.getOrder_status()}">
+                  <p th:case="'0'">منتظر پرداخت</p>
+                  <p th:case="'1'">ارسال کالا</p>
+                  <p th:case="'2'">پایان یافته</p>
+                  <p th:case="'3'">حذف شده</p>
+                </th>
+
+                <td><i th:onclick="|Open_Link_Dialog(this,'/Admin/Panel/Store/Order/${order.getId()}')|" class="mdi mdi-table-edit" style="color: #F00;font-size: 20px;cursor: pointer;"></i></td>
+              </tr>
+              </tbody>
+            </table>
+
+            <div th:unless="${orders.size>0}">
+              <div style="margin-top:60px;">
+                <img th:src="@{/Assets/Admin/images/icons/empty.png}" style="display:block;margin:0 auto;" width="150px">
+                <p style="width:100%;text-align:center;color:#666;margin-top:20px;">هیچ موردی یافت نشد</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+  <!-- content-wrapper ends -->
+
+
+
+
+  <ftr class="insert" th:insert="@{/Admin/Components/panel_footer}" />
