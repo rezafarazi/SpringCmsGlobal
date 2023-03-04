@@ -49,6 +49,7 @@ com/sorapp/jowncms/jowncms/Repository/Category_Repo.class
 com/sorapp/jowncms/jowncms/Models/store_images_tbl.class
 com/sorapp/jowncms/jowncms/Service/Users/Users_Service.class
 com/sorapp/jowncms/jowncms/Repository/Discount_Repo.class
+com/sorapp/jowncms/jowncms/Function/RandomString/RandomString.class
 com/sorapp/jowncms/jowncms/Models/store_categories_tbl.class
 com/sorapp/jowncms/jowncms/Controllers/AdminController.class
 com/sorapp/jowncms/jowncms/Repository/User_Verify_Repo.class

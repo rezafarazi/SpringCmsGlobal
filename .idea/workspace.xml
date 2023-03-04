@@ -5,16 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58a6709a-b36f-4f2d-ae2c-8508826ee1ab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/allorders.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/currentorder.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/order.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/searchorder.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Function/RandomString/RandomString.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/alldiscount.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/coupons.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Controllers/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Controllers/StoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Orders_Repo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Repository/Orders_Repo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Order/Order_service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Order/Order_service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Store/Store_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Store/Store_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/editstore.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/editstore.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Discount/Discount_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Discount/Discount_Service.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>

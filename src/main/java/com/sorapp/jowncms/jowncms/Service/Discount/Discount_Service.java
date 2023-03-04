@@ -24,7 +24,7 @@ public class Discount_Service implements Discount_Repo
     {
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
-        Query HQL= DBRepository.session.createQuery("FROM discount_code_tbl");
+        Query HQL= DBRepository.session.createQuery("FROM discount_code_tbl discount WHERE discount.delete_flag='0'");
         List<discount_code_tbl> Result = HQL.getResultList();
         return Result;
     }
@@ -53,10 +53,11 @@ public class Discount_Service implements Discount_Repo
         DBRepository.session=DBRepository.SF.openSession();
         DBRepository.TA=DBRepository.session.beginTransaction();
 
-        Query HQL= DBRepository.session.createQuery("FROM discount_code_tbl WHERE id"+id);
+        Query HQL= DBRepository.session.createQuery("FROM discount_code_tbl discount WHERE discount.id="+id);
         discount_code_tbl Result = (discount_code_tbl) HQL.list().get(0);
+        Result.setDelete_flag("1");
 
-        DBRepository.session.remove(Result);
+        DBRepository.session.update(Result);
         DBRepository.TA.commit();
     }
 
