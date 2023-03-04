@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Mar 01, 2023 at 03:59 PM
+-- Generation Time: Mar 04, 2023 at 04:08 PM
 -- Server version: 8.0.32-0ubuntu0.22.04.2
--- PHP Version: 8.1.2-1ubuntu2.10
+-- PHP Version: 8.1.2-1ubuntu2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -180,7 +180,7 @@ CREATE TABLE `notifications_tbls` (
   `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `content` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `link` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `from` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `from_user` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `seen` tinyint(1) NOT NULL,
   `user_id` int UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -274,9 +274,16 @@ CREATE TABLE `report_tbls` (
 
 CREATE TABLE `settings_tbls` (
   `id` bigint UNSIGNED NOT NULL,
-  `parametrs` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `parametrs` varchar(4096) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `discountall` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `settings_tbls`
+--
+
+INSERT INTO `settings_tbls` (`id`, `parametrs`, `discountall`) VALUES
+(8, '{\"slider\":\"[{\\\"text\\\":\\\"m;lm;\\\",\\\"address\\\":\\\"lml;m\\\",\\\"link\\\":\\\"ml;m;\\\"},{\\\"text\\\":\\\"ml;m;l\\\",\\\"address\\\":\\\"ml;m;\\\",\\\"link\\\":\\\"ml;m;lm\\\"},{\\\"text\\\":\\\"jjjjj\\\",\\\"address\\\":\\\"jjjj\\\",\\\"link\\\":\\\"jjjj\\\"}]\",\"law\":\"nklnlknl\",\"logo\":\"knlk\",\"banner\":\"[{\\\"address\\\":\\\"ccc\\\",\\\"link\\\":\\\"ccc\\\"}]\"}', '0');
 
 -- --------------------------------------------------------
 
@@ -575,25 +582,25 @@ ALTER TABLE `visite_tbls`
 -- AUTO_INCREMENT for table `categories_tbls`
 --
 ALTER TABLE `categories_tbls`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `city_tbls`
 --
 ALTER TABLE `city_tbls`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `discount_code_tbls`
 --
 ALTER TABLE `discount_code_tbls`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `file_tbls`
 --
 ALTER TABLE `file_tbls`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- AUTO_INCREMENT for table `hospital_img_tbls`
@@ -617,13 +624,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `notifications_tbls`
 --
 ALTER TABLE `notifications_tbls`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `orders_tbls`
 --
 ALTER TABLE `orders_tbls`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -635,61 +642,61 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `posts_tbls`
 --
 ALTER TABLE `posts_tbls`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `reports_tbls`
 --
 ALTER TABLE `reports_tbls`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `report_tbls`
 --
 ALTER TABLE `report_tbls`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `settings_tbls`
 --
 ALTER TABLE `settings_tbls`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `store_categories_tbls`
 --
 ALTER TABLE `store_categories_tbls`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `store_images_tbls`
 --
 ALTER TABLE `store_images_tbls`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `store_tbls`
 --
 ALTER TABLE `store_tbls`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `transcation_tbls`
 --
 ALTER TABLE `transcation_tbls`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `userstype_tbls`
 --
 ALTER TABLE `userstype_tbls`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users_tbls`
 --
 ALTER TABLE `users_tbls`
-  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `user_verify_tbls`
