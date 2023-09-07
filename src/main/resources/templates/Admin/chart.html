@@ -8,7 +8,7 @@
             <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                     <i class="mdi mdi-chart-bar"></i>
-                </span></span>آمار
+                </span></span><span th:text="#{label.chart}"/>
             </h3>
         </div>
 
@@ -20,7 +20,7 @@
             <div class="col-lg-6 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">آمار بازدید</h4>
+                        <h4 class="card-title" th:text="#{label.viewchart}"/>
                         <canvas id="video_make" style="height:250px"></canvas>
                         <script>
                             const video_make_ctx = document.getElementById('video_make').getContext('2d');
@@ -56,7 +56,7 @@
             <div class="col-lg-6 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">آمار بازدید هفتگی</h4>
+                        <h4 class="card-title" th:text="#{label.weekviewchart}"/>
                         <canvas id="barChart" style="height:230px"></canvas>
                         <script>
                             const ctx = document.getElementById('barChart').getContext('2d');

@@ -8,7 +8,7 @@
             <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                     <i class="mdi mdi-card"></i>
-                </span></span>پرداخت ها
+                </span></span><span th:text="#{label.transations}"/>
             </h3>
         </div>
 
@@ -20,10 +20,10 @@
                         <table th:if="${transactions.size()>0}" class="table">
                             <thead>
                             <tr>
-                                <th>ردیف</th>
-                                <th>نام و نام خانوادگی</th>
-                                <th>تاریخ</th>
-                                <th>مقدار</th>
+                                <th th:text="#{label.id}"/>
+                                <th th:text="#{label.name}"/>
+                                <th th:text="#{label.date}"/>
+                                <th th:text="#{label.value}"/>
                             </tr>
                             </thead>
                             <tbody>
@@ -40,7 +40,7 @@
                         <div th:unless="${transactions.size()>0}" style="width: 100%;height: 250px;display: flex;justify-content: center;align-items: center;">
                             <div style="width: 150px;">
                                 <img style="margin: 0 auto;" th:src="@{/Assets/Admin/images/icons/empty.png}" width="150px"/>
-                                <p style="margin: 10px auto;text-align: center;">پرداختی موجود نیست</p>
+                                <p style="margin: 10px auto;text-align: center;" th:text="#{label.nothavetransactionyet}"/>
                             </div>
                         </div>
 

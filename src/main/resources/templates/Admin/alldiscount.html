@@ -9,7 +9,7 @@
       <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-paperclip"></i>
-                </span>تخفیف برای همه
+                </span><span th:text="#{label.storediscount}"/>
       </h3>
     </div>
 
@@ -25,16 +25,16 @@
               <!--Get new discount start-->
               <form class="forms-sample" method="post" action="/Admin/Panel/Store/Discount/New">
                 <div class="form-group">
-                  <label for="exampleInputUsername1">تخفیف جدید</label>
-                  <input type="text" class="form-control" id="exampleInputUsername1" placeholder="اگر زیر 100 باشد درصد اگر بالای 100 از قیمت کم می شود" name="discount" required>
+                  <label for="exampleInputUsername1" th:text="#{label.newdiscount}"/>
+                  <input type="text" class="form-control" id="exampleInputUsername1" th:placeholder="#{label.discounttext}" name="discount" required>
                 </div>
-                <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">تایید</button>
+                <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2" th:text="#{label.done}"/>
               </form>
               <!--Get new discount end-->
               <div style="width: 100%;height: 250px;display: flex;justify-content: center;align-items: center;">
                 <div style="width: 150px;">
                   <img style="margin: 0 auto;" th:src="@{/Assets/Admin/images/icons/free.png}" width="150px"/>
-                  <p style="margin: 10px auto;text-align: center;">هیچ تخفیفی موجود نیست</p>
+                  <p style="margin: 10px auto;text-align: center;" th:text="#{label.stillwenothavediscount}"/>
                 </div>
               </div>
             </div>
@@ -42,8 +42,8 @@
             <div th:unless="${discount=='' || discount=='0'}" style="width: 100%;height: 250px;display: flex;justify-content: center;align-items: center;">
               <div style="width: 150px;">
                 <img style="margin: 0 auto;" th:src="@{/Assets/Admin/images/icons/free.png}" width="150px"/>
-                <p style="margin: 10px auto;text-align: center;" th:text="${discount}+تخفیف"/>
-                <a href="/Admin/Panel/Store/Discount/Remove" style="cursor: pointer;color:var(--primary);text-align: center;display: block;margin: 0 auto;">حذف تخفیف</a>
+                <p style="margin: 10px auto;text-align: center;" th:text="${discount}+#{label.discount}"/>
+                <a href="/Admin/Panel/Store/Discount/Remove" style="cursor: pointer;color:var(--primary);text-align: center;display: block;margin: 0 auto;" th:text="#{label.removediscount}"/>
               </div>
             </div>
 

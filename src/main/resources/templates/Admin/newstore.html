@@ -10,7 +10,7 @@
       <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-package-variant-closed"></i>
-                </span>پست جدید
+                </span><span th:text="#{label.storenewpost}"/>
       </h3>
     </div>
 
@@ -22,39 +22,39 @@
             <form enctype="multipart/form-data" class="forms-sample" method="post" action="/Admin/Panel/Store/NewStore/Done">
 
               <div class="form-group">
-                <label for="exampleInputUsername1">عنوان</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="عنوان" name="title" required>
+                <label for="exampleInputUsername1" th:text="#{label.title}"/>
+                <input type="text" class="form-control" id="exampleInputUsername1" th:placeholder="#{label.title}" name="title" required>
               </div>
 
               <div class="form-group">
-                <label for="exampleInputUsername1">دسته بندی</label>
+                <label for="exampleInputUsername1" th:text="#{label.category}"/>
                 <select class="form-control" name="category" required>
                     <option th:each="category : ${categories}" th:value="${category.getId()}" th:text="${category.getTitle()}"/>
                 </select>
               </div>
 
               <div class="form-group">
-                <label for="exampleInputUsername1">وضعیت</label>
+                <label for="exampleInputUsername1" th:text="#{label.status}"/>
                 <select class="form-control" name="visible" required>
-                  <option value="1">فعال</option>
-                  <option value="0">غیرفعال</option>
+                  <option value="1" th:text="#{label.active}"/>
+                  <option value="0" th:text="#{label.deactive}">
                 </select>
               </div>
 
 
               <div class="form-group">
-                <label for="exampleInputUsername1">قیمت خرید</label>
-                <input type="number" class="form-control" id="exampleInputUsername1" placeholder="قیمت خرید" name="price" required>
+                <label for="exampleInputUsername1" th:text="#{label.price}"/>
+                <input type="number" class="form-control" id="exampleInputUsername1" th:placeholder="#{label.price}" name="price" required>
               </div>
 
 
               <!--type start-->
               <div>
                 <div class="form-group">
-                  <label for="exampleInputUsername1">نوع</label>
+                  <label for="exampleInputUsername1" th:text="#{label.type}"/>
                   <select onchange="onchnage_store_type(this)" id="store_type_combo" class="form-control" placeholder="{{__('all_strings.image_addrs')}}" name="type">
-                    <option value="PRODUCT">محصول</option>
-                    <option value="FILE">فایل</option>
+                    <option value="PRODUCT" th:text="#{label.product}"/>
+                    <option value="FILE" th:text="#{label.file}"/>
                   </select>
                 </div>
 
@@ -84,7 +84,7 @@
                 <!--On change store type event end-->
 
                 <div class="form-group" id="file_upload" style="display: none;">
-                  <label for="exampleInputPassword1" >فایل</label>
+                  <label for="exampleInputPassword1" th:text="#{label.file}"/>
                   <input type="file" class="form-control" id="file_product" name="file">
                 </div>
               </div>
@@ -93,7 +93,7 @@
               <!--Image upload start-->
               <div>
                 <div class="form-group">
-                  <label for="exampleInputUsername1" style="width: 100%;text-align: right;">آپلود عکس</label>
+                  <label for="exampleInputUsername1"  th:text="#{label.imageupload}"/>
                   <div style="display: flex;">
                     <label style="width: 60px;cursor: pointer;color: white;border-radius:3px;font-size: 18px;height: 35px;background: var(--primary);display: flex;justify-content: center;align-items: center;">
                       +
@@ -225,23 +225,23 @@
               <!--attr start-->
               <div>
                 <div class="form-group">
-                  <label for="exampleInputUsername1" style="width: 100%;text-align: right;">ویژگی ها</label>
+                  <label for="exampleInputUsername1"  th:text="#{label.attributes}"/>
                   <div style="display: flex;">
-                    <input type="text" style="margin: 5px" class="form-control" id="attr_imageaddress" placeholder="کلید">
-                    <input type="text" style="margin: 5px" class="form-control" id="attr_imagelink" placeholder="مقدار">
+                    <input type="text" style="margin: 5px" class="form-control" id="attr_imageaddress" th:placeholder="#{label.key}">
+                    <input type="text" style="margin: 5px" class="form-control" id="attr_imagelink" th:placeholder="#{label.value}">
                     <btn onclick="AddNewattr(this)" style="margin : 7px;height: 40px;" class="btn btn-gradient-primary mr-2">+</btn>
                   </div>
                 </div>
                 <input value="[]" name="attr" type="hidden" style="margin: 5px" class="form-control" id="attr_input" placeholder="{{__('all_strings.imageaddress')}}">
                 <div class="form-group">
-                  <label for="exampleInputUsername1">همه ویژگی ها</label>
+                  <label for="exampleInputUsername1" th:text="#{label.attributes}"/>
 
                   <table class="table">
                     <thead>
                     <tr>
-                      <th>کلید</th>
-                      <th>مقدار</th>
-                      <th>رویداد</th>
+                      <th th:text="#{label.key}"/>
+                      <th th:text="#{label.value}"/>
+                      <th th:text="#{label.event}"/>
                     </tr>
                     </thead>
                     <tbody id="attr_table_content">
@@ -341,13 +341,13 @@
               <br>
 
               <div class="form-group">
-                <label for="exampleInputUsername1">ویژگی ها</label>
+                <label for="exampleInputUsername1" th:text="#{label.attributes}"/>
                 <textarea style="height: 150px;" class="form-control" id="exampleInputUsername1" name="cntent"></textarea>
               </div>
 
 
 
-              <button type="submit" style="width: 100%;" class="btn btn-gradient-primary mr-2">تایید</btn>
+              <button type="submit" style="width: 100%;" class="btn btn-gradient-primary mr-2" th:text="#{label.done}"/>
 
             </form>
           </div>

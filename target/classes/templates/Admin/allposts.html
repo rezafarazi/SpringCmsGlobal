@@ -8,7 +8,7 @@
             <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                     <i class="mdi mdi-buffer"></i>
-                </span>پست ها
+                </span><span th:text="#{label.allposts}"/>
             </h3>
         </div>
 
@@ -18,23 +18,23 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title" style="text-align: right;">پست ها</h4>
+                        <h4 class="card-title" style="text-align: right;" th:text="#{label.allposts}"/>
                         </p>
                         <table class="table" th:if="${posts.size>0}">
                             <thead>
                             <tr>
-                                <th>ردیف</th>
-                                <th>عنوان</th>
-                                <th>وضعیت</th>
-                                <th>عملیات</th>
-                                <th>حذف</th>
+                                <th th:text="#{label.id}"/>
+                                <th th:text="#{label.title}"/>
+                                <th th:text="#{label.status}"/>
+                                <th th:text="#{label.opration}"/>
+                                <th th:text="#{label.delete}"/>
                             </tr>
                             </thead>
                             <tbody>
                                 <tr th:each="post :${posts}">
                                     <td th:text="${post.getId()}" />
                                     <td th:text="${post.getTitle()}" />
-                                    <td th:text="${post.getVisible()=='1'}?فعال:غیرفعال" />
+                                    <td th:text="${post.getVisible()=='1'}?#{label.active}:#{label.deactive}" />
                                     <td><i th:onclick="Open_Link_Dialog(this, window.location.protocol + '//' + window.location.host + '/Admin/Panel/Post/Edit/[[${post.getId()}]]')"><i class="mdi mdi-table-edit" style="font-size: 20px;color:#007bff;cursor: pointer;"></i></i></td>
                                     <td><a th:href="@{/Admin/Panel/Post/Delete/{post_id}(post_id=${post.getId()})}"><i class="mdi mdi-delete" style="color: #F00;font-size: 20px;"></i></a></td>
                                 </tr>
@@ -43,7 +43,7 @@
                         <div th:unless="${posts.size>0}">
                             <div style="margin-top:60px;">
                                 <img th:src="@{/Assets/Admin/images/icons/empty.png}" style="display:block;margin:0 auto;" width="150px">
-                                <p style="width:100%;text-align:center;color:#666;margin-top:20px;">هیچ موردی یافت نشد</p>
+                                <p style="width:100%;text-align:center;color:#666;margin-top:20px;" th:text="#{label.nothing_found}"/>
                             </div>
                         </div>
                     </div>

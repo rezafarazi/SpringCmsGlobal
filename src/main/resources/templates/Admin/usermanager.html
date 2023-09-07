@@ -8,7 +8,7 @@
             <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                     <i class="mdi mdi-account-multiple "></i>
-                </span></span>مدیریت کاربران
+                </span></span><span th:text="#{label.usermanager}"/>
             </h3>
         </div>
 
@@ -20,10 +20,10 @@
                     <div class="card-body">
                         <form class="forms-sample" method="post">
                             <div class="form-group">
-                                <label for="exampleInputUsername1">جست و جو</label>
-                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="جست و جو" name="SearchValue">
+                                <label for="exampleInputUsername1" th:text="#{label.search}"/>
+                                <input type="text" class="form-control" id="exampleInputUsername1" th:placeholder="#{label.search}" name="SearchValue">
                             </div>
-                            <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">جست و جو</button>
+                            <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2" th:text="#{label.search}"/>
                         </form>
                     </div>
                 </div>
@@ -33,17 +33,17 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">کاربران</h4>
+                        <h4 class="card-title" th:text="#{label.users}"/>
                         </p>
                         <table class="table" th:if="${users.size()>1}">
                             <thead>
                             <tr>
-                                <th>ردیف</th>
-                                <th>نام و نام خانوادگی</th>
-                                <th>نوع کاربر</th>
-                                <th>نام کاربری</th>
-                                <th>نوتیفیکیشن</th>
-                                <th>ویرایش</th>
+                                <th th:text="#{label.id}"/>
+                                <th th:text="#{label.name}"/>
+                                <th th:text="#{label.usertype}"/>
+                                <th th:text="#{label.username}"/>
+                                <th th:text="#{label.notification}"/>
+                                <th th:text="#{label.edit}"/>
                             </tr>
                             </thead>
                             <tbody>
@@ -61,7 +61,7 @@
                         </table>
                         <div style="margin-top:60px;" th:unless="${users.size()>1}">
                             <img th:src="@{/Assets/Admin/images/icons/empty.png}" width="150px" style="display:block;margin:0 auto;" />
-                            <p style="width:100%;text-align:center;">هیچ کاربری یافت نشد</p>
+                            <p style="width:100%;text-align:center;" th:text="#{label.user_not_found}"/>
                         </div>
                     </div>
                 </div>

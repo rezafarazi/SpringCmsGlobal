@@ -10,43 +10,43 @@
                 <div class="card-body">
 
                     <div class="form-group">
-                        <label for="exampleInputUsername1">عنوان</label>
+                        <label for="exampleInputUsername1" th:text="#{label.title}"/>
                         <label for="exampleInputUsername1" th:text="${order.getStore_id().getTitle()}"/>
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputUsername1">نام و نام خانوادگی</label>
+                        <label for="exampleInputUsername1" th:text="#{label.name}"/>
                         <label for="exampleInputUsername1" th:text="${order.getUser_id().getName()}+' '+${order.getUser_id().getFamily()}"/>
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputUsername1">شماره تماس</label>
+                        <label for="exampleInputUsername1" th:text="#{label.phone}"/>
                         <label for="exampleInputUsername1" th:text="${order.getUser_id().getPhone()}"/>
                     </div>
 
                     <div class="form-group">
-                        <label for="exampleInputUsername1">آدرس</label>
+                        <label for="exampleInputUsername1" th:text="#{label.address}"/>
                         <label for="exampleInputUsername1" th:text="${order.getUser_id().getAddress()}"/>
                     </div>
 
                     <div th:switch="${order.getOrder_status}">
                         <div th:case="'0'">
-                            <a th:href="@{/Admin/Panel/Store/Order/SetPay/}+${order.getId()}" style="width: 100%;" class="btn btn-gradient-primary mr-2">پرداخت</a>
+                            <a th:href="@{/Admin/Panel/Store/Order/SetPay/}+${order.getId()}" style="width: 100%;" class="btn btn-gradient-primary mr-2" th:text="#{label.pay}"/>
                             <br>
                             <br>
-                            <a th:href="@{/Admin/Panel/Store/Order/SetPay/}+${order.getId()}" style="width: 100%;" class="btn btn-gradient-primary mr-2">حذف</a>
+                            <a th:href="@{/Admin/Panel/Store/Order/SetPay/}+${order.getId()}" style="width: 100%;" class="btn btn-gradient-primary mr-2" th:text="#{label.delete}"/>
                             <br>
                             <br>
-                            <a th:href="@{/Admin/Panel/Store/Order/SetOk/}+${order.getId()}" style="width: 100%;" class="btn btn-gradient-primary mr-2">دریافت شد</a>
+                            <a th:href="@{/Admin/Panel/Store/Order/SetOk/}+${order.getId()}" style="width: 100%;" class="btn btn-gradient-primary mr-2" th:text="#{label.overed}"/>
                         </div>
                         <div th:case="'1'">
-                            <a th:href="@{/Admin/Panel/Store/Order/SetRemove/}+${order.getId()}" style="width: 100%;" class="btn btn-gradient-primary mr-2">حذف</a>
+                            <a th:href="@{/Admin/Panel/Store/Order/SetRemove/}+${order.getId()}" style="width: 100%;" class="btn btn-gradient-primary mr-2" th:text="#{label.delete}"/>
                             <br>
                             <br>
-                            <a th:href="@{/Admin/Panel/Store/Order/SetOk/}+${order.getId()}" style="width: 100%;" class="btn btn-gradient-primary mr-2">دریافت شد</a>
+                            <a th:href="@{/Admin/Panel/Store/Order/SetOk/}+${order.getId()}" style="width: 100%;" class="btn btn-gradient-primary mr-2" th:text="#{label.overed}"/>
                         </div>
                         <div th:case="'2'">
-                            <a th:href="@{/Admin/Panel/Store/Order/SetRemove/}+${order.getId()}" style="width: 100%;" class="btn btn-gradient-primary mr-2">حذف</a>
+                            <a th:href="@{/Admin/Panel/Store/Order/SetRemove/}+${order.getId()}" style="width: 100%;" class="btn btn-gradient-primary mr-2" th:text="#{label.delete}"/>
                         </div>
                     </div>
 

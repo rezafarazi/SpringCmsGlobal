@@ -11,7 +11,7 @@
       <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-chart-bubble"></i>
-                </span>تعریف گزارش جدید
+                </span><span th:text="#{label.newreports}"/>
       </h3>
     </div>
 
@@ -23,10 +23,10 @@
           <div class="card-body">
             <form class="forms-sample" method="post" action="/Admin/Panel/NewReport/Add">
               <div class="form-group">
-                <label for="exampleInputUsername1">جدید</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="جدید" name="new_report">
+                <label for="exampleInputUsername1" th:text="#{label.title}"/>
+                <input type="text" class="form-control" id="exampleInputUsername1" th:placeholder="#{label.title}" name="new_report">
               </div>
-              <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">تایید</button>
+              <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2" th:text="#{label.done}"/>
             </form>
           </div>
         </div>
@@ -37,14 +37,14 @@
       <div class="col-lg-6 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title" >همه گزارش ها</h4>
+            <h4 class="card-title" th:text="#{label.reports}"/>
             </p>
             <table class="table" th:if="${all_reports.size>0}">
               <thead>
               <tr>
-                <th>ردیف</th>
-                <th>گزارش</th>
-                <th>حذف</th>
+                <th th:text="#{label.id}"/>
+                <th th:text="#{label.title}"/>
+                <th th:text="#{label.delete}"/>
               </tr>
               </thead>
               <tbody>
@@ -61,7 +61,7 @@
             <div th:unless="${all_reports.size>0}">
               <div style="margin-top:60px;">
                 <img th:src="@{/Assets/Admin/images/icons/empty.png}" style="display:block;margin:0 auto;" width="150px">
-                <p style="width:100%;text-align:center;color:#666;margin-top:20px;">هیچ موردی یافت نشد</p>
+                <p style="width:100%;text-align:center;color:#666;margin-top:20px;" th:text="#{label.nothing_found}"/>
               </div>
             </div>
 

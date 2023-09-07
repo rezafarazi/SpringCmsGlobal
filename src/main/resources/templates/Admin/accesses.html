@@ -9,7 +9,7 @@
       <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-fingerprint"></i>
-                </span></span>دسترسی ها
+                </span></span><span th:text="#{label.access}"/>
       </h3>
     </div>
 
@@ -21,14 +21,14 @@
           <div class="card-body">
             <form class="forms-sample" action="/Admin/Panel/Groups/New" method="post">
               <div class="form-group">
-                <label for="exampleInputUsername1">نام</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="نام" name="title" style="text-align: center;" required>
+                <label for="exampleInputUsername1" th:text="#{label.name}"/>
+                <input type="text" class="form-control" id="exampleInputUsername1" th:placeholder="#{label.name}" name="title" style="text-align: center;" required>
               </div>
               <div class="form-group">
-                <label for="exampleInputPassword1">نام لاتین</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="نام لاتین" name="en_title" style="text-align: center;" required>
+                <label for="exampleInputPassword1" th:text="#{label.en_name}"/>
+                <input type="text" class="form-control" id="exampleInputUsername1" th:placeholder="#{label.en_name}" name="en_title" style="text-align: center;" required>
               </div>
-              <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">جدید</button>
+              <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2" th:text="#{label.new}"/>
             </form>
           </div>
         </div>
@@ -40,15 +40,15 @@
       <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">همه دسترسی ها</h4>
+            <h4 class="card-title" th:text="#{label.allaccess}"/>
 
 
             <table th:if="${ussertypes.size>0}" class="table">
               <thead>
               <tr>
-                <th>نام</th>
-                <th>نام لاتین</th>
-                <th>حذف</th>
+                <th th:text="#{label.name}"/>
+                <th th:text="#{label.en_name}"/>
+                <th th:text="#{label.delete}"/>
               </tr>
               </thead>
               <tbody>
@@ -65,7 +65,7 @@
             <div th:unless="${ussertypes.size>0}">
               <div style="margin-top:60px;">
                 <img th:src="@{/Assets/Admin/images/icons/empty.png}" style="display:block;margin:0 auto;" width="150px">
-                <p style="width:100%;text-align:center;color:#666;margin-top:20px;">هیچ موردی یافت نشد</p>
+                <p style="width:100%;text-align:center;color:#666;margin-top:20px;" th:text="#{label.nothing_found}"/>
               </div>
             </div>
 

@@ -9,22 +9,22 @@
             <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-settings"></i>
-                </span></span></span>تنظیمات
+                </span></span></span><span th:text="#{label.setting}"/>
             </h3>
         </div>
         <div class="row">
             <div class="col-md-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title" style="text-align: center;">تنظیمات</h4>
+                        <h4 class="card-title" style="text-align: center;" th:text="#{label.setting}"/>
                         <form class="forms-sample" method="post" action="/Admin/Panel/Settings/Done">
                             <div class="form-group">
-                                <label for="exampleInputUsername1">آدرس آیکن</label>
-                                <input th:value="${logo}" type="text" class="form-control" id="exampleInputUsername1" placeholder="آدرس آیکن" name="icon" required>
+                                <label for="exampleInputUsername1" th:text="#{label.iconaddress}"/>
+                                <input th:value="${logo}" type="text" class="form-control" id="exampleInputUsername1" th:placeholer="#{label.iconaddress}" name="icon" required>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputUsername1">قوانین</label>
-                                <textarea th:text="${law}" style="height: 150px;" class="form-control" placeholder="قوانین" name="law" required></textarea>
+                                <label for="exampleInputUsername1" th:text="#{label.laws}"/>
+                                <textarea th:text="${law}" style="height: 150px;" class="form-control" th:placeholder="#{label.laws}" name="law" required></textarea>
                             </div>
 
 
@@ -35,27 +35,27 @@
                             <!--Slider start-->
                             <div>
                                 <div class="form-group">
-                                    <label for="exampleInputUsername1">اسلایدر</label>
+                                    <label for="exampleInputUsername1" th:text="#{label.slider}"/>
 
                                     <div style="display: flex;">
-                                        <input type="text" style="margin: 5px" class="form-control" id="slider_imageaddress" placeholder="آدرس عکس">
-                                        <input type="text" style="margin: 5px" class="form-control" id="slider_imagelink" placeholder="لینک">
-                                        <input type="text" style="margin: 5px" class="form-control" id="slider_imagetext" placeholder="متن">
+                                        <input type="text" style="margin: 5px" class="form-control" id="slider_imageaddress" th:placeholder="#{label.image_address}">
+                                        <input type="text" style="margin: 5px" class="form-control" id="slider_imagelink" th:placeholder="#{label.link}">
+                                        <input type="text" style="margin: 5px" class="form-control" id="slider_imagetext" th:placeholder="#{label.image_address}">
                                         <btn onclick="AddNewSlider(this)" style="margin : 7px;height: 40px;" class="btn btn-gradient-primary mr-2">+</btn>
                                     </div>
 
                                 </div>
                                 <input th:value="${slider}" name="slider" type="hidden" style="margin: 5px" class="form-control" id="silder_input" placeholder="{{__('all_strings.imageaddress')}}">
                                 <div class="form-group">
-                                    <label for="exampleInputUsername1">اسلایدر</label>
+                                    <label for="exampleInputUsername1" th:text="#{label.slider}"/>
 
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th>آدرس</th>
-                                            <th>لینک</th>
-                                            <th>متن</th>
-                                            <th>رویداد</th>
+                                            <th th:text="#{label.address}"/>
+                                            <th th:text="#{label.link}"/>
+                                            <th th:text="#{label.text}"/>
+                                            <th th:text="#{label.event}"/>
                                         </tr>
                                         </thead>
                                         <tbody id="silder_table_content">
@@ -159,23 +159,23 @@
                             <!--Banner start-->
                             <div>
                                 <div class="form-group">
-                                    <label for="exampleInputUsername1">بنر جدید</label>
+                                    <label for="exampleInputUsername1" th:text="#{label.newbanner}"/>
                                     <div style="display: flex;">
-                                        <input type="text" style="margin: 5px" class="form-control" id="banner_imageaddress" placeholder="آدرس عکس">
-                                        <input type="text" style="margin: 5px" class="form-control" id="banner_imagelink" placeholder="لینک">
+                                        <input type="text" style="margin: 5px" class="form-control" id="banner_imageaddress"  th:placeholer="#{label.image_address}">
+                                        <input type="text" style="margin: 5px" class="form-control" id="banner_imagelink"  th:placeholer="#{label.link}">
                                         <btn onclick="AddNewBanner(this)" style="margin : 7px;height: 40px;" class="btn btn-gradient-primary mr-2">+</btn>
                                     </div>
                                 </div>
-                                <input th:value="${banner}" name="banner" type="hidden" style="margin: 5px" class="form-control" id="banner_input" placeholder="آدرس عکس">
+                                <input th:value="${banner}" name="banner" type="hidden" style="margin: 5px" class="form-control" id="banner_input"  th:placeholer="#{label.image_address}">
                                 <div class="form-group">
-                                    <label for="exampleInputUsername1">بنر ها</label>
+                                    <label for="exampleInputUsername1" th:text="#{label.banners}"/>
 
                                     <table class="table">
                                         <thead>
                                         <tr>
-                                            <th>آدرس عکس</th>
-                                            <th>لینک</th>
-                                            <th>رویداد</th>
+                                            <th th:text="#{label.image_address}"/>
+                                            <th th:text="#{label.link}"/>
+                                            <th th:text="#{label.event}"/>
                                         </tr>
                                         </thead>
                                         <tbody id="banner_table_content">
@@ -277,7 +277,7 @@
                             <div class="form-group" style="display: none;">
                                 <textarea style="direction:ltr;resize:vertical;height:250px;" class="form-control" id="exampleInputUsername1" name="Config"></textarea>
                             </div>
-                            <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">تایید</button>
+                            <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2" th:text="#{label.done}"/>
                         </form>
                     </div>
                 </div>

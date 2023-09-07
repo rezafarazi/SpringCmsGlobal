@@ -8,7 +8,7 @@
       <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-paperclip"></i>
-                </span>همه پست های فروشگاهی
+                </span><span th:text="#{label.storeposts}"/>
       </h3>
     </div>
 
@@ -21,10 +21,10 @@
           <div class="card-body">
             <form class="forms-sample" method="post" action="{{url('/Admin/Store/AllStores/Search')}}">
               <div class="form-group">
-                <label style="width: 100%;text-align: right;" for="exampleInputUsername1">جست و جو</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="جست و جو" name="search">
+                <label  for="exampleInputUsername1" th:text="#{label.search}"/>
+                <input type="text" class="form-control" id="exampleInputUsername1" th:placeholder="#{label.search}" name="search">
               </div>
-              <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">جست و جو</button>
+              <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2" th:text="#{label.search}"/>
             </form>
           </div>
         </div>
@@ -38,11 +38,11 @@
             <table th:if="${all_stores.size>0}" class="table">
               <thead>
               <tr>
-                <th>ردیف</th>
-                <th>عنوان</th>
-                <th>تاریخ انتشار</th>
-                <th>ویرایش</th>
-                <th>حذف</th>
+                <th th:text="#{label.id}"/>
+                <th th:text="#{label.title}"/>
+                <th th:text="#{label.date}"/>
+                <th th:text="#{label.edit}"/>
+                <th th:text="#{label.delete}"/>
               </tr>
               </thead>
               <tbody>
@@ -60,7 +60,7 @@
             <div th:unless="${all_stores.size>0}" >
               <div style="margin-top:60px;">
                 <img th:src="@{/Assets/Admin/images/icons/empty.png}" style="display:block;margin:0 auto;" width="150px">
-                <p style="width:100%;text-align:center;color:#666;margin-top:20px;">هیچ موردی یافت نشد</p>
+                <p style="width:100%;text-align:center;color:#666;margin-top:20px;" th:text="#{label.nothing_found}"/>
               </div>
             </div>
           </div>

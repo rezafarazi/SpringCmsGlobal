@@ -7,7 +7,7 @@
             <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                     <i class="mdi mdi-cube-send"></i>
-                </span>پست جدید
+                </span><span th:text="#{label.newpost}"/>
             </h3>
         </div>
 
@@ -19,13 +19,11 @@
                     <div class="card-body">
                         <form class="forms-sample" method="post" action="/Admin/Panel/NewPost/Done">
                             <div class="form-group">
-                                <label for="exampleInputUsername1" style="width: 100%;text-align: right;">عنوان</label>
-                                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="عنوان"
-                                       name="title">
+                                <label for="exampleInputUsername1"  th:text="#{label.title}"/>
+                                <input type="text" class="form-control" id="exampleInputUsername1" th:placeholder="#{label.title}" name="title">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1" style="width: 100%;text-align: right;">دسته
-                                    بندی</label>
+                                <label for="exampleInputPassword1"  th:text="#{label.category}"/>
                                 <select id="category_combat" class="form-control" name="category"
                                         onchange="onchange_category(this)">
                                     <option th:each="category : ${categories}" th:value="${category.getId()}"
@@ -33,21 +31,18 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputUsername1" style="width: 100%;text-align: right;">آدرس لینک عکس
-                                    عنوان</label>
-                                <input type="text" class="form-control" id="exampleInputUsername1"
-                                       placeholder="آدرس عکس تصویر پست" name="post_image_address">
+                                <label for="exampleInputUsername1"  th:text="#{label.image_address}"/>
+                                <input type="text" class="form-control" id="exampleInputUsername1" th:placeholder="#{label.image_address}" name="post_image_address">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1" style="width: 100%;text-align: right;">قابل مشاهده
-                                    بودن</label>
+                                <label for="exampleInputPassword1"  th:text="#{label.visiblity}"/>
                                 <select class="form-control" name="Visibleity">
-                                    <option value="1">قابل مشاهده بودن</option>
-                                    <option value="0">غیر قابل مشاهده بودن</option>
+                                    <option value="1" th:text="#{label.visible}"/>
+                                    <option value="0" th:text="#{label.hide}"/>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputUsername1" style="width: 100%;text-align: right;">محتوا</label>
+                                <label for="exampleInputUsername1"  th:text="#{label.context}"/>
 
                                 <!--Content Managment Start-->
                                 <section>
@@ -108,7 +103,7 @@
                                                 shouldNotGroupWhenFull: true
                                             },
                                             // Changing the language of the interface requires loading the language file using the <script> tag.
-                                            placeholder: 'مطلب خود را اینجا بنویسید',
+                                            placeholder: '',
                                             // language: 'es',
                                             list: {
                                                 properties: {
@@ -266,8 +261,7 @@
                                 <!--Content Managment End-->
 
                             </div>
-                            <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">تایید
-                            </button>
+                            <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2" th:text="#{label.done}"/>
                         </form>
                     </div>
                 </div>

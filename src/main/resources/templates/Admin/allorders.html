@@ -11,7 +11,7 @@
       <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-paperclip"></i>
-                </span></span>همه سفارش ها
+                </span></span><span th:text="#{label.storeallorders}"/>
       </h3>
     </div>
 
@@ -23,10 +23,10 @@
           <div class="card-body">
             <form class="forms-sample" method="post" action="/Admin/Panel/Store/AllOrders/Search">
               <div class="form-group">
-                <label for="exampleInputUsername1">کد پیگیری</label>
-                <input type="text" class="form-control" id="exampleInputUsername1" placeholder="کد پیگیری" name="search">
+                <label for="exampleInputUsername1" th:text="#{label.trackingcode}"/>
+                <input type="text" class="form-control" id="exampleInputUsername1" th:placeholder="#{label.trackingcode}" name="search">
               </div>
-              <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">تایید</button>
+              <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2" th:text="#{label.done}"/>
             </form>
           </div>
         </div>

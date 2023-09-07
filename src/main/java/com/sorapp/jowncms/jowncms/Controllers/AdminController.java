@@ -104,7 +104,6 @@ public class AdminController
     public ModelAndView Login(HttpServletRequest request)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","ورود - پنل کاربری");
         response.setViewName("Admin/login");
         return response;
     }
@@ -151,7 +150,6 @@ public class AdminController
     public ModelAndView Login2F(HttpServletRequest request)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","ورود - پنل کاربری");
         response.setViewName("Admin/login2f");
         return response;
     }
@@ -193,7 +191,6 @@ public class AdminController
     public ModelAndView Dashboard(HttpServletRequest request)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","داشبورد");
         response.setViewName("Admin/dashboard");
         response.addObject("user_data",user_data);
         return response;
@@ -213,7 +210,6 @@ public class AdminController
     public ModelAndView Categories(HttpServletRequest request)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","دسته بندی ها");
         response.setViewName("Admin/categories");
         response.addObject("user_data",user_data);
         response.addObject("categories",Category_Services.GetCategories());
@@ -241,7 +237,6 @@ public class AdminController
     public ModelAndView UpdateCategory(HttpServletRequest request,@PathVariable("id") String id)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","دسته بندی ها");
         response.setViewName("Admin/categories");
         response.addObject("user_data",user_data);
         response.addObject("categories",Category_Services.GetCategories());
@@ -266,7 +261,6 @@ public class AdminController
     public ModelAndView NewPost(HttpServletRequest request)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","پست جدید");
         response.setViewName("Admin/newpost");
         response.addObject("user_data",user_data);
         response.addObject("categories",Category_Services.GetCategories());
@@ -294,7 +288,6 @@ public class AdminController
     public ModelAndView AllPosts(HttpServletRequest request)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","همه پست ها");
         response.setViewName("Admin/allposts");
         response.addObject("user_data",user_data);
         response.addObject("posts",Posts_Services.GetAllPosts());
@@ -313,7 +306,6 @@ public class AdminController
     {
         System.out.println("salam");
         ModelAndView response=new ModelAndView();
-        response.addObject("title","ویرایش پست");
         response.setViewName("Admin/editpost");
         response.addObject("user_data",user_data);
         response.addObject("categories",Category_Services.GetCategories());
@@ -344,7 +336,6 @@ public class AdminController
     public ModelAndView Chart(HttpServletRequest request)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","آمار");
         response.setViewName("Admin/chart");
         response.addObject("user_data",user_data);
         return response;
@@ -363,7 +354,6 @@ public class AdminController
     {
         users_tbl user = User_Services.GetUser(user_data.getId());
         ModelAndView response=new ModelAndView();
-        response.addObject("title","پروفایل");
         response.addObject("user_data",user);
 
         //Google Auth Start
@@ -488,7 +478,6 @@ public class AdminController
     public ModelAndView UserManager(HttpServletRequest request)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","مدیریت کاربران");
         response.setViewName("Admin/usermanager");
         response.addObject("user_data",user_data);
         response.addObject("users",User_Services.GetAllUsers());
@@ -500,7 +489,6 @@ public class AdminController
     public ModelAndView UserManager(HttpServletRequest request,String SearchValue)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","مدیریت کاربران");
         response.setViewName("Admin/usermanager");
         response.addObject("user_data",user_data);
         response.addObject("users",User_Services.GetSeachUser(SearchValue));
@@ -514,7 +502,6 @@ public class AdminController
         users_tbl user=User_Services.GetUser(Integer.parseInt(id));
 
         ModelAndView response=new ModelAndView();
-        response.addObject("title","مدیریت کاربران");
         response.setViewName("Admin/useredit");
         response.addObject("user_data",user_data);
         response.addObject("user_types",UserType_Services.GetAllUserType());
@@ -639,7 +626,6 @@ public class AdminController
     {
         String Path=request.getParameter("path");
         ModelAndView response=new ModelAndView();
-        response.addObject("title","مدیریت فایل");
         response.setViewName("Admin/filemanager");
         response.addObject("user_data",user_data);
         response.addObject("address",Path);
@@ -756,7 +742,6 @@ public class AdminController
     public ModelAndView Transactions(HttpServletRequest request)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","پرداخت ها");
         response.setViewName("Admin/transactions");
         response.addObject("user_data",user_data);
         response.addObject("transactions",Transation_Services.GetAllTransations());
@@ -775,7 +760,6 @@ public class AdminController
     public ModelAndView Hospitals(HttpServletRequest request)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","بیمارستان ها");
         response.setViewName("Admin/hospitals");
         response.addObject("user_data",user_data);
         return response;
@@ -793,7 +777,6 @@ public class AdminController
     public ModelAndView Reports(HttpServletRequest request)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","گزارش ها");
         response.setViewName("Admin/reports");
         response.addObject("user_data",user_data);
         response.addObject("reports",Reports_Services.GetAllUnseenReports());
@@ -819,7 +802,6 @@ public class AdminController
     public ModelAndView NewReport(HttpServletRequest request)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","تعریف گزارش");
         response.setViewName("Admin/new_report");
         response.addObject("user_data",user_data);
         response.addObject("all_reports",Report_Services.GetAllReports());
@@ -853,7 +835,6 @@ public class AdminController
     public ModelAndView Access(HttpServletRequest request)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","دسترسی ها");
         response.setViewName("Admin/accesses");
         response.addObject("user_data",user_data);
         response.addObject("ussertypes",UserType_Services.GetAllUserType());
@@ -890,7 +871,6 @@ public class AdminController
     public ModelAndView Cites(HttpServletRequest request)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","شهر ها");
         response.setViewName("Admin/cites");
         response.addObject("user_data",user_data);
         response.addObject("Cites",City_Services.GetCites());
@@ -911,7 +891,6 @@ public class AdminController
     public ModelAndView EditCity(HttpServletRequest request,@PathVariable String id)
     {
         ModelAndView response=new ModelAndView();
-        response.addObject("title","شهر ها");
         response.setViewName("Admin/cites");
         response.addObject("user_data",user_data);
         response.addObject("Cites",City_Services.GetCites());
@@ -951,7 +930,6 @@ public class AdminController
         response.addObject("law",jsonObject.get("law"));
         response.addObject("slider",jsonObject.get("slider"));
         response.addObject("banner",jsonObject.get("banner"));
-        response.addObject("title","تنظیمات");
         response.addObject("user_data",user_data);
         response.setViewName("Admin/settings");
         return response;

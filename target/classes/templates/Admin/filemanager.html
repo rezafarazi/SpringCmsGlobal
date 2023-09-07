@@ -7,7 +7,7 @@
             <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                     <i class="mdi mdi-folder "></i>
-                </span></span>مدیریت فایل
+                </span></span><span th:text="#{label.filemanager}"/>
             </h3>
         </div>
 
@@ -17,13 +17,13 @@
             <div class="col-lg-6 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">آپلود فایل جدید</h4>
+                        <h4 class="card-title" th:text="#{label.uploadnewfile}"/>
                         <form action="/Admin/Panel/FileManager/Upload" method="POST" class="form-validate" enctype="multipart/form-data">
 
                             <br />
                             <!--File Select Start-->
                             <input name="Upload_File" type="file" class="upload_file" id="file_upload_btn" onchange='uploadFile(this)' />
-                            <label class="upload_file_label" for="file_upload_btn" id="address_bar_file_upload">انتخاب فایل</label>
+                            <label class="upload_file_label" for="file_upload_btn" id="address_bar_file_upload" th:text="#{label.selectfile}"/>
 
                             <!--Address Start-->
                             <input type="text" name="Address" style="display:none;" id="Upload_Address" th:value="${address}" />
@@ -31,7 +31,7 @@
                             <!--File Select Start-->
                             <br />
                             <br />
-                            <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">تایید</button>
+                            <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2" th:text="#{label.done}"/>
 
                         </form>
                     </div>
@@ -43,20 +43,20 @@
                 <div class="card">
 
                     <div class="card-body">
-                        <h4 class="card-title">پوشه جدید</h4>
+                        <h4 class="card-title" th:text="#{label.newfolder}"/>
                         </p>
                         <form th:action="@{/Admin/Panel/FileManager/CreateFolder}" method="POST" class="form-validate">
 
                             <div class="form-group">
-                                <label for="exampleInputPassword1" style="width: 100%;text-align: right;">نام پوشه جدید</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" placeholder="مثال : عکس ها" name="Folder_Name">
+                                <label for="exampleInputPassword1"  th:text="#{label.newfoldername}"/>
+                                <input type="text" class="form-control" id="exampleInputPassword1" th:placeholder="#{label.newfoldername}" name="Folder_Name">
                             </div>
 
                             <!--Address Start-->
                             <input type="hidden" name="Addrs" style="display:none;" id="New_Folder_Address" th:value="${address}" />
                             <!--Address End-->
 
-                            <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2">تایید</button>
+                            <button style="width: 100%;" type="submit" class="btn btn-gradient-primary mr-2" th:text="#{label.done}"/>
 
                         </form>
                     </div>
@@ -68,14 +68,14 @@
             <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">فایل های مسیر جاری</h4>
+                        <h4 class="card-title" th:text="#{label.currentpathfiles}"/>
                         </p>
                         <table th:if="${fileslen>0}" class="table">
                             <thead>
                             <tr>
-                                <th>نام</th>
-                                <th>نوع</th>
-                                <th>عملیات</th>
+                                <th th:text="#{label.name}"/>
+                                <th th:text="#{label.type}"/>
+                                <th th:text="#{label.opration}"/>
                             </tr>
                             </thead>
                             <tbody>
@@ -103,7 +103,7 @@
                         </table>
                         <div style="margin-top:60px;" th:unless="${fileslen>0}">
                             <img th:src="@{/Assets/Admin/images/icons/empty.png}" width="150px" style="display:block;margin:0 auto;" />
-                            <p style="width:100%;text-align:center;">هیچ موردی یافت نشد</p>
+                            <p style="width:100%;text-align:center;" th:text="#{label.nothing_found}"/>
                         </div>
                     </div>
                 </div>

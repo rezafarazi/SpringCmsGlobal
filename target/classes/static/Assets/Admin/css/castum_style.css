@@ -156,3 +156,13 @@ body
 {
     width: 100%;text-align: right;
 }
+
+.card
+{
+    overflow: scroll;
+}
+
+.card::-webkit-scrollbar
+{
+    display: none;
+}

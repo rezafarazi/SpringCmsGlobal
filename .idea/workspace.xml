@@ -5,12 +5,73 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58a6709a-b36f-4f2d-ae2c-8508826ee1ab" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Function/RandomString/RandomString.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/alldiscount.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/coupons.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Controllers/StoreController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Controllers/StoreController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Discount/Discount_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Discount/Discount_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Config/WebConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Config/WebConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Controllers/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Controllers/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Languages/Languages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Languages/Languages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/Components/empty_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/Components/empty_header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/Components/panel_footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/Components/panel_footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/Components/panel_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/Components/panel_header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/accesses.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/accesses.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/active2f.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/active2f.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/alldiscount.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/alldiscount.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/allorders.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/allorders.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/allposts.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/allposts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/allstores.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/allstores.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/categories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/chart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/cites.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/cites.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/coupons.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/coupons.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/currentorder.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/currentorder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/editpost.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/editpost.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/editstore.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/editstore.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/filemanager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/filemanager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/login2f.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/login2f.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/new_report.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/new_report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/newpost.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/newpost.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/newstore.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/newstore.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/order.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/reports.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/reports.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/searchorder.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/searchorder.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/sendnotification.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/sendnotification.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/storecategories.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/storecategories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/transactions.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/transactions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/useredit.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/useredit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/usermanager.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/usermanager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/Languages/Languages.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Languages/Languages.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Config/WebConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Config/WebConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Controllers/AdminController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Controllers/AdminController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Function/Encript/EncriptService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Function/Encript/EncriptService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/JowncmsApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/JowncmsApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Middleware/AdminAuthCheckMiddleware.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Middleware/AdminAuthCheckMiddleware.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Models/categories_tbl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Models/categories_tbl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Models/posts_tbl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Models/posts_tbl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Models/users_tbl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/Models/users_tbl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/ServletInitializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/sorapp/jowncms/jowncms/ServletInitializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/static/Assets/Admin/css/castum_style.css" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/static/Assets/Admin/css/castum_style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/Components/empty_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/Components/empty_header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/Components/panel_footer.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/Components/panel_footer.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/Components/panel_header.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/Components/panel_header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/active2f.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/active2f.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/allposts.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/allposts.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/categories.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/categories.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/chart.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/chart.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/editpost.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/editpost.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/filemanager.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/filemanager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/login2f.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/login2f.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/newpost.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/newpost.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/settings.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/settings.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/useredit.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/useredit.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/templates/Admin/usermanager.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/templates/Admin/usermanager.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/com/sorapp/jowncms/jowncms/JowncmsApplicationTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/com/sorapp/jowncms/jowncms/JowncmsApplicationTests.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,32 +96,42 @@
     <option name="generalSettings">
       <MavenGeneralSettings>
         <option name="mavenHome" value="Use Maven wrapper" />
-        <option name="useMavenConfig" value="true" />
       </MavenGeneralSettings>
     </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="workspaceImportEnabled" value="true" />
-      </MavenImportingSettings>
-    </option>
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2MMai3SAd7ocTCT6IpsStgmGI4R" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/rezafta/Downloads/SpringCms/src/main/resources/templates/Admin&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "dart.analysis.tool.window.visible": "false",
+    "last_opened_file_path": "C:/Users/Rezafta/Desktop/SpringCms",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "MavenSettings",
+    "spring.configuration.checksum": "695bbcfab744f616394c9fd22a61774d",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/resources/templates/Admin" />
@@ -68,6 +139,15 @@
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.sorapp.jowncms.jowncms.Middleware" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="JowncmsApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="jowncms" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.sorapp.jowncms.jowncms.JowncmsApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -77,7 +157,13 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1677580051448</updated>
+      <workItem from="1694011797149" duration="1538000" />
+      <workItem from="1694022713510" duration="4601000" />
+      <workItem from="1694070143208" duration="7675000" />
     </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
 </project>

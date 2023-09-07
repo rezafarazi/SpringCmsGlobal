@@ -9,7 +9,7 @@
       <h3 class="page-title">
                 <span class="page-title-icon bg-gradient-primary text-white mr-2">
                   <i class="mdi mdi-account-multiple "></i>
-                </span>گزارش ها
+                </span><span th:text="#{label.reports}"/>
       </h3>
     </div>
 
@@ -20,17 +20,17 @@
       <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">همه گزارش ها</h4>
+            <h4 class="card-title" th:text="#{label.reports}"/>
             </p>
 
             <table th:if="${(reports.size>0)}" class="table">
               <thead>
               <tr>
-                <th>عنوان پست</th>
-                <th>متن گزارش</th>
-                <th>تاریخ</th>
-                <th>نوع گزارش</th>
-                <th>بررسی شد</th>
+                <th th:text="#{label.title}"/>
+                <th th:text="#{label.text}"/>
+                <th th:text="#{label.date}"/>
+                <th th:text="#{label.type}"/>
+                <th th:text="#{label.viewed}"/>
               </tr>
               </thead>
               <tbody>
@@ -49,7 +49,7 @@
             <div th:unless="${(reports.size>0)}">
               <div style="margin-top:60px;">
                 <img th:src="@{/Assets/Admin/images/icons/empty.png}" style="display:block;margin:0 auto;" width="150px">
-                <p style="width:100%;text-align:center;color:#666;margin-top:20px;">هیچ موردی یافت نشد</p>
+                <p style="width:100%;text-align:center;color:#666;margin-top:20px;" th:text="#{label.nothing_found}"/>
               </div>
             </div>
 
