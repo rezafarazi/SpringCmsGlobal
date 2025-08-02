@@ -1,4 +1,5 @@
 com\sorapp\jowncms\jowncms\Service\StoreImage\StoreImage_Service.class
+com\sorapp\jowncms\jowncms\Config\HibernateConfig.class
 com\sorapp\jowncms\jowncms\Repository\User_Verify_Repo.class
 com\sorapp\jowncms\jowncms\Middleware\AdminAuthCheckMiddleware.class
 com\sorapp\jowncms\jowncms\Service\UserType\UserType_Service.class
@@ -50,7 +51,6 @@ com\sorapp\jowncms\jowncms\Models\user_verify_tbl.class
 com\sorapp\jowncms\jowncms\Service\Reports\Reports_Service.class
 com\sorapp\jowncms\jowncms\Service\Notification\Notification_Service.class
 com\sorapp\jowncms\jowncms\Controllers\Admin\AdminTransactionsController.class
-com\sorapp\jowncms\jowncms\DatabaseRepository\DBRepository.class
 com\sorapp\jowncms\jowncms\Repository\Setting_Repo.class
 com\sorapp\jowncms\jowncms\Function\Encript\EncriptService.class
 com\sorapp\jowncms\jowncms\Controllers\Admin\Store\StoreCategotyController.class

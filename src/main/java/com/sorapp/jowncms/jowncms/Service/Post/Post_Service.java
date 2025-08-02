@@ -1,6 +1,5 @@
 package com.sorapp.jowncms.jowncms.Service.Post;
 
-import com.sorapp.jowncms.jowncms.DatabaseRepository.DBRepository;
 import com.sorapp.jowncms.jowncms.Models.categories_tbl;
 import com.sorapp.jowncms.jowncms.Models.posts_tbl;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;

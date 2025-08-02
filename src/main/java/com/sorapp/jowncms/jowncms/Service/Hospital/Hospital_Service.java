@@ -1,6 +1,5 @@
 package com.sorapp.jowncms.jowncms.Service.Hospital;
 
-import com.sorapp.jowncms.jowncms.DatabaseRepository.DBRepository;
 import com.sorapp.jowncms.jowncms.Models.city_tbl;
 import com.sorapp.jowncms.jowncms.Models.hospital_tbl;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;

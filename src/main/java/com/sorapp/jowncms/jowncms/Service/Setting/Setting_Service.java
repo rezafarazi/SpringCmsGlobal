@@ -1,6 +1,5 @@
 package com.sorapp.jowncms.jowncms.Service.Setting;
 
-import com.sorapp.jowncms.jowncms.DatabaseRepository.DBRepository;
 import com.sorapp.jowncms.jowncms.Models.settings_tbl;
 import com.sorapp.jowncms.jowncms.Models.store_images_tbl;
 import com.sorapp.jowncms.jowncms.Repository.Setting_Repo;

@@ -1,6 +1,5 @@
 package com.sorapp.jowncms.jowncms.Service.Reports;
 
-import com.sorapp.jowncms.jowncms.DatabaseRepository.DBRepository;
 import com.sorapp.jowncms.jowncms.Models.posts_tbl;
 import com.sorapp.jowncms.jowncms.Models.report_tbl;
 import com.sorapp.jowncms.jowncms.Models.reports_tbl;

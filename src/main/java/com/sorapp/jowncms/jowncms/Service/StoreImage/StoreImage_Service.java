@@ -1,6 +1,5 @@
 package com.sorapp.jowncms.jowncms.Service.StoreImage;
 
-import com.sorapp.jowncms.jowncms.DatabaseRepository.DBRepository;
 import com.sorapp.jowncms.jowncms.Models.file_tbl;
 import com.sorapp.jowncms.jowncms.Models.store_categories_tbl;
 import com.sorapp.jowncms.jowncms.Models.store_tbl;

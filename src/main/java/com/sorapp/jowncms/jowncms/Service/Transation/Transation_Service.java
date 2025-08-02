@@ -1,6 +1,5 @@
 package com.sorapp.jowncms.jowncms.Service.Transation;
 
-import com.sorapp.jowncms.jowncms.DatabaseRepository.DBRepository;
 import com.sorapp.jowncms.jowncms.Models.orders_tbl;
 import com.sorapp.jowncms.jowncms.Models.transcation_tbl;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
