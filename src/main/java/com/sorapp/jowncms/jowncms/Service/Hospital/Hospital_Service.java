@@ -13,6 +13,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -21,34 +22,34 @@ import java.util.List;
 public class Hospital_Service implements Hospital_Repo
 {
 
+    //Global variables
+    @Autowired
+    private SessionFactory sessionFactory;
+
+
+
     @Override
     public hospital_tbl GetHospital(int id)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
-        Query HQL= DBRepository.session.createQuery("FROM hospital_tbl WHERE hospital_tbl.id="+id);
-        hospital_tbl Result = (hospital_tbl) HQL.list().get(0);
-        return Result;
+        try(Session session=sessionFactory.openSession())
+        {
+            return (hospital_tbl) session.createQuery("FROM hospital_tbl WHERE hospital_tbl.id="+id).list().get(0);
+//            return session.get(hub_tbl.class, id);
+        }
     }
 
     @Override
     public List<hospital_tbl> GetAllHospitals()
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
-        Query HQL=DBRepository.session.createQuery("FROM hospital_tbl");
-        List<hospital_tbl> Result = HQL.getResultList();
-        return Result;
+        try(Session session=sessionFactory.openSession())
+        {
+            return session.createQuery("FROM hospital_tbl").list();
+        }
     }
 
     @Override
     public hospital_tbl NewHospital(String name, String bio, String lat, String lng, String address, String start_time, String end_time, String tel, String status, city_tbl city_id)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
         hospital_tbl Hospital=new hospital_tbl();
         Hospital.setAddress(address);
         Hospital.setBio(bio);
@@ -61,8 +62,12 @@ public class Hospital_Service implements Hospital_Repo
         Hospital.setCity_id(city_id);
         Hospital.setTel(tel);
 
-        DBRepository.session.save(Hospital);
-        DBRepository.TA.commit();
+        try(Session session=sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            session.save(Hospital);
+            session.getTransaction().commit();
+        }
 
         return Hospital;
     }
@@ -70,9 +75,6 @@ public class Hospital_Service implements Hospital_Repo
     @Override
     public hospital_tbl UpdateHospital(int id, String name, String bio, String lat, String lng, String address, String start_time, String end_time, String tel, String status, city_tbl city_id)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
         hospital_tbl Hospital=GetHospital(id);
         Hospital.setAddress(address);
         Hospital.setBio(bio);
@@ -85,8 +87,12 @@ public class Hospital_Service implements Hospital_Repo
         Hospital.setCity_id(city_id);
         Hospital.setTel(tel);
 
-        DBRepository.session.update(Hospital);
-        DBRepository.TA.commit();
+        try(Session session=sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            session.update(Hospital);
+            session.getTransaction().commit();
+        }
 
         return Hospital;
     }
@@ -94,13 +100,14 @@ public class Hospital_Service implements Hospital_Repo
     @Override
     public void RemoveHospital(int id)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
         hospital_tbl Hospital=GetHospital(id);
         Hospital.setStatus("0");
 
-        DBRepository.session.update(Hospital);
-        DBRepository.TA.commit();
+        try(Session session=sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            session.update(Hospital);
+            session.getTransaction().commit();
+        }
     }
 }

@@ -6,7 +6,10 @@ import com.sorapp.jowncms.jowncms.Models.report_tbl;
 import com.sorapp.jowncms.jowncms.Models.reports_tbl;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
 import com.sorapp.jowncms.jowncms.Repository.Reports_Repo;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -15,34 +18,34 @@ import java.util.List;
 public class Reports_Service implements Reports_Repo
 {
 
+
+    //Global variables
+    @Autowired
+    private SessionFactory sessionFactory;
+
+
+
     @Override
     public List<reports_tbl> GetAllUnseenReports()
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
-        Query HQL=DBRepository.session.createQuery("FROM reports_tbl report WHERE report.condition=false");
-        List<reports_tbl> Result = HQL.getResultList();
-        return Result;
+        try(Session session=sessionFactory.openSession())
+        {
+            return session.createQuery("FROM reports_tbl report WHERE report.condition=false").list();
+        }
     }
 
     @Override
     public reports_tbl GetReport(int id)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
-        Query HQL= DBRepository.session.createQuery("FROM reports_tbl report WHERE report.id="+id);
-        reports_tbl Result = (reports_tbl) HQL.list().get(0);
-        return Result;
+        try(Session session=sessionFactory.openSession())
+        {
+            return (reports_tbl) session.createQuery("FROM reports_tbl report WHERE report.id="+id).list().get(0);
+        }
     }
 
     @Override
     public reports_tbl NewReport(String content, String date_time, boolean condition, report_tbl report_id, posts_tbl post_id,users_tbl user_id)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
         reports_tbl Reports=new reports_tbl();
         Reports.setDate_time(date_time);
         Reports.setCondition(condition);
@@ -50,8 +53,12 @@ public class Reports_Service implements Reports_Repo
         Reports.setPost_id(post_id);
         Reports.setUser_id(user_id);
 
-        DBRepository.session.save(Reports);
-        DBRepository.TA.commit();
+        try(Session session=sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            session.save(Reports);
+            session.getTransaction().commit();
+        }
 
         return Reports;
     }
@@ -59,22 +66,28 @@ public class Reports_Service implements Reports_Repo
     @Override
     public void RemoveReport(int id)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
         reports_tbl Reports=GetReport(id);
-        DBRepository.session.remove(Reports);
-        DBRepository.TA.commit();
+
+        try(Session session=sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            session.update(Reports);
+            session.getTransaction().commit();
+        }
     }
 
     @Override
     public void SeenReport(int id)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
         reports_tbl Reports=GetReport(id);
         Reports.setCondition(true);
-        DBRepository.session.update(Reports);
-        DBRepository.TA.commit();
+
+        try(Session session=sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            session.update(Reports);
+            session.getTransaction().commit();
+        }
     }
 
 }

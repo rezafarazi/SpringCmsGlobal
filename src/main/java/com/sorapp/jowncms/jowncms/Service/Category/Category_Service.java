@@ -1,6 +1,5 @@
 package com.sorapp.jowncms.jowncms.Service.Category;
 
-import com.sorapp.jowncms.jowncms.DatabaseRepository.DBRepository;
 import com.sorapp.jowncms.jowncms.Models.categories_tbl;
 import com.sorapp.jowncms.jowncms.Models.users_tbl;
 import com.sorapp.jowncms.jowncms.Repository.Category_Repo;
@@ -12,6 +11,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -20,32 +20,33 @@ import java.util.List;
 public class Category_Service implements Category_Repo
 {
 
+    //Global variables
+    @Autowired
+    private SessionFactory sessionFactory;
+
+
     @Override
     public categories_tbl GetCategory(int id)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-        Query HQL= DBRepository.session.createQuery("FROM categories_tbl cat WHERE cat.id="+id);
-        categories_tbl Result = (categories_tbl) HQL.list().get(0);
-        return Result;
+        try(Session session=sessionFactory.openSession())
+        {
+            return (categories_tbl) session.createQuery("FROM categories_tbl category WHERE category.id="+id).list().get(0);
+//            return session.get(hub_tbl.class, id);
+        }
     }
 
     @Override
     public List<categories_tbl> GetCategories()
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-        Query HQL=DBRepository.session.createQuery("FROM categories_tbl cat WHERE cat.delete_flag LIKE '0'");
-        List<categories_tbl> Result = HQL.getResultList();
-        return Result;
+        try(Session session=sessionFactory.openSession())
+        {
+            return session.createQuery("FROM categories_tbl cat WHERE cat.delete_flag LIKE '0'").list();
+        }
     }
 
     @Override
     public categories_tbl NewCategory(String title, int root_cat_id, String icon_address, String datetime, String castom_link, String visible, String delete_flag)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
         categories_tbl NCategory=new categories_tbl(
             title,
             root_cat_id,
@@ -56,8 +57,12 @@ public class Category_Service implements Category_Repo
             delete_flag
         );
 
-        DBRepository.session.save(NCategory);
-        DBRepository.TA.commit();
+        try(Session session=sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            session.save(NCategory);
+            session.getTransaction().commit();
+        }
 
         return NCategory;
     }
@@ -65,9 +70,6 @@ public class Category_Service implements Category_Repo
     @Override
     public categories_tbl UpdateCategory(int id, String title, int root_cat_id, String icon_address, String castom_link, String visible, String delete_flag)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
         categories_tbl NCategory=GetCategory(id);
 
         NCategory.setTitle(title);
@@ -77,23 +79,29 @@ public class Category_Service implements Category_Repo
         NCategory.setVisible(visible);
         NCategory.setDelete_flag(delete_flag);
 
-        DBRepository.session.update(NCategory);
-        DBRepository.TA.commit();
+        try(Session session=sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            session.update(NCategory);
+            session.getTransaction().commit();
+        }
+
         return NCategory;
     }
 
     @Override
     public void RemoveCategory(int id)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
         categories_tbl NCategory=GetCategory(id);
 
         NCategory.setDelete_flag("1");
 
-        DBRepository.session.update(NCategory);
-        DBRepository.TA.commit();
+        try(Session session=sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            session.update(NCategory);
+            session.getTransaction().commit();
+        }
     }
 
 }

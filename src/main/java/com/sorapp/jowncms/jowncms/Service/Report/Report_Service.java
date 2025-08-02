@@ -12,6 +12,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -20,40 +21,42 @@ import java.util.List;
 public class Report_Service implements Report_Repo
 {
 
+    //Global variables
+    @Autowired
+    private SessionFactory sessionFactory;
+
+
     @Override
     public List<report_tbl> GetAllReports()
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
-        Query HQL=DBRepository.session.createQuery("FROM report_tbl reports WHERE reports.delete_flag=false");
-        List<report_tbl> Result = HQL.getResultList();
-        return Result;
+        try(Session session=sessionFactory.openSession())
+        {
+            return session.createQuery("FROM report_tbl reports WHERE reports.delete_flag=false").list();
+        }
     }
 
     @Override
     public report_tbl Report(int id)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
-        Query HQL= DBRepository.session.createQuery("FROM report_tbl report WHERE report.id="+id);
-        report_tbl Result = (report_tbl) HQL.list().get(0);
-        return Result;
+        try(Session session=sessionFactory.openSession())
+        {
+            return (report_tbl) session.createQuery("FROM report_tbl report WHERE report.id="+id).list().get(0);
+        }
     }
 
     @Override
     public report_tbl NewReport(String title)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
         report_tbl report=new report_tbl();
         report.setTitle(title);
         report.setDelete_flag(false);
 
-        DBRepository.session.save(report);
-        DBRepository.TA.commit();
+        try(Session session=sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            session.save(report);
+            session.getTransaction().commit();
+        }
 
         return report;
     }
@@ -61,15 +64,16 @@ public class Report_Service implements Report_Repo
     @Override
     public report_tbl UpdateReport(int id, String title, boolean delete_flag)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
         report_tbl report=Report(id);
         report.setTitle(title);
         report.setDelete_flag(delete_flag);
 
-        DBRepository.session.save(report);
-        DBRepository.TA.commit();
+        try(Session session=sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            session.update(report);
+            session.getTransaction().commit();
+        }
 
         return report;
     }
@@ -77,14 +81,16 @@ public class Report_Service implements Report_Repo
     @Override
     public void RemoveReport(int id)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
         report_tbl report=Report(id);
         report.setDelete_flag(true);
 
-        DBRepository.session.save(report);
-        DBRepository.TA.commit();
+        try(Session session=sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            session.update(report);
+            session.getTransaction().commit();
+        }
+
     }
 
 }

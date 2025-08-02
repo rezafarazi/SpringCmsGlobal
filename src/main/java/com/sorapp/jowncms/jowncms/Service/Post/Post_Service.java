@@ -13,6 +13,7 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -21,45 +22,42 @@ import java.util.List;
 public class Post_Service implements Posts_Repo
 {
 
+    //Global variables
+    @Autowired
+    private SessionFactory sessionFactory;
+
+
     @Override
     public List<posts_tbl> GetAllPosts()
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
-        Query HQL= DBRepository.session.createQuery("FROM posts_tbl posts WHERE posts.delete_flag='0'");
-        List<posts_tbl> Result = HQL.getResultList();
-        return Result;
+        try(Session session=sessionFactory.openSession())
+        {
+            return session.createQuery("FROM posts_tbl posts WHERE posts.delete_flag='0'").list();
+        }
     }
 
     @Override
     public posts_tbl GetPost(int post_id)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
-        Query HQL=DBRepository.session.createQuery("FROM posts_tbl post WHERE post.id="+post_id);
-        posts_tbl Result = (posts_tbl) HQL.list().get(0);
-        return Result;
+        try(Session session=sessionFactory.openSession())
+        {
+            return (posts_tbl) session.createQuery("FROM posts_tbl post WHERE post.id="+post_id).list().get(0);
+//            return session.get(hub_tbl.class, id);
+        }
     }
 
     @Override
     public List<posts_tbl> GetSearchPost(String Search)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
-        Query HQL= DBRepository.session.createQuery("FROM posts_tbl WHERE posts_tbl LIKE '%"+Search+"%'");
-        List<posts_tbl> Result = HQL.getResultList();
-        return Result;
+        try(Session session=sessionFactory.openSession())
+        {
+            return session.createQuery("FROM posts_tbl WHERE posts_tbl LIKE '%"+Search+"%'").list();
+        }
     }
 
     @Override
     public posts_tbl NewPost(String title, String content, String image, String date, String visible, users_tbl user_id, categories_tbl categpry_id)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
         posts_tbl post=new posts_tbl();
 
         post.setTitle(title);
@@ -71,8 +69,12 @@ public class Post_Service implements Posts_Repo
         post.setUser_id(user_id);
         post.setVisible(visible);
 
-        DBRepository.session.save(post);
-        DBRepository.TA.commit();
+        try(Session session=sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            session.save(post);
+            session.getTransaction().commit();
+        }
 
         return post;
     }
@@ -80,9 +82,6 @@ public class Post_Service implements Posts_Repo
     @Override
     public posts_tbl UpdatePost(int id, String title, String content, String image, String date, String visible, users_tbl user_id, categories_tbl categpry_id)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-
         posts_tbl post=GetPost(id);
 
         post.setTitle(title);
@@ -93,8 +92,12 @@ public class Post_Service implements Posts_Repo
         post.setUser_id(user_id);
         post.setVisible(visible);
 
-        DBRepository.session.update(post);
-        DBRepository.TA.commit();
+        try(Session session=sessionFactory.openSession())
+        {
+            session.beginTransaction();
+            session.save(post);
+            session.getTransaction().commit();
+        }
 
         return post;
     }
@@ -102,12 +105,14 @@ public class Post_Service implements Posts_Repo
     @Override
     public void RemovePost(int id)
     {
-        DBRepository.session=DBRepository.SF.openSession();
-        DBRepository.TA=DBRepository.session.beginTransaction();
-        posts_tbl post=GetPost(id);
-        post.setDelete_flag("1");
-        DBRepository.session.update(post);
-        DBRepository.TA.commit();
+        try(Session session=sessionFactory.openSession())
+        {
+            posts_tbl post=GetPost(id);
+            post.setDelete_flag("1");
 
+            session.beginTransaction();
+            session.update(post);
+            session.getTransaction().commit();
+        }
     }
 }
