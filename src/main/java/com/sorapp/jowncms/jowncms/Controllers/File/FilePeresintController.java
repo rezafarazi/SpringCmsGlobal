@@ -1,4 +1,4 @@
-package com.sorapp.jowncms.jowncms.Controllers;
+package com.sorapp.jowncms.jowncms.Controllers.File;
 
 import com.sorapp.jowncms.jowncms.Service.File.File_Service;
 //import org.apache.commons.io.IOUtils;

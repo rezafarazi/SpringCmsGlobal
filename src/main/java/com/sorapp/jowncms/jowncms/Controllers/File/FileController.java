@@ -1,4 +1,4 @@
-package com.sorapp.jowncms.jowncms.Controllers;
+package com.sorapp.jowncms.jowncms.Controllers.File;
 
 import com.sorapp.jowncms.jowncms.Function.Hash.HashService;
 import com.sorapp.jowncms.jowncms.Middleware.AdminAuthCheckMiddleware;
