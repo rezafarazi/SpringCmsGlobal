@@ -1,6 +1,7 @@
 package com.sorapp.jowncms.jowncms.Config;
 
 import com.sorapp.jowncms.jowncms.Middleware.AdminAuthCheckMiddleware;
+import com.sorapp.jowncms.jowncms.Middleware.RequestLoggerMiddleware;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
@@ -14,6 +15,7 @@ import org.springframework.web.servlet.i18n.SessionLocaleResolver;
 
 import java.util.Locale;
 
+
 @Configuration
 public class WebConfig implements WebMvcConfigurer
 {
@@ -22,12 +24,22 @@ public class WebConfig implements WebMvcConfigurer
     @Autowired
     public AdminAuthCheckMiddleware AdminAuthCheck;
 
+    @Autowired
+    public RequestLoggerMiddleware RequestLogger;
+
     @Override
     public void addInterceptors(InterceptorRegistry registry)
     {
-        registry.addInterceptor(AdminAuthCheck).addPathPatterns("/Admin/Panel/*");
+
+        //Get log from all requests
+        registry.addInterceptor(RequestLogger).addPathPatterns("/**");
+
+        //Get check auth in admin
+        registry.addInterceptor(AdminAuthCheck).addPathPatterns("/Admin/Panel/**");
+
     }
     //Admin Auth Check End
+
 
 
     //Malti Language Start

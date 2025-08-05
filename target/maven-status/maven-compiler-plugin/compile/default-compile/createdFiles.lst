@@ -31,6 +31,7 @@ com\sorapp\jowncms\jowncms\Models\hospital_tbl.class
 com\sorapp\jowncms\jowncms\Service\Hospital\Hospital_Service.class
 com\sorapp\jowncms\jowncms\Models\store_images_tbl.class
 com\sorapp\jowncms\jowncms\Repository\Store_Categories_Repo.class
+com\sorapp\jowncms\jowncms\Middleware\RequestLoggerMiddleware.class
 com\sorapp\jowncms\jowncms\Repository\Users_Type_Repo.class
 com\sorapp\jowncms\jowncms\Service\Setting\Setting_Service.class
 com\sorapp\jowncms\jowncms\Repository\Store_Repo.class
@@ -65,6 +66,7 @@ com\sorapp\jowncms\jowncms\Service\Report\Report_Service.class
 com\sorapp\jowncms\jowncms\Controllers\Admin\AdminLoginController.class
 com\sorapp\jowncms\jowncms\Controllers\Admin\AdminCitesController.class
 com\sorapp\jowncms\jowncms\Repository\Hospital_Img_Repo.class
+com\sorapp\jowncms\jowncms\Service\Log\FileLoger.class
 com\sorapp\jowncms\jowncms\ServletInitializer.class
 com\sorapp\jowncms\jowncms\Models\store_categories_tbl.class
 com\sorapp\jowncms\jowncms\Repository\Store_Images_Repo.class
