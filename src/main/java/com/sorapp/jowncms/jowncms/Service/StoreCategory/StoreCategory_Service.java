@@ -26,7 +26,7 @@ public class StoreCategory_Service implements Store_Categories_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return (store_categories_tbl) session.createQuery("FROM store_categories_tbl store WHERE store.id="+id).list().get(0);
+            return (store_categories_tbl) session.createQuery("FROM store_categories_tbl store WHERE store.id=:id").setParameter("id",id).list().get(0);
 //            return session.get(hub_tbl.class, id);
         }
     }

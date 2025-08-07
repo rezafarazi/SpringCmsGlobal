@@ -30,7 +30,7 @@ public class Category_Service implements Category_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return (categories_tbl) session.createQuery("FROM categories_tbl category WHERE category.id="+id).list().get(0);
+            return (categories_tbl) session.createQuery("FROM categories_tbl category WHERE category.id=:id").setParameter("id",id).list().get(0);
 //            return session.get(hub_tbl.class, id);
         }
     }

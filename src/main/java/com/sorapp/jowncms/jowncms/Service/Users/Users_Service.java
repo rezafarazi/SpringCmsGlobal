@@ -42,7 +42,7 @@ public class Users_Service implements User_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return (users_tbl) session.createQuery("FROM users_tbl user WHERE user.id="+id).list().get(0);
+            return (users_tbl) session.createQuery("FROM users_tbl user WHERE user.id=:id").setParameter("id",id).list().get(0);
         }
     }
 
@@ -54,7 +54,7 @@ public class Users_Service implements User_Repo
         {
             try(Session session=sessionFactory.openSession())
             {
-                return (users_tbl) session.createQuery("FROM users_tbl user WHERE user.username LIKE '"+username+"' AND user.password LIKE '"+password+"'").list().get(0);
+                return (users_tbl) session.createQuery("FROM users_tbl user WHERE user.username LIKE '"+username+"' AND user.password LIKE :password").setParameter("password",password).list().get(0);
             }
         }
         catch (Exception e)
@@ -70,7 +70,7 @@ public class Users_Service implements User_Repo
         {
             try(Session session=sessionFactory.openSession())
             {
-                return (users_tbl) session.createQuery("FROM users_tbl user WHERE user.login_token LIKE '"+token+"'").list().get(0);
+                return (users_tbl) session.createQuery("FROM users_tbl user WHERE user.login_token LIKE :token").setParameter("token",token).list().get(0);
             }
         }
         catch (Exception e)

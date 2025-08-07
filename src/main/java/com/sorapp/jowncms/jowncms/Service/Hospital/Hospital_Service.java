@@ -32,7 +32,7 @@ public class Hospital_Service implements Hospital_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return (hospital_tbl) session.createQuery("FROM hospital_tbl WHERE hospital_tbl.id="+id).list().get(0);
+            return (hospital_tbl) session.createQuery("FROM hospital_tbl WHERE hospital_tbl.id=:id").setParameter("id",id).list().get(0);
 //            return session.get(hub_tbl.class, id);
         }
     }

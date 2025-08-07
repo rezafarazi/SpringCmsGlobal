@@ -30,7 +30,7 @@ public class File_Service implements File_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return (file_tbl) session.createQuery("FROM file_tbl files WHERE files.file_hash LIKE '"+hash+"'").list().get(0);
+            return (file_tbl) session.createQuery("FROM file_tbl files WHERE files.file_hash LIKE :hash").setParameter("hash",hash).list().get(0);
 //            return session.get(hub_tbl.class, id);
         }
     }

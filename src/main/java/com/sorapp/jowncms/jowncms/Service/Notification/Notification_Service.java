@@ -31,7 +31,7 @@ public class Notification_Service implements Notification_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return session.createQuery("FROM notifications_tbl WHERE notifications_tbl.user_id.id="+user_id).list();
+            return session.createQuery("FROM notifications_tbl WHERE notifications_tbl.user_id.id=:user_id").setParameter("user_id",user_id).list();
         }
     }
 

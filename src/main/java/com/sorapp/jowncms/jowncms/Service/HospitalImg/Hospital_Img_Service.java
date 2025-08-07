@@ -32,7 +32,7 @@ public class Hospital_Img_Service implements Hospital_Img_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return session.createQuery("FROM hospital_img_tbl WHERE hospital_img_tbl.hospital_id.id="+Hospital_Id).list();
+            return session.createQuery("FROM hospital_img_tbl WHERE hospital_img_tbl.hospital_id.id=:host_id").setParameter("host_id",Hospital_Id).list();
         }
     }
 

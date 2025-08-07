@@ -39,7 +39,7 @@ public class Report_Service implements Report_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return (report_tbl) session.createQuery("FROM report_tbl report WHERE report.id="+id).list().get(0);
+            return (report_tbl) session.createQuery("FROM report_tbl report WHERE report.id=:report_id").setParameter("report_id",id).list().get(0);
         }
     }
 

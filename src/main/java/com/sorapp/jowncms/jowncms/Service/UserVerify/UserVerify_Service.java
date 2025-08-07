@@ -27,11 +27,11 @@ public class UserVerify_Service implements User_Verify_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            List<userstype_tbl> Result = session.createQuery("FROM user_verify_tbl WHERE user_verify_tbl.user_id.id=" + user_id).list();
+            List<userstype_tbl> Result = session.createQuery("FROM user_verify_tbl WHERE user_verify_tbl.user_id.id=:id").setParameter("id",user_id).list();
 
             if (Result.size() > 0)
             {
-                List<userstype_tbl> RemoveResult = session.createQuery("FROM user_verify_tbl WHERE user_verify_tbl.user_id.id=" + user_id).list();
+                List<userstype_tbl> RemoveResult = session.createQuery("FROM user_verify_tbl WHERE user_verify_tbl.user_id.id=:id").setParameter("id",user_id).list();
 
                 session.beginTransaction();
                 session.remove(RemoveResult);
@@ -67,7 +67,7 @@ public class UserVerify_Service implements User_Verify_Repo
         try(Session session=sessionFactory.openSession())
         {
             session.beginTransaction();
-            session.remove(session.createQuery("FROM user_verify_tbl WHERE user_verify_tbl.user_id.id="+user_id).list());
+            session.remove(session.createQuery("FROM user_verify_tbl WHERE user_verify_tbl.user_id.id=:user_id").setParameter("user_id",user_id).list());
             session.getTransaction().commit();
         }
 

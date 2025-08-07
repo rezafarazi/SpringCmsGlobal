@@ -24,7 +24,7 @@ public class City_Service implements City_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return (city_tbl) session.createQuery("FROM city_tbl city WHERE city.id="+id).list().get(0);
+            return (city_tbl) session.createQuery("FROM city_tbl city WHERE city.id=:id").setParameter("id",id).list().get(0);
         }
     }
 

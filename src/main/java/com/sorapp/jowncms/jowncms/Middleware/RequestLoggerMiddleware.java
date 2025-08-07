@@ -37,10 +37,10 @@ public class RequestLoggerMiddleware implements HandlerInterceptor
         String fullUrl = uri + (queryString != null ? "?" + queryString : "");
 
         //Get log
-        logger.info("REQUEST_START - Time: {} | Method: {} | URL: {} | IP: {} | User-Agent: {} | Referer: {}",
-                timestamp, method, fullUrl, clientIp,
-                userAgent != null ? userAgent.substring(0, Math.min(userAgent.length(), 100)) : "N/A",
-                referer != null ? referer : "N/A");
+//        logger.info("REQUEST_START - Time: {} | Method: {} | URL: {} | IP: {} | User-Agent: {} | Referer: {}",
+//                timestamp, method, fullUrl, clientIp,
+//                userAgent != null ? userAgent.substring(0, Math.min(userAgent.length(), 100)) : "N/A",
+//                referer != null ? referer : "N/A");
 
         //Get log
         FileLog.SaveLog("REQUEST_START - Time: "+timestamp+" | Method: "+method+" | URL: "+fullUrl+" | IP: "+clientIp+" | User-Agent: "+(userAgent != null ? userAgent.substring(0, Math.min(userAgent.length(), 100)) : "N/A")+" | Referer: "+(referer != null ? referer : "N/A")+"");
@@ -66,20 +66,20 @@ public class RequestLoggerMiddleware implements HandlerInterceptor
         String clientIp = getClientIpAddress(request);
 
         //Log over request
-        logger.info("REQUEST_END - Time: {} | Method: {} | URL: {} | IP: {} | Status: {} | Duration: {}ms",
-                timestamp, method, uri, clientIp, statusCode, duration);
+//        logger.info("REQUEST_END - Time: {} | Method: {} | URL: {} | IP: {} | Status: {} | Duration: {}ms",
+//                timestamp, method, uri, clientIp, statusCode, duration);
 
         //error log
-        if (ex != null) {
-            logger.error("REQUEST_ERROR - Method: {} | URL: {} | IP: {} | Error: {}",
-                    method, uri, clientIp, ex.getMessage(), ex);
-        }
+//        if (ex != null) {
+//            logger.error("REQUEST_ERROR - Method: {} | URL: {} | IP: {} | Error: {}",
+//                    method, uri, clientIp, ex.getMessage(), ex);
+//        }
 
         //request response status code
-        if (statusCode >= 400) {
-            logger.warn("REQUEST_ERROR_STATUS - Method: {} | URL: {} | IP: {} | Status: {}",
-                    method, uri, clientIp, statusCode);
-        }
+//        if (statusCode >= 400) {
+//            logger.warn("REQUEST_ERROR_STATUS - Method: {} | URL: {} | IP: {} | Status: {}",
+//                    method, uri, clientIp, statusCode);
+//        }
 
     }
 

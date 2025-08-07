@@ -27,7 +27,7 @@ public class StoreImage_Service implements Store_Images_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return session.createQuery("FROM store_images_tbl store WHERE store.store_id="+store_id.getId()).list();
+            return session.createQuery("FROM store_images_tbl store WHERE store.store_id=:id").setParameter("id",store_id.getId()).list();
         }
     }
 

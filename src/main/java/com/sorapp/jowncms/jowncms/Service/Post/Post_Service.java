@@ -40,7 +40,7 @@ public class Post_Service implements Posts_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return (posts_tbl) session.createQuery("FROM posts_tbl post WHERE post.id="+post_id).list().get(0);
+            return (posts_tbl) session.createQuery("FROM posts_tbl post WHERE post.id=:post_id").setParameter("post_id",post_id).list().get(0);
 //            return session.get(hub_tbl.class, id);
         }
     }
@@ -50,7 +50,7 @@ public class Post_Service implements Posts_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return session.createQuery("FROM posts_tbl WHERE posts_tbl LIKE '%"+Search+"%'").list();
+            return session.createQuery("FROM posts_tbl WHERE posts_tbl.title LIKE :search").setParameter("search", "%" + Search + "%").list();
         }
     }
 

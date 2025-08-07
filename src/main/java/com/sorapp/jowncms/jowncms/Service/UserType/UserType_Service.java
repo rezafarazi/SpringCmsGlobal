@@ -36,7 +36,7 @@ public class UserType_Service implements Users_Type_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return (userstype_tbl) session.createQuery("FROM userstype_tbl usrtype WHERE usrtype.id="+user_type_id).list().get(0);
+            return (userstype_tbl) session.createQuery("FROM userstype_tbl usrtype WHERE usrtype.id=:id").setParameter("id",user_type_id).list().get(0);
 //            return session.get(hub_tbl.class, id);
         }
     }

@@ -34,7 +34,7 @@ public class Order_service implements Orders_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return session.createQuery("FROM orders_tbl order WHERE order.id="+code).list();
+            return session.createQuery("FROM orders_tbl order WHERE order.id=:order_id").setParameter("order_id",code).list();
         }
     }
 
@@ -43,7 +43,7 @@ public class Order_service implements Orders_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return (orders_tbl) session.createQuery("FROM orders_tbl order WHERE order.id="+id).list().get(0);
+            return (orders_tbl) session.createQuery("FROM orders_tbl order WHERE order.id=:order_id").setParameter("order_id",id).list().get(0);
         }
     }
 

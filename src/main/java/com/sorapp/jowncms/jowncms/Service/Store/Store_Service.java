@@ -34,7 +34,7 @@ public class Store_Service implements Store_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return (store_tbl) session.createQuery("FROM store_tbl store WHERE store.id="+store_id).list().get(0);
+            return (store_tbl) session.createQuery("FROM store_tbl store WHERE store.id=:id").setParameter("id",store_id).list().get(0);
 //            return session.get(hub_tbl.class, id);
         }
     }
@@ -44,7 +44,7 @@ public class Store_Service implements Store_Repo
     {
         try(Session session=sessionFactory.openSession())
         {
-            return session.createQuery("FROM store_tbl WHERE store_tbl.title='%"+Search+"%'").list();
+            return session.createQuery("FROM store_tbl WHERE store_tbl.title LIKE :search").setParameter("search", "%" + Search + "%").list();
         }
     }
 
