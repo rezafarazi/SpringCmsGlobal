@@ -5,24 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="58a6709a-b36f-4f2d-ae2c-8508826ee1ab" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Middleware/RequestLoggerMiddleware.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Middleware/RequestLoggerMiddleware.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Category/Category_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Category/Category_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/City/City_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/City/City_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/File/File_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/File/File_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Hospital/Hospital_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Hospital/Hospital_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/HospitalImg/Hospital_Img_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/HospitalImg/Hospital_Img_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Notification/Notification_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Notification/Notification_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Order/Order_service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Order/Order_service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Post/Post_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Post/Post_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Report/Report_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Report/Report_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Reports/Reports_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Reports/Reports_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Store/Store_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Store/Store_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/StoreCategory/StoreCategory_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/StoreCategory/StoreCategory_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/StoreImage/StoreImage_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/StoreImage/StoreImage_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/UserType/UserType_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/UserType/UserType_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/UserVerify/UserVerify_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/UserVerify/UserVerify_Service.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Users/Users_Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/sorapp/jowncms/jowncms/Service/Users/Users_Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/Admin/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/templates/Admin/profile.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,33 +41,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "DefaultHtmlFileTemplate": "HTML File",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "dart.analysis.tool.window.visible": "false",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/rezafta/Desktop/SpringCmsGlobal",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "MavenSettings",
-    "spring.configuration.checksum": "695bbcfab744f616394c9fd22a61774d",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;dart.analysis.tool.window.visible&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rezafta/Desktop/SpringCmsGlobal&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;695bbcfab744f616394c9fd22a61774d&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\rezafta\Desktop\SpringCmsGlobal\src\main\java\com\sorapp\jowncms\jowncms\Service" />
@@ -118,6 +101,7 @@
       <workItem from="1754143895266" duration="8522000" />
       <workItem from="1754419506314" duration="153000" />
       <workItem from="1754555428716" duration="2030000" />
+      <workItem from="1755092135547" duration="76000" />
     </task>
     <servers />
   </component>
